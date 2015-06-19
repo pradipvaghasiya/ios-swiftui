@@ -12,7 +12,7 @@ import UIKit
 ///
 /// 1. Show Alert.
 /// 2. Add View controller to container controller
-final class SPUIHelper{
+public final class SPUIHelper{
     
     // MARK: 1. Show Alert
     /// It displays alert with given warning message with Title "Warning".
