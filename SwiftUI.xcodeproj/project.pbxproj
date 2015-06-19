@@ -258,8 +258,8 @@
 		2838CB941B3419820010D5D0 /* Listing Data */ = {
 			isa = PBXGroup;
 			children = (
-				2838CB951B3419820010D5D0 /* Section */,
 				2838CB9B1B3419820010D5D0 /* SPListingData.swift */,
+				2838CB951B3419820010D5D0 /* Section */,
 			);
 			path = "Listing Data";
 			sourceTree = "<group>";
@@ -267,10 +267,10 @@
 		2838CB951B3419820010D5D0 /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				2838CB961B3419820010D5D0 /* Cell Group */,
-				2838CB981B3419820010D5D0 /* SPCollectionViewSection.swift */,
 				2838CB991B3419820010D5D0 /* SPListingSection.swift */,
+				2838CB981B3419820010D5D0 /* SPCollectionViewSection.swift */,
 				2838CB9A1B3419820010D5D0 /* SPTableViewSection.swift */,
+				2838CB961B3419820010D5D0 /* Cell Group */,
 			);
 			path = Section;
 			sourceTree = "<group>";
