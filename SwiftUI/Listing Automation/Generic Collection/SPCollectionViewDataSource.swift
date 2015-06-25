@@ -88,8 +88,8 @@ class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
             }
             
             // Configure cell using cellModelArray, This also overrides attributes set by Common model
-            if cellData.cellModelArray.count > similarCellTypeIndex && similarCellTypeIndex >= 0{
-               spCollectionViewCell.configureCellUsing(cellData.cellModelArray[similarCellTypeIndex])
+            if cellData.count > similarCellTypeIndex && similarCellTypeIndex >= 0{
+               spCollectionViewCell.configureCellUsing(cellData[similarCellTypeIndex])
             }
          }
    }

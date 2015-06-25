@@ -22,7 +22,7 @@ public class SPTableView: UITableView,SPListingViewProtocol {
    var spListingData : SPListingData = SPListingData(SectionArray: []){
       didSet{
          // If the spListingData first time gets some values in it.
-         if oldValue.spListingSectionArray.count == 0{
+         if oldValue.count == 0{
             self.registerReusableCellsIfRequired()
          }
       }

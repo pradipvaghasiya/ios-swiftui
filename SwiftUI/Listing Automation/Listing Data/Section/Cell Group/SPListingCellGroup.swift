@@ -17,7 +17,7 @@ import UIKit
 private let kNibFileNameExtension =  "nib"
 
 // MARK: Init
-final class SPListingCellGroup{
+public final class SPListingCellGroup : CollectionType{
    
    /// It can be NibCell,PrototypeCell or SubclassCell based on below fact
    ///
@@ -54,11 +54,14 @@ final class SPListingCellGroup{
    
    /// Array of Cells/Items Data Model. cellCount must be same as cellModelArray count if this is set.
    /// Both cellCommonModel and cellModelArray can be set if Cell Supports it. In that case also cellCount must be same as cellModelArray count.
-   var cellModelArray: [AnyObject]{
+   private var cellModelArray: [AnyObject]{
       didSet{
          self.cellCount = UInt(cellModelArray.count)
       }
    }
+   
+   public var startIndex = 0
+   public var endIndex = 0
    
    init(cellId: String ,
       cellModelArray:[AnyObject],
@@ -68,10 +71,13 @@ final class SPListingCellGroup{
          self.cellType = cellType
          self.cellCount = UInt(cellModelArray.count)
          self.cellModelArray = cellModelArray
+         endIndex = cellModelArray.count
+
          self.cellCommonModel = nil
          
          //Assigns Cell id to nil if it is not valid
          self.removeCellIdValueIfInValid()
+         
          
    }
       
@@ -84,6 +90,8 @@ final class SPListingCellGroup{
          self.cellType = cellType
          self.cellCount = UInt(cellModelArray.count)
          self.cellModelArray = cellModelArray
+         endIndex = cellModelArray.count
+
          self.cellCommonModel = cellCommonModel
          
          //Assigns Cell id to nil if it is not valid
@@ -101,10 +109,25 @@ final class SPListingCellGroup{
          self.cellType = cellType
          self.cellCount = cellCount
          self.cellModelArray = []
+         endIndex = cellModelArray.count
+
          self.cellCommonModel = cellCommonModel
          
          //Assigns Cell id to nil if it is not valid
          self.removeCellIdValueIfInValid()
+   }
+}
+
+extension SPListingCellGroup{
+   public subscript (i : Int) -> AnyObject{
+      get{
+         return cellModelArray[i]
+      }
+      
+      set{
+         cellModelArray[i] = newValue
+         endIndex = cellModelArray.count
+      }
    }
 }
 

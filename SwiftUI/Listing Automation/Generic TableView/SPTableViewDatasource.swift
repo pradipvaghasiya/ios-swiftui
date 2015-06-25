@@ -93,8 +93,8 @@ class SPTableViewDatasource : NSObject, UITableViewDataSource {
             }
             
             // Configure cell using cellModelArray, This also overrides attributes set by Common model
-            if cellData.cellModelArray.count > similarCellTypeIndex && similarCellTypeIndex >= 0{
-               spTableViewCell.configureCellUsing(cellData.cellModelArray[similarCellTypeIndex])
+            if cellData.count > similarCellTypeIndex && similarCellTypeIndex >= 0{
+               spTableViewCell.configureCellUsing(cellData[similarCellTypeIndex])
             }
          }
    }
@@ -102,7 +102,7 @@ class SPTableViewDatasource : NSObject, UITableViewDataSource {
    
    // MARK: Section Header & Footer Title
    final func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      if let tableViewSection = self.delegate.spListingData.spListingSectionArray[section] as? SPTableViewSection{
+      if let tableViewSection = self.delegate.spListingData[section] as? SPTableViewSection{
          return tableViewSection.sectionHeader
       }
       
@@ -110,7 +110,7 @@ class SPTableViewDatasource : NSObject, UITableViewDataSource {
    }
    
    final func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-      if let tableViewSection = self.delegate.spListingData.spListingSectionArray[section] as? SPTableViewSection{
+      if let tableViewSection = self.delegate.spListingData[section] as? SPTableViewSection{
          return tableViewSection.sectionFooter
       }
       return nil

@@ -12,8 +12,8 @@ import UIKit
 extension SPTableView{
    ///Registers all nib file or Subclass which may be in SPListingData for reuse purpose.
    final func registerReusableCellsIfRequired(){
-      for sectionDetail in spListingData.spListingSectionArray{
-         for cellData in sectionDetail.spCellGroupArray{
+      for sectionDetail in spListingData{
+         for cellData in sectionDetail{
             self.registerCellsFor(CellGroup: cellData)
          }
       }

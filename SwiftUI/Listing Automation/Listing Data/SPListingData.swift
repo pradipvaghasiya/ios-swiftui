@@ -16,13 +16,17 @@ import Foundation
 /// 1. Calculates Section Count.
 /// 2. Calculates Row Count of given section Index.
 /// 3. Extracts Cell details at given indexPath.
-final class SPListingData{
+public final class SPListingData : CollectionType{
    /// Array of SPListingSection contains content details (Section list) of Tableview/CollectionView to be used in any listing UI Automation.
-   var spListingSectionArray : [SPListingSection]
+   private var spListingSectionArray : [SPListingSection]
    
+   public var startIndex = 0
+   public var endIndex = 0
+
    /// Designated initialiser for given SPListingSection.
    init (SectionArray spListingSectionArray : [SPListingSection]){
       self.spListingSectionArray = spListingSectionArray
+      endIndex = spListingSectionArray.count
    }
    
    /// Computed property : Calculates section count
@@ -32,6 +36,18 @@ final class SPListingData{
    
 }
 
+extension SPListingData{
+   public subscript (i : Int) -> SPListingSection{
+      get{
+         return spListingSectionArray[i]
+      }
+      
+      set{
+         spListingSectionArray[i] = newValue
+         endIndex = spListingSectionArray.count
+      }
+   }
+}
 
 extension SPListingData{
    /// Calculates Row Count of given section Index.
@@ -40,8 +56,8 @@ extension SPListingData{
    ///
    /// :returns: Cell Count of given section index.
    func cellCountOfSection(atIndex:UInt) -> UInt{
-      if UInt(self.spListingSectionArray.count) > atIndex {
-         let sectionCellData = self.spListingSectionArray[Int(atIndex)]
+      if UInt(self.count) > atIndex {
+         let sectionCellData = self[Int(atIndex)]
          return sectionCellData.sectionTotalCellCount
       }
       return 0
@@ -57,12 +73,12 @@ extension SPListingData{
       var startIndexOfCellFound : Int = 0
       var totalCellCountParsedFromSectionDataArray : Int = 0
       
-      if self.spListingSectionArray.count > indexPath.section{
+      if self.count > indexPath.section{
          // Get the Section Data
-         let sectionCellData = self.spListingSectionArray[indexPath.section]
+         let sectionCellData = self[indexPath.section]
          
          // Loop through all CellData in that SectionData
-         for cellData in sectionCellData.spCellGroupArray{
+         for cellData in sectionCellData{
             
             // Check total Cell count present in this cell data set and add until the indexPath.Row is not reached.
             totalCellCountParsedFromSectionDataArray +=  Int(cellData.cellCount)
