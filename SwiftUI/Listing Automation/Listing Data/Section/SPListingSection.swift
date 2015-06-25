@@ -3,7 +3,7 @@
 //  SpeedKit
 //
 //  Created by Pradip Vaghasiya on 15/11/14.
-//  Copyright (c) 2014 Happyfall. All rights reserved.
+//  Copyright (c) 2014 SpeedUI. All rights reserved.
 //
 
 import UIKit
@@ -20,16 +20,16 @@ public class SPListingSection : CollectionType{
    public var endIndex = 0
 
    /// Computed property : Calculates cell count using Cell Data Array
-   var sectionTotalCellCount : UInt{
+   public var sectionTotalCellCount : UInt{
       var lSectionTotalCellCount : UInt = 0
-      for cellData in self.spCellGroupArray{
+      for cellData in self{
          lSectionTotalCellCount += cellData.cellCount
       }
       return lSectionTotalCellCount
    }
    
    /// Designated initialiser for given cells/items array.
-   init(CellGroups cellGroups:[SPListingCellGroup]){
+   public init(CellGroups cellGroups:[SPListingCellGroup]){
       self.spCellGroupArray = cellGroups
       endIndex = spCellGroupArray.count
    }

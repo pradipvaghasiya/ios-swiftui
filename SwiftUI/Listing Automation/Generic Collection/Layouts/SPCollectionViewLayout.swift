@@ -1,24 +1,24 @@
 //
 //  SPCollectionViewLayout.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 01/05/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
 
 private let kDefaultSpacing : CGFloat = 10.0
 
-class SPCollectionViewLayout: UICollectionViewLayout {
+public class SPCollectionViewLayout: UICollectionViewLayout {
    /// Denotes spacing between two lines incase of horizontal layout it is distance between columns and in vertical it is distance between rows.
-   final var lineSpacing: CGFloat = kDefaultSpacing
+   public final var lineSpacing: CGFloat = kDefaultSpacing
    
    /// Denotes spacing between two items incase of horizontal layout it is distance between rows and in vertical it is distance between columns.
-   final var interItemSpacing: CGFloat = kDefaultSpacing
+   public final var interItemSpacing: CGFloat = kDefaultSpacing
    
    /// Denotes inset of that section
-   final var sectionInset: UIEdgeInsets = UIEdgeInsetsMake(kDefaultSpacing, kDefaultSpacing, kDefaultSpacing, kDefaultSpacing)
+   public final var sectionInset: UIEdgeInsets = UIEdgeInsetsMake(kDefaultSpacing, kDefaultSpacing, kDefaultSpacing, kDefaultSpacing)
    
    /// Denotes Attributes at given indexPath
    final var attributesDictionary : [NSIndexPath:UICollectionViewLayoutAttributes] = [:]
@@ -27,10 +27,10 @@ class SPCollectionViewLayout: UICollectionViewLayout {
    final var sectionSizeDictionary : [Int :(width:CGFloat, height:CGFloat)] = [:]
    
    /// SPCollection View Delegate
-   weak var delegate : SPCollectionViewLayoutDelegate?
+   public weak var delegate : SPCollectionViewLayoutDelegate?
    
    // MARK: Prepare Layout
-   override func prepareLayout() {
+   override public func prepareLayout() {
       super.prepareLayout()
       
       // Clear all attribute and content size values
@@ -139,7 +139,7 @@ class SPCollectionViewLayout: UICollectionViewLayout {
 
 // MARK: Pass Attributes to Apple's collectionview Mechanism
 extension SPCollectionViewLayout{
-   override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+   override public func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
       var attribuetsInRectArray : [UICollectionViewLayoutAttributes] = []
       for (_,attributes) in attributesDictionary{
          if CGRectIntersectsRect(rect, attributes.frame){
@@ -150,7 +150,7 @@ extension SPCollectionViewLayout{
       return attribuetsInRectArray
    }
    
-   override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+   override public func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
       return attributesDictionary[indexPath]
    }
 }

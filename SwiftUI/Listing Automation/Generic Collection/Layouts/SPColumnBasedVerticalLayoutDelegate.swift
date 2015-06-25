@@ -1,14 +1,14 @@
 //
 //  SPStraightVerticalLayoutDelegate.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 05/05/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
 
-@objc protocol SPStraightVerticalLayoutDelegate : SPCollectionViewLayoutDelegate{
+@objc public protocol SPStraightVerticalLayoutDelegate : SPCollectionViewLayoutDelegate{
    ///Number of Columns for given section
    optional func noOfColumns(ForSection section : Int) -> UInt
 

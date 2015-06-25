@@ -1,9 +1,9 @@
 //
 //  SPUIHelper.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 14/04/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ public final class SPUIHelper{
     /// :param: message Message to be displayed
     /// :param: viewcontroller on which alert controller needs to be displayed. Required for iOS 8 and above.
     @available(iOS, introduced=7.0)
-    class func showWarningAlert(WithMessage message:String, OnViewController viewController:UIViewController) {
+    public class func showWarningAlert(WithMessage message:String, OnViewController viewController:UIViewController) {
         if #available(iOS 8.0, *) {
             // Create Alert Controller with given message.
             let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: .Alert)
@@ -42,7 +42,7 @@ public final class SPUIHelper{
     /// :param: message Message to be displayed
     /// :param: viewcontroller on which alert controller needs to be displayed. Required for iOS 8 and above.
     @available(iOS, introduced=7.0)
-    class func showSimpleAlert(WithTitle title:String, WithMessage message:String, OnViewController viewController:UIViewController) {
+    public class func showSimpleAlert(WithTitle title:String, WithMessage message:String, OnViewController viewController:UIViewController) {
         if #available(iOS 8.0, *) {
             // Create Alert Controller with given message.
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)

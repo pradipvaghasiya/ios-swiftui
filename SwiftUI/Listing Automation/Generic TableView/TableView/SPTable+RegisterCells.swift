@@ -1,9 +1,9 @@
 //
 //  SPTable+RegisterCells.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by ibm on 19/06/15.
-//  Copyright © 2015 Happyfall. All rights reserved.
+//  Copyright © 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit

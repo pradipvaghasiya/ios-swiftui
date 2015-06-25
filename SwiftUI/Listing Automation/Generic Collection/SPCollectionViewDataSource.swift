@@ -3,7 +3,7 @@
 //  SpeedKit
 //
 //  Created by Pradip Vaghasiya on 04/08/14.
-//  Copyright (c) 2014 Happyfall. All rights reserved.
+//  Copyright (c) 2014 SpeedUI. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import UIKit
 ///Generic datasource takes control of CollectionView Datasource Management.
 ///
 ///Delegate must conform to SPListingViewProtocol
-class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
+public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
    
    /// Weak delegate will be used to fetch all section/cell details for Collection View.
    final unowned var delegate : SPListingViewProtocol
@@ -21,17 +21,17 @@ class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
    }
    
    // MARK: Number Of Sections
-   final func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int{
+   final public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int{
       return self.delegate.spListingData.sectionCount
    }
    
    // MARK: Number Of Rows in Section
-   final func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+   final public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
       return  Int(self.delegate.spListingData.cellCountOfSection(UInt(section)))
    }
    
    // MARK: cellForItemAtIndexPath
-   final func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
+   final public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
       var _ : UICollectionViewCell
       
       

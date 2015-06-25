@@ -1,46 +1,46 @@
 //
 //  SPStraightVerticalLayout.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 05/05/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
 private let kDefaultColumns : UInt = 3
 private let kDefaultHeight : CGFloat = 44
 
-class SPStraightVerticalLayout: SPStraightLayout {
+public class SPStraightVerticalLayout: SPStraightLayout {
    ///Denotes no.of columns in vertical layout
-   lazy var noOfColumns : UInt = kDefaultColumns
+   public lazy var noOfColumns : UInt = kDefaultColumns
    
    ///Denotes height of an item
-   lazy var itemHeight : CGFloat = kDefaultHeight
+   public lazy var itemHeight : CGFloat = kDefaultHeight
    
    ///For this layout width of an item for entire section would be same. So section wise width is stored in this dictionary.
    var itemWidthDictionary : [Int : CGFloat] = [:]
 
    /// Designated intializer
-   override init(){
+   override public init(){
       super.init()
    }
    
-   init(NoOfColumns columns: UInt) {
+   public init(NoOfColumns columns: UInt) {
       super.init()
       self.noOfColumns = columns
    }
    
-   init(NoOfColumns columns: UInt, ItemHeight itemHeight : CGFloat) {
+   public init(NoOfColumns columns: UInt, ItemHeight itemHeight : CGFloat) {
       super.init()
       self.noOfColumns = columns
       self.itemHeight = itemHeight
    }
    
-   required init(coder aDecoder: NSCoder) {
+   required public init(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
    }
    
-   override func prepareLayout() {
+   override public func prepareLayout() {
       // Clear all values in itemWidthHeightDictionary
       itemWidthDictionary.removeAll(keepCapacity: false)
 
@@ -151,7 +151,7 @@ class SPStraightVerticalLayout: SPStraightLayout {
    }
 
    // MARK: Content Size
-   final override func collectionViewContentSize() -> CGSize {
+   final override public func collectionViewContentSize() -> CGSize {
       if let noOfSections = self.collectionView?.numberOfSections(){
          if noOfSections == 0 {
             return CGSizeMake(0, 0)
@@ -167,7 +167,7 @@ class SPStraightVerticalLayout: SPStraightLayout {
    }
 
    // Update layout on bounds change
-   final override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+   final override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
       if newBounds.width != self.collectionView!.bounds.size.width{
          return true
       }

@@ -3,7 +3,7 @@
 //  SpeedKit
 //
 //  Created by Pradip Vaghasiya on 09/08/14.
-//  Copyright (c) 2014 Happyfall. All rights reserved.
+//  Copyright (c) 2014 SpeedUI. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ private let kDefaultSpacing : CGFloat = 10.0
 private let kDefaultScrollingLines : Int = 3
 private let kDefaultNoOfLinesShouldFit : Int = 3
 
-class SPListingColumnBasedLayout: UICollectionViewLayout {
+public class SPListingColumnBasedLayout: UICollectionViewLayout {
     
     //Configure Below parameters to use this layout
     //Check whether below paramter needs to be marked as weak or not
@@ -43,7 +43,7 @@ class SPListingColumnBasedLayout: UICollectionViewLayout {
 
 // MARK: Prepare Layout
 extension SPListingColumnBasedLayout{
-    override func prepareLayout() {
+    override public func prepareLayout() {
         if debug {
             print("1. Prepare Layout..")
         }
@@ -375,7 +375,7 @@ extension SPListingColumnBasedLayout{
 
 // MARK: Attributes Calculation
 extension SPListingColumnBasedLayout{
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override public func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attribuetsArray : [UICollectionViewLayoutAttributes] = []
         for (_,attributes) in customAttributes{
             if CGRectIntersectsRect(rect, attributes.frame){
@@ -388,13 +388,13 @@ extension SPListingColumnBasedLayout{
         return attribuetsArray
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override public func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         return customAttributes[indexPath]
     }
 }
 // MARK: Content Size
 extension SPListingColumnBasedLayout{
-    override func collectionViewContentSize() -> CGSize {
+    override public func collectionViewContentSize() -> CGSize {
         
         // Keep in mind that at this point noOfScrollingLines will always be default or as per last section value
         // If you need to know noOfScrollingLines for any section other than last you must use setNoOfScrollingLinesIfProvided
@@ -424,7 +424,7 @@ extension SPListingColumnBasedLayout{
 
 // MARK: Bounds Change
 extension SPListingColumnBasedLayout{
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
         // collectionView is still old here.
         // Please note marking this to true will call invalidatelayout() on scrolling also.
         return false
@@ -435,16 +435,16 @@ extension SPListingColumnBasedLayout{
 // MARK: Cell auto resizing mechanism
 extension SPListingColumnBasedLayout{
     @available(iOS, introduced=8.0)
-    override func shouldInvalidateLayoutForPreferredLayoutAttributes(preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> Bool {
+    override public func shouldInvalidateLayoutForPreferredLayoutAttributes(preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> Bool {
             return cellAutoResizingOn
     }
     
-    override class func invalidationContextClass() -> AnyClass {
+    override public class func invalidationContextClass() -> AnyClass {
         return SPListingColumnBasedLayoutInvalidationContext.classForCoder()
     }
     
     @available(iOS, introduced=8.0)
-    override func invalidationContextForPreferredLayoutAttributes(preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutInvalidationContext {
+    override public func invalidationContextForPreferredLayoutAttributes(preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutInvalidationContext {
         
         invalidationContext.invalidateItemsAtIndexPaths([preferredAttributes.indexPath])
         invalidationContext.preferredSizeOfItems[preferredAttributes.indexPath] = preferredAttributes.frame.size

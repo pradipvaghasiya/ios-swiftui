@@ -1,9 +1,9 @@
 //
 //  SPCollectionView.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 30/04/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
@@ -16,10 +16,10 @@ import UIKit
 ///When you add any new Cell from nib or Code in SplistingData you must call registerCellsForCellGroup method.
 ///
 ///If you add bulk cell data and not tracking them you can also call registerReusableCellsIfRequired instead of registerCellsForCellGroup. It will register all cells present in listing data. Otherwise it may crash.
-class SPCollectionView: UICollectionView,SPListingViewProtocol {
+public class SPCollectionView: UICollectionView,SPListingViewProtocol {
 
    /// spListingData contains content details (Section list) of CollectionView to be used while displaying CollectionView.
-   var spListingData : SPListingData = SPListingData(SectionArray: []){
+   public var spListingData : SPListingData = SPListingData(SectionArray: []){
       didSet{
          // If the spListingData first time gets some values in it.
          if oldValue.count == 0{
@@ -31,7 +31,7 @@ class SPCollectionView: UICollectionView,SPListingViewProtocol {
    ///Generic datasource takes control of Collectionview Datasource Management.
    private var spCollectionDatasource : SPCollectionViewDataSource?
    
-   override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout){
+   public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout){
       super.init(frame: frame, collectionViewLayout : layout)
       
       //Setup
@@ -39,7 +39,7 @@ class SPCollectionView: UICollectionView,SPListingViewProtocol {
       
    }
    
-   required init(coder aDecoder: NSCoder) {
+   public required init(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       
       //Setup

@@ -3,7 +3,7 @@
 //  SpeedKit
 //
 //  Created by Pradip Vaghasiya on 04/08/14.
-//  Copyright (c) 2014 Happyfall. All rights reserved.
+//  Copyright (c) 2014 SpeedUI. All rights reserved.
 //
 
 /// SPListingSection contains cell/item details of Tableview/CollectionView section to be used in any listing UI Automation.
@@ -42,9 +42,9 @@ public final class SPListingCellGroup : CollectionType{
    /// Count of Similar Cells/Items
    var cellCount : UInt{
       didSet{
-         if cellModelArray.count > 0 && cellCount != UInt(cellModelArray.count) {
+         if self.count > 0 && cellCount != UInt(self.count) {
             SPLogger.logWarning(Message: "Cell Model Array contains some values so Cell Count will always be CellModelArray.count. Ignoring your update.")
-            self.cellCount = UInt(cellModelArray.count)
+            self.cellCount = UInt(self.count)
          }
       }
    }
@@ -56,14 +56,14 @@ public final class SPListingCellGroup : CollectionType{
    /// Both cellCommonModel and cellModelArray can be set if Cell Supports it. In that case also cellCount must be same as cellModelArray count.
    private var cellModelArray: [AnyObject]{
       didSet{
-         self.cellCount = UInt(cellModelArray.count)
+         self.cellCount = UInt(self.count)
       }
    }
    
    public var startIndex = 0
    public var endIndex = 0
    
-   init(cellId: String ,
+   public init(cellId: String ,
       cellModelArray:[AnyObject],
       cellType: SPCellType = .NibCell){
          
@@ -81,7 +81,7 @@ public final class SPListingCellGroup : CollectionType{
          
    }
       
-   init(cellId: String ,
+   public init(cellId: String ,
       cellCommonModel : AnyObject,
       cellModelArray:[AnyObject],
       cellType: SPCellType = .NibCell){
@@ -100,7 +100,7 @@ public final class SPListingCellGroup : CollectionType{
    }
    
    
-   init(cellId: String ,
+   public init(cellId: String ,
       cellCount: UInt,
       cellCommonModel : AnyObject,
       cellType: SPCellType = .NibCell){
@@ -205,7 +205,7 @@ extension SPListingCellGroup{
 ///
 /// Cell/Item of Collection View or Table View can be created from xib, Storyboard or subclassing UITableViewCell or UICollectionViewCell.
 /// Nib or Subclass Files should be present in main bundle.
-enum SPCellType{
+public enum SPCellType{
    /// If Cell/Item is created from xib.
    case NibCell
    /// If Cell/Item is created from Storyboard Prototype Cell.

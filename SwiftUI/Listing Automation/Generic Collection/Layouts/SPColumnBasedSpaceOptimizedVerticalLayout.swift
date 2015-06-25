@@ -1,19 +1,19 @@
 //
 //  SPStraightSpaceOptimizedVerticalLayout.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 07/05/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
 
-final class SPStraightSpaceOptimizedVerticalLayout: SPStraightVerticalLayout {
+public final class SPStraightSpaceOptimizedVerticalLayout: SPStraightVerticalLayout {
    
    ///IndexPath array which indicates that the item is no more the last item in the column.
    final var nonLastItemIndexPathArray : [NSIndexPath] = []
    
-   override func prepareLayout() {
+   override public func prepareLayout() {
       // Clear All indexpaths
       self.nonLastItemIndexPathArray.removeAll(keepCapacity: false)
       

@@ -7,9 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1899F6EA1B3C1336002F038B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2838CB5A1B3418B80010D5D0 /* SwiftUI.framework */; };
+		1899F7101B3C1398002F038B /* SPCollectionViewDatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F6F91B3C1398002F038B /* SPCollectionViewDatasourceTests.swift */; };
+		1899F7111B3C1398002F038B /* SPCollectionViewLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F6FA1B3C1398002F038B /* SPCollectionViewLayoutTests.swift */; };
+		1899F7121B3C1398002F038B /* SPCollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F6FB1B3C1398002F038B /* SPCollectionViewTests.swift */; };
+		1899F7131B3C1398002F038B /* SPCollectionViewTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F6FC1B3C1398002F038B /* SPCollectionViewTestVC.swift */; };
+		1899F7141B3C1398002F038B /* SPColumnBasedVerticalLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F6FD1B3C1398002F038B /* SPColumnBasedVerticalLayoutTests.swift */; };
+		1899F7151B3C1398002F038B /* SPFixedColumnRowHorizontalLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F6FE1B3C1398002F038B /* SPFixedColumnRowHorizontalLayoutTests.swift */; };
+		1899F7161B3C1398002F038B /* SPFixedColumnRowLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F6FF1B3C1398002F038B /* SPFixedColumnRowLayoutTests.swift */; };
+		1899F7171B3C1398002F038B /* SPFixedColumnRowVerticalLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F7001B3C1398002F038B /* SPFixedColumnRowVerticalLayoutTests.swift */; };
+		1899F7181B3C1398002F038B /* SPTitleTestCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F7011B3C1398002F038B /* SPTitleTestCCell.swift */; };
+		1899F7191B3C1398002F038B /* SPTitleTestCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899F7021B3C1398002F038B /* SPTitleTestCCell.xib */; };
+		1899F71A1B3C1398002F038B /* SPCollectionViewSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F7041B3C1398002F038B /* SPCollectionViewSectionTests.swift */; };
+		1899F71B1B3C1398002F038B /* SPListingCellGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F7051B3C1398002F038B /* SPListingCellGroupTests.swift */; };
+		1899F71C1B3C1398002F038B /* SPListingDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F7061B3C1398002F038B /* SPListingDataTests.swift */; };
+		1899F71D1B3C1398002F038B /* SPListingSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F7071B3C1398002F038B /* SPListingSectionTests.swift */; };
+		1899F71E1B3C1398002F038B /* SPTableViewSectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F7081B3C1398002F038B /* SPTableViewSectionTests.swift */; };
+		1899F71F1B3C1398002F038B /* SPTestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1899F7091B3C1398002F038B /* SPTestStoryboard.storyboard */; };
+		1899F7201B3C1398002F038B /* SPTableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F70B1B3C1398002F038B /* SPTableViewDataSourceTests.swift */; };
+		1899F7211B3C1398002F038B /* SPTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F70C1B3C1398002F038B /* SPTableViewTests.swift */; };
+		1899F7221B3C1398002F038B /* SPTableViewTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F70D1B3C1398002F038B /* SPTableViewTestVC.swift */; };
+		1899F7231B3C1398002F038B /* SPTitleTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899F70E1B3C1398002F038B /* SPTitleTestCell.swift */; };
+		1899F7241B3C1398002F038B /* SPTitleTestNibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899F70F1B3C1398002F038B /* SPTitleTestNibCell.xib */; };
 		2838CB5E1B3418B80010D5D0 /* SwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 2838CB5D1B3418B80010D5D0 /* SwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2838CB651B3418B90010D5D0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2838CB5A1B3418B80010D5D0 /* SwiftUI.framework */; };
-		2838CB6A1B3418B90010D5D0 /* SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB691B3418B90010D5D0 /* SwiftUITests.swift */; };
 		2838CBA31B3419820010D5D0 /* SPCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB781B3419820010D5D0 /* SPCollectionView.swift */; };
 		2838CBA41B3419820010D5D0 /* SPCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB7A1B3419820010D5D0 /* SPCollectionViewLayout.swift */; };
 		2838CBA51B3419820010D5D0 /* SPCollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB7B1B3419820010D5D0 /* SPCollectionViewLayoutDelegate.swift */; };
@@ -28,8 +48,6 @@
 		2838CBB21B3419820010D5D0 /* SPStraightLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB881B3419820010D5D0 /* SPStraightLayout.swift */; };
 		2838CBB31B3419820010D5D0 /* SPStraightVerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB891B3419820010D5D0 /* SPStraightVerticalLayout.swift */; };
 		2838CBB41B3419820010D5D0 /* SPCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB8B1B3419820010D5D0 /* SPCollectionViewDataSource.swift */; };
-		2838CBB51B3419820010D5D0 /* SPTitleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB8E1B3419820010D5D0 /* SPTitleLabelCell.swift */; };
-		2838CBB61B3419820010D5D0 /* SPTitleLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2838CB8F1B3419820010D5D0 /* SPTitleLabelCell.xib */; };
 		2838CBB71B3419820010D5D0 /* SPTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB901B3419820010D5D0 /* SPTableViewDatasource.swift */; };
 		2838CBB81B3419820010D5D0 /* SPTable+RegisterCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB921B3419820010D5D0 /* SPTable+RegisterCells.swift */; };
 		2838CBB91B3419820010D5D0 /* SPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB931B3419820010D5D0 /* SPTableView.swift */; };
@@ -46,7 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2838CB661B3418B90010D5D0 /* PBXContainerItemProxy */ = {
+		1899F6EB1B3C1336002F038B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2838CB511B3418B80010D5D0 /* Project object */;
 			proxyType = 1;
@@ -56,12 +74,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1899F6E51B3C1336002F038B /* SwiftUI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1899F6E91B3C1336002F038B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1899F6F91B3C1398002F038B /* SPCollectionViewDatasourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewDatasourceTests.swift; sourceTree = "<group>"; };
+		1899F6FA1B3C1398002F038B /* SPCollectionViewLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayoutTests.swift; sourceTree = "<group>"; };
+		1899F6FB1B3C1398002F038B /* SPCollectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewTests.swift; sourceTree = "<group>"; };
+		1899F6FC1B3C1398002F038B /* SPCollectionViewTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewTestVC.swift; sourceTree = "<group>"; };
+		1899F6FD1B3C1398002F038B /* SPColumnBasedVerticalLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPColumnBasedVerticalLayoutTests.swift; sourceTree = "<group>"; };
+		1899F6FE1B3C1398002F038B /* SPFixedColumnRowHorizontalLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowHorizontalLayoutTests.swift; sourceTree = "<group>"; };
+		1899F6FF1B3C1398002F038B /* SPFixedColumnRowLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowLayoutTests.swift; sourceTree = "<group>"; };
+		1899F7001B3C1398002F038B /* SPFixedColumnRowVerticalLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowVerticalLayoutTests.swift; sourceTree = "<group>"; };
+		1899F7011B3C1398002F038B /* SPTitleTestCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTitleTestCCell.swift; sourceTree = "<group>"; };
+		1899F7021B3C1398002F038B /* SPTitleTestCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPTitleTestCCell.xib; sourceTree = "<group>"; };
+		1899F7041B3C1398002F038B /* SPCollectionViewSectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewSectionTests.swift; sourceTree = "<group>"; };
+		1899F7051B3C1398002F038B /* SPListingCellGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingCellGroupTests.swift; sourceTree = "<group>"; };
+		1899F7061B3C1398002F038B /* SPListingDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingDataTests.swift; sourceTree = "<group>"; };
+		1899F7071B3C1398002F038B /* SPListingSectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingSectionTests.swift; sourceTree = "<group>"; };
+		1899F7081B3C1398002F038B /* SPTableViewSectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableViewSectionTests.swift; sourceTree = "<group>"; };
+		1899F7091B3C1398002F038B /* SPTestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SPTestStoryboard.storyboard; sourceTree = "<group>"; };
+		1899F70B1B3C1398002F038B /* SPTableViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableViewDataSourceTests.swift; sourceTree = "<group>"; };
+		1899F70C1B3C1398002F038B /* SPTableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableViewTests.swift; sourceTree = "<group>"; };
+		1899F70D1B3C1398002F038B /* SPTableViewTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableViewTestVC.swift; sourceTree = "<group>"; };
+		1899F70E1B3C1398002F038B /* SPTitleTestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTitleTestCell.swift; sourceTree = "<group>"; };
+		1899F70F1B3C1398002F038B /* SPTitleTestNibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPTitleTestNibCell.xib; sourceTree = "<group>"; };
 		2838CB5A1B3418B80010D5D0 /* SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2838CB5D1B3418B80010D5D0 /* SwiftUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftUI.h; sourceTree = "<group>"; };
 		2838CB5F1B3418B80010D5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2838CB641B3418B90010D5D0 /* SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2838CB691B3418B90010D5D0 /* SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITests.swift; sourceTree = "<group>"; };
-		2838CB6B1B3418B90010D5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2838CB781B3419820010D5D0 /* SPCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionView.swift; sourceTree = "<group>"; };
 		2838CB7A1B3419820010D5D0 /* SPCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayout.swift; sourceTree = "<group>"; };
 		2838CB7B1B3419820010D5D0 /* SPCollectionViewLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayoutDelegate.swift; sourceTree = "<group>"; };
@@ -80,8 +118,6 @@
 		2838CB881B3419820010D5D0 /* SPStraightLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightLayout.swift; sourceTree = "<group>"; };
 		2838CB891B3419820010D5D0 /* SPStraightVerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightVerticalLayout.swift; sourceTree = "<group>"; };
 		2838CB8B1B3419820010D5D0 /* SPCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		2838CB8E1B3419820010D5D0 /* SPTitleLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTitleLabelCell.swift; sourceTree = "<group>"; };
-		2838CB8F1B3419820010D5D0 /* SPTitleLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPTitleLabelCell.xib; sourceTree = "<group>"; };
 		2838CB901B3419820010D5D0 /* SPTableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableViewDatasource.swift; sourceTree = "<group>"; };
 		2838CB921B3419820010D5D0 /* SPTable+RegisterCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPTable+RegisterCells.swift"; sourceTree = "<group>"; };
 		2838CB931B3419820010D5D0 /* SPTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableView.swift; sourceTree = "<group>"; };
@@ -99,6 +135,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1899F6E21B3C1336002F038B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1899F6EA1B3C1336002F038B /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2838CB561B3418B80010D5D0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,22 +150,67 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2838CB611B3418B90010D5D0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2838CB651B3418B90010D5D0 /* SwiftUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1899F6E61B3C1336002F038B /* SwiftUI Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1899F7091B3C1398002F038B /* SPTestStoryboard.storyboard */,
+				1899F7031B3C1398002F038B /* Listing Data */,
+				1899F70A1B3C1398002F038B /* TableView */,
+				1899F6F81B3C1398002F038B /* CollectionView */,
+				1899F6E91B3C1336002F038B /* Info.plist */,
+			);
+			path = "SwiftUI Tests";
+			sourceTree = "<group>";
+		};
+		1899F6F81B3C1398002F038B /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				1899F6F91B3C1398002F038B /* SPCollectionViewDatasourceTests.swift */,
+				1899F6FA1B3C1398002F038B /* SPCollectionViewLayoutTests.swift */,
+				1899F6FB1B3C1398002F038B /* SPCollectionViewTests.swift */,
+				1899F6FC1B3C1398002F038B /* SPCollectionViewTestVC.swift */,
+				1899F6FD1B3C1398002F038B /* SPColumnBasedVerticalLayoutTests.swift */,
+				1899F6FE1B3C1398002F038B /* SPFixedColumnRowHorizontalLayoutTests.swift */,
+				1899F6FF1B3C1398002F038B /* SPFixedColumnRowLayoutTests.swift */,
+				1899F7001B3C1398002F038B /* SPFixedColumnRowVerticalLayoutTests.swift */,
+				1899F7011B3C1398002F038B /* SPTitleTestCCell.swift */,
+				1899F7021B3C1398002F038B /* SPTitleTestCCell.xib */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		1899F7031B3C1398002F038B /* Listing Data */ = {
+			isa = PBXGroup;
+			children = (
+				1899F7041B3C1398002F038B /* SPCollectionViewSectionTests.swift */,
+				1899F7051B3C1398002F038B /* SPListingCellGroupTests.swift */,
+				1899F7061B3C1398002F038B /* SPListingDataTests.swift */,
+				1899F7071B3C1398002F038B /* SPListingSectionTests.swift */,
+				1899F7081B3C1398002F038B /* SPTableViewSectionTests.swift */,
+			);
+			path = "Listing Data";
+			sourceTree = "<group>";
+		};
+		1899F70A1B3C1398002F038B /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				1899F70B1B3C1398002F038B /* SPTableViewDataSourceTests.swift */,
+				1899F70C1B3C1398002F038B /* SPTableViewTests.swift */,
+				1899F70D1B3C1398002F038B /* SPTableViewTestVC.swift */,
+				1899F70E1B3C1398002F038B /* SPTitleTestCell.swift */,
+				1899F70F1B3C1398002F038B /* SPTitleTestNibCell.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		2838CB501B3418B80010D5D0 = {
 			isa = PBXGroup;
 			children = (
 				2838CB5C1B3418B80010D5D0 /* SwiftUI */,
-				2838CB681B3418B90010D5D0 /* SwiftUITests */,
+				1899F6E61B3C1336002F038B /* SwiftUI Tests */,
 				2838CB5B1B3418B80010D5D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				2838CB5A1B3418B80010D5D0 /* SwiftUI.framework */,
-				2838CB641B3418B90010D5D0 /* SwiftUITests.xctest */,
+				1899F6E51B3C1336002F038B /* SwiftUI Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,15 +235,6 @@
 				2838CB741B3419660010D5D0 /* Metadata */,
 			);
 			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		2838CB681B3418B90010D5D0 /* SwiftUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2838CB691B3418B90010D5D0 /* SwiftUITests.swift */,
-				2838CB6B1B3418B90010D5D0 /* Info.plist */,
-			);
-			path = SwiftUITests;
 			sourceTree = "<group>";
 		};
 		2838CB741B3419660010D5D0 /* Metadata */ = {
@@ -230,20 +310,10 @@
 		2838CB8C1B3419820010D5D0 /* Generic TableView */ = {
 			isa = PBXGroup;
 			children = (
-				2838CB8D1B3419820010D5D0 /* Generic Cells */,
 				2838CB901B3419820010D5D0 /* SPTableViewDatasource.swift */,
 				2838CB911B3419820010D5D0 /* TableView */,
 			);
 			path = "Generic TableView";
-			sourceTree = "<group>";
-		};
-		2838CB8D1B3419820010D5D0 /* Generic Cells */ = {
-			isa = PBXGroup;
-			children = (
-				2838CB8E1B3419820010D5D0 /* SPTitleLabelCell.swift */,
-				2838CB8F1B3419820010D5D0 /* SPTitleLabelCell.xib */,
-			);
-			path = "Generic Cells";
 			sourceTree = "<group>";
 		};
 		2838CB911B3419820010D5D0 /* TableView */ = {
@@ -305,6 +375,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1899F6E41B3C1336002F038B /* SwiftUI Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1899F6EF1B3C1336002F038B /* Build configuration list for PBXNativeTarget "SwiftUI Tests" */;
+			buildPhases = (
+				1899F6E11B3C1336002F038B /* Sources */,
+				1899F6E21B3C1336002F038B /* Frameworks */,
+				1899F6E31B3C1336002F038B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1899F6EC1B3C1336002F038B /* PBXTargetDependency */,
+			);
+			name = "SwiftUI Tests";
+			productName = "SwiftUI Tests";
+			productReference = 1899F6E51B3C1336002F038B /* SwiftUI Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2838CB591B3418B80010D5D0 /* SwiftUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2838CB6E1B3418B90010D5D0 /* Build configuration list for PBXNativeTarget "SwiftUI" */;
@@ -323,24 +411,6 @@
 			productReference = 2838CB5A1B3418B80010D5D0 /* SwiftUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2838CB631B3418B90010D5D0 /* SwiftUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2838CB711B3418B90010D5D0 /* Build configuration list for PBXNativeTarget "SwiftUITests" */;
-			buildPhases = (
-				2838CB601B3418B90010D5D0 /* Sources */,
-				2838CB611B3418B90010D5D0 /* Frameworks */,
-				2838CB621B3418B90010D5D0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2838CB671B3418B90010D5D0 /* PBXTargetDependency */,
-			);
-			name = SwiftUITests;
-			productName = SwiftUITests;
-			productReference = 2838CB641B3418B90010D5D0 /* SwiftUITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -351,10 +421,10 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = SpeedUI;
 				TargetAttributes = {
-					2838CB591B3418B80010D5D0 = {
+					1899F6E41B3C1336002F038B = {
 						CreatedOnToolsVersion = 7.0;
 					};
-					2838CB631B3418B90010D5D0 = {
+					2838CB591B3418B80010D5D0 = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
@@ -372,21 +442,23 @@
 			projectRoot = "";
 			targets = (
 				2838CB591B3418B80010D5D0 /* SwiftUI */,
-				2838CB631B3418B90010D5D0 /* SwiftUITests */,
+				1899F6E41B3C1336002F038B /* SwiftUI Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2838CB581B3418B80010D5D0 /* Resources */ = {
+		1899F6E31B3C1336002F038B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2838CBB61B3419820010D5D0 /* SPTitleLabelCell.xib in Resources */,
+				1899F7241B3C1398002F038B /* SPTitleTestNibCell.xib in Resources */,
+				1899F71F1B3C1398002F038B /* SPTestStoryboard.storyboard in Resources */,
+				1899F7191B3C1398002F038B /* SPTitleTestCCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2838CB621B3418B90010D5D0 /* Resources */ = {
+		2838CB581B3418B80010D5D0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -396,11 +468,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1899F6E11B3C1336002F038B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1899F7101B3C1398002F038B /* SPCollectionViewDatasourceTests.swift in Sources */,
+				1899F71D1B3C1398002F038B /* SPListingSectionTests.swift in Sources */,
+				1899F7231B3C1398002F038B /* SPTitleTestCell.swift in Sources */,
+				1899F7111B3C1398002F038B /* SPCollectionViewLayoutTests.swift in Sources */,
+				1899F71C1B3C1398002F038B /* SPListingDataTests.swift in Sources */,
+				1899F7171B3C1398002F038B /* SPFixedColumnRowVerticalLayoutTests.swift in Sources */,
+				1899F7181B3C1398002F038B /* SPTitleTestCCell.swift in Sources */,
+				1899F7161B3C1398002F038B /* SPFixedColumnRowLayoutTests.swift in Sources */,
+				1899F7221B3C1398002F038B /* SPTableViewTestVC.swift in Sources */,
+				1899F7211B3C1398002F038B /* SPTableViewTests.swift in Sources */,
+				1899F71E1B3C1398002F038B /* SPTableViewSectionTests.swift in Sources */,
+				1899F71B1B3C1398002F038B /* SPListingCellGroupTests.swift in Sources */,
+				1899F71A1B3C1398002F038B /* SPCollectionViewSectionTests.swift in Sources */,
+				1899F7151B3C1398002F038B /* SPFixedColumnRowHorizontalLayoutTests.swift in Sources */,
+				1899F7121B3C1398002F038B /* SPCollectionViewTests.swift in Sources */,
+				1899F7141B3C1398002F038B /* SPColumnBasedVerticalLayoutTests.swift in Sources */,
+				1899F7201B3C1398002F038B /* SPTableViewDataSourceTests.swift in Sources */,
+				1899F7131B3C1398002F038B /* SPCollectionViewTestVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2838CB551B3418B80010D5D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2838CBB51B3419820010D5D0 /* SPTitleLabelCell.swift in Sources */,
 				2838CBB81B3419820010D5D0 /* SPTable+RegisterCells.swift in Sources */,
 				2838CBB41B3419820010D5D0 /* SPCollectionViewDataSource.swift in Sources */,
 				2838CBA31B3419820010D5D0 /* SPCollectionView.swift in Sources */,
@@ -435,25 +531,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2838CB601B3418B90010D5D0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2838CB6A1B3418B90010D5D0 /* SwiftUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2838CB671B3418B90010D5D0 /* PBXTargetDependency */ = {
+		1899F6EC1B3C1336002F038B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2838CB591B3418B80010D5D0 /* SwiftUI */;
-			targetProxy = 2838CB661B3418B90010D5D0 /* PBXContainerItemProxy */;
+			targetProxy = 1899F6EB1B3C1336002F038B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1899F6ED1B3C1336002F038B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "SwiftUI Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.speedui.SwiftUI-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1899F6EE1B3C1336002F038B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "SwiftUI Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.speedui.SwiftUI-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		2838CB6C1B3418B90010D5D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -582,29 +692,17 @@
 			};
 			name = Release;
 		};
-		2838CB721B3418B90010D5D0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SwiftUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.speedui.SwiftUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		2838CB731B3418B90010D5D0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SwiftUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.speedui.SwiftUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1899F6EF1B3C1336002F038B /* Build configuration list for PBXNativeTarget "SwiftUI Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1899F6ED1B3C1336002F038B /* Debug */,
+				1899F6EE1B3C1336002F038B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		2838CB541B3418B80010D5D0 /* Build configuration list for PBXProject "SwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -619,15 +717,6 @@
 			buildConfigurations = (
 				2838CB6F1B3418B90010D5D0 /* Debug */,
 				2838CB701B3418B90010D5D0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2838CB711B3418B90010D5D0 /* Build configuration list for PBXNativeTarget "SwiftUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2838CB721B3418B90010D5D0 /* Debug */,
-				2838CB731B3418B90010D5D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

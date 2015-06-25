@@ -1,9 +1,9 @@
 //
 //  SPListingData.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 13/04/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import Foundation
@@ -24,7 +24,7 @@ public final class SPListingData : CollectionType{
    public var endIndex = 0
 
    /// Designated initialiser for given SPListingSection.
-   init (SectionArray spListingSectionArray : [SPListingSection]){
+   public init (SectionArray spListingSectionArray : [SPListingSection]){
       self.spListingSectionArray = spListingSectionArray
       endIndex = spListingSectionArray.count
    }
@@ -68,7 +68,7 @@ extension SPListingData{
    /// :param: indexPath IndexPath of section for which cell data is required.
    ///
    /// :returns: SPListingCellGroup and index of similar Cell data array (cellModelArray in SPListingCellGroup) of given section indexPath.
-   func getListingCellGroupWithIndexOfCellModelArray(ForIndexPath indexPath:NSIndexPath) -> (SPListingCellGroup, CellModelIndex: Int)?
+   public func getListingCellGroupWithIndexOfCellModelArray(ForIndexPath indexPath:NSIndexPath) -> (SPListingCellGroup, CellModelIndex: Int)?
    {
       var startIndexOfCellFound : Int = 0
       var totalCellCountParsedFromSectionDataArray : Int = 0

@@ -1,21 +1,21 @@
 //
 //  SPFixedColumnRowLayout.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 01/05/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
 private let kDefaultRowsAndColumns : UInt = 3
 
 /// This class must not be used as Layout. Use SPFixedColumnRowVerticalLayout or SPFixedColumnRowHorizontalLayout instead.
-class SPFixedColumnRowLayout: SPCollectionViewLayout {
+public class SPFixedColumnRowLayout: SPCollectionViewLayout {
    ///Denotes no.of rows in vertical layout
-   lazy var noOfRows : UInt = kDefaultRowsAndColumns
+   public lazy var noOfRows : UInt = kDefaultRowsAndColumns
    
    ///Denotes no.of columns in vertical layout
-   lazy var noOfColumns : UInt = kDefaultRowsAndColumns
+   public lazy var noOfColumns : UInt = kDefaultRowsAndColumns
    
    ///For this layout width and height of an item for entire section would be same. So section wise height and width is stored in this dictionary.
    var itemWidthHeightDictionary : [Int : (width : CGFloat, height: CGFloat)] = [:]
@@ -31,13 +31,13 @@ class SPFixedColumnRowLayout: SPCollectionViewLayout {
       self.noOfColumns = columns
    }
    
-   required init(coder aDecoder: NSCoder) {
+   required public init(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
    }
    
    ///TODO: Pagination
    // MARK: Prepare Layout
-   override func prepareLayout() {
+   override public func prepareLayout() {
       // Clear all values in itemWidthHeightDictionary
       itemWidthHeightDictionary.removeAll(keepCapacity: false)
 

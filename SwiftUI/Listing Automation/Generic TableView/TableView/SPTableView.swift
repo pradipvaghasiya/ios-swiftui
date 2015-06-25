@@ -1,9 +1,9 @@
 //
 //  SPTableView.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 16/04/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
@@ -19,7 +19,7 @@ import UIKit
 ///If you add bulk cell data and not tracking them you can also call registerReusableCellsIfRequired instead of registerCellsForCellGroup. It will register all cells present in listing data. Otherwise it may crash.
 public class SPTableView: UITableView,SPListingViewProtocol {
    /// spListingData contains content details (Section list) of Tableview to be used while displaying TableView.
-   var spListingData : SPListingData = SPListingData(SectionArray: []){
+   public var spListingData : SPListingData = SPListingData(SectionArray: []){
       didSet{
          // If the spListingData first time gets some values in it.
          if oldValue.count == 0{

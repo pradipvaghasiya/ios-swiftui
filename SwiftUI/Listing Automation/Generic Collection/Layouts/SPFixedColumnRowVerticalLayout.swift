@@ -1,25 +1,25 @@
 //
 //  SPFixedColumnRowVerticalLayout.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 01/05/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
 
 
-final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
+public final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
       
-   override init(){
+   override public init(){
       super.init()
    }
 
-   override init(NoOfRows rows: UInt, NoOfColumns columns: UInt) {
+   override public init(NoOfRows rows: UInt, NoOfColumns columns: UInt) {
       super.init(NoOfRows: rows, NoOfColumns: columns)
    }
    
-   required init(coder aDecoder: NSCoder) {
+   required public init(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
    }
    
@@ -130,7 +130,7 @@ final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
    }
    
    // MARK: Content Size
-   override func collectionViewContentSize() -> CGSize {
+   override public func collectionViewContentSize() -> CGSize {
       if let noOfSections = self.collectionView?.numberOfSections(){
          if noOfSections == 0 {
             return CGSizeMake(0, 0)

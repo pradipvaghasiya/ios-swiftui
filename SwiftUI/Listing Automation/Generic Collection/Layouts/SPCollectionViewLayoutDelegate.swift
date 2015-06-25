@@ -1,15 +1,15 @@
 //
 //  SPCollectionViewLayoutDelegate.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 02/05/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
 
 ///Collection View layout delegate for more control over layout
-@objc protocol SPCollectionViewLayoutDelegate : UICollectionViewDelegate, UIScrollViewDelegate{
+@objc public protocol SPCollectionViewLayoutDelegate : UICollectionViewDelegate, UIScrollViewDelegate{
    
    ///Gets Line spacing required for that section.
    optional func lineSpacing(ForSection section : Int) -> CGFloat

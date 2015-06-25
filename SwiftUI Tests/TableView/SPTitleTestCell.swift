@@ -1,15 +1,16 @@
 //
-//  SPTitleLabelCell.swift
-//  SpeedKitDemo
+//  SPTitleTestCell.swift
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 13/07/14.
-//  Copyright (c) 2014 Happyfall. All rights reserved.
+//  Copyright (c) 2014 SpeedUI. All rights reserved.
 //
 
 import UIKit
+import SwiftUI
 
 ///Reusable Cell Id defined in xib file and xib file name itself. Both must be same.
-public let kCellIdSPTitleLabelCell = "SPTitleLabelCell"
+public let kCellIdSPTitleTestCell = "SPTitleTestNibCell"
 
 //Default Label Parameters
 private let kDefaultFontSize : CGFloat = 16.0
@@ -19,21 +20,21 @@ private let kDefaultTextAlignment : NSTextAlignment = .Left
 
 // MARK: Cell Configuration
 ///This cell shows single label covered in whole length and height
-class SPTitleLabelCell: UITableViewCell,SPListingCellProtocol {
+class SPTitleTestCell: UITableViewCell,SPListingCellProtocol {
     ///Title Label IBOutlet
     @IBOutlet var titleLabel: UILabel?
     
     // SPTableViewCellProtocol
     func configureCellUsing(model: AnyObject){
-        //If model is of type SPTitleLabelCellModel, It would set title text.
-        if let myModel = model as? SPTitleLabelCellModel{
+        //If model is of type SPTitleTestCellModel, It would set title text.
+        if let myModel = model as? SPTitleTestCellModel{
             self.titleLabel?.text = myModel.titleText
             
             return
         }
         
-        //If model is of type SPTitleLabelCellCommonModel, It would set Label properties.
-        if let myModel = model as? SPTitleLabelCellCommonModel{
+        //If model is of type SPTitleTestCellCommonModel, It would set Label properties.
+        if let myModel = model as? SPTitleTestCellCommonModel{
             self.titleLabel?.textColor = myModel.textColor
             self.titleLabel?.textAlignment = myModel.textAlignment
             self.titleLabel?.font = myModel.font
@@ -46,7 +47,7 @@ class SPTitleLabelCell: UITableViewCell,SPListingCellProtocol {
 }
 
 // MARK: Helper Methods
-extension SPTitleLabelCell{
+extension SPTitleTestCell{
     
     ///This method creates basic default SPListingData with one section from given array.
     ///
@@ -55,14 +56,14 @@ extension SPTitleLabelCell{
     ///:returns: SPListingData which can be used to create TableView using SpeedKit
     class func getBasicDefaultSPListingData(UsingStringArray stringArray: [String]) -> SPListingData{
 
-        var spTitleLabelCellModelArray : [SPTitleLabelCellModel] = []
+        var spTitleTestCellModelArray : [SPTitleTestCellModel] = []
         
         for rowTitle in stringArray{
-            spTitleLabelCellModelArray.append(SPTitleLabelCellModel(TitleText: rowTitle))
+            spTitleTestCellModelArray.append(SPTitleTestCellModel(TitleText: rowTitle))
         }
         
-        let spListingCellData = SPListingCellGroup(cellId: kCellIdSPTitleLabelCell,
-            cellModelArray: spTitleLabelCellModelArray)
+        let spListingCellData = SPListingCellGroup(cellId: kCellIdSPTitleTestCell,
+            cellModelArray: spTitleTestCellModelArray)
         
         let spListingSection0Data = SPListingSection(CellGroups: [spListingCellData])
         
@@ -72,7 +73,7 @@ extension SPTitleLabelCell{
 
 // MARK: Cell Common Model
 ///This model ideally should be used as Common Model so that it can be applied to all similar cells.
-class SPTitleLabelCellCommonModel{
+class SPTitleTestCellCommonModel{
     //User can change below label property.
     var font: UIFont
     var textColor: UIColor
@@ -105,7 +106,7 @@ class SPTitleLabelCellCommonModel{
 
 // MARK: Cell Model
 ///This model contains only one title property.
-class SPTitleLabelCellModel{
+class SPTitleTestCellModel{
     ///Cell label Title Text
     var titleText:String
     init(TitleText text:String){

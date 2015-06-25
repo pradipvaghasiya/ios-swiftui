@@ -1,14 +1,14 @@
 //
 //  SPFixedColumnRowVerticalLayoutDelegate.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 02/05/15.
-//  Copyright (c) 2015 Happyfall. All rights reserved.
+//  Copyright (c) 2015 SpeedUI. All rights reserved.
 //
 
 import UIKit
 
-@objc protocol SPFixedColumnRowLayoutDelegate : SPCollectionViewLayoutDelegate{
+@objc public protocol SPFixedColumnRowLayoutDelegate : SPCollectionViewLayoutDelegate{
    ///Number of Rows for given section
    optional func noOfRows(ForSection section : Int) -> UInt
    

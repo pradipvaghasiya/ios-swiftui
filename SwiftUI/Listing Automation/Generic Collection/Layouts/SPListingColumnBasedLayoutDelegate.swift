@@ -1,15 +1,15 @@
 //
 //  SPListingColumnBasedLayoutDatasource.swift
-//  SpeedKitDemo
+//  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 17/11/14.
-//  Copyright (c) 2014 Happyfall. All rights reserved.
+//  Copyright (c) 2014 SpeedUI. All rights reserved.
 //
 
 import UIKit
 
 // Remove Objc in newer version if not required.
-@objc protocol SPListingColumnBasedLayoutDelegate : UICollectionViewDelegate{
+@objc public protocol SPListingColumnBasedLayoutDelegate : UICollectionViewDelegate{
     // Scrolling Lines
     optional func collectionView(collectionView: UICollectionView?, layout collectionViewLayout: UICollectionViewLayout, numberOfScrollingLinesAtSection section: Int) -> Int
     
