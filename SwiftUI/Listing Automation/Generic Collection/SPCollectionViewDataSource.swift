@@ -42,9 +42,6 @@ public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
             CellData: cellData,
             IndexPath: indexPath)
          
-         self.configureCell(CollectionViewCell: collectionViewCell,
-            CellData: cellData, SimilarCellTypeIndex: similarCellTypeIndex)
-         
          return collectionViewCell
       }
       
@@ -67,31 +64,6 @@ public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
       }
       
       return UICollectionViewCell()   // Returns empty default collectionview cell.
-   }
-   
-   ///Configures Cell if it comforms to SPListingCellProtocol
-   ///
-   ///:param: CollectionViewCell
-   ///:param: SPListingCellGroup
-   ///:param: SimilarCellTypeIndex
-   private func configureCell(
-      CollectionViewCell collectionViewCell: UICollectionViewCell,
-      CellData cellData: SPListingCellGroup,
-      SimilarCellTypeIndex similarCellTypeIndex: Int){
-         
-         // If Cell conforms to SPListingCellProtocol then configure cell using Cell Common model and model array.
-         if let spCollectionViewCell = collectionViewCell as? SPListingCellProtocol{
-            
-            // Configure cell using cellCommonModel
-            if let commonModel:AnyObject = cellData.cellCommonModel {
-               spCollectionViewCell.configureCellUsing(commonModel)
-            }
-            
-            // Configure cell using cellModelArray, This also overrides attributes set by Common model
-            if cellData.count > similarCellTypeIndex && similarCellTypeIndex >= 0{
-               spCollectionViewCell.configureCellUsing(cellData[similarCellTypeIndex])
-            }
-         }
    }
    
 }

@@ -11,5 +11,5 @@ public protocol SPListingCellProtocol{
     /// Method to be implemented to configure cell using given data model. Of Course Cell/Item should define this model and view controller will provide the data model to automation.
     ///
     /// :param: model Data model object which is defined by Cell/Item.
-    func configureCellUsing(model:AnyObject);
+    func configureCellUsing(model:ViewModelType);
 }

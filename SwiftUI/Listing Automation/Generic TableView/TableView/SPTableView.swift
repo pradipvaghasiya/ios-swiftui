@@ -17,10 +17,11 @@ import UIKit
 ///When you add any new Cell from nib or Code in SplistingData you must call registerCellsForCellGroup method.
 ///
 ///If you add bulk cell data and not tracking them you can also call registerReusableCellsIfRequired instead of registerCellsForCellGroup. It will register all cells present in listing data. Otherwise it may crash.
-public class SPTableView: UITableView,SPListingViewProtocol {
+public class SPTableView: UITableView,ListingTableViewProtocol {
    /// spListingData contains content details (Section list) of Tableview to be used while displaying TableView.
-   public var spListingData : SPListingData = SPListingData(SectionArray: []){
+   public var listingData : ListingData<TableViewSection> = ListingData(sections: []){
       didSet{
+         spTableDatasource.listingData = listingData
          // If the spListingData first time gets some values in it.
          if oldValue.count == 0{
             self.registerReusableCellsIfRequired()
@@ -30,7 +31,7 @@ public class SPTableView: UITableView,SPListingViewProtocol {
    
    ///Generic datasource takes control of Tableview Datasource Management.
    lazy private var spTableDatasource : SPTableViewDatasource = {
-      return SPTableViewDatasource(self)
+      return SPTableViewDatasource(listingData: ListingData(sections: []))
    }()
       
    override public init(frame: CGRect, style: UITableViewStyle = .Plain) {

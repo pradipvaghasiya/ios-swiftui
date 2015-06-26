@@ -13,7 +13,7 @@ public struct TableViewSection: TableViewSectionType{
    public var sectionFooter : String?
       
    public var items : [ViewModelType]
-   init (viewModels : [ViewModelType]){
+   public init (viewModels : [ViewModelType]){
       self.items = viewModels
    }
 }

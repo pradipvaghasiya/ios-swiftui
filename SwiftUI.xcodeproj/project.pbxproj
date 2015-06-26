@@ -67,6 +67,7 @@
 		28DF814D1B3D8BB50013E090 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81471B3D8BB50013E090 /* SectionType.swift */; };
 		28DF814E1B3D8BB50013E090 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81481B3D8BB50013E090 /* TableViewSection.swift */; };
 		28DF814F1B3D8BB50013E090 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81491B3D8BB50013E090 /* ViewModelType.swift */; };
+		28DF81511B3D929B0013E090 /* ListingTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81501B3D929B0013E090 /* ListingTableViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		28DF81471B3D8BB50013E090 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		28DF81481B3D8BB50013E090 /* TableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
 		28DF81491B3D8BB50013E090 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		28DF81501B3D929B0013E090 /* ListingTableViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTableViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,12 +241,6 @@
 		2838CB5C1B3418B80010D5D0 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				28DF81441B3D8BB50013E090 /* ArrayWrapperType.swift */,
-				28DF81451B3D8BB50013E090 /* CollectionViewSection.swift */,
-				28DF81461B3D8BB50013E090 /* ListingData.swift */,
-				28DF81471B3D8BB50013E090 /* SectionType.swift */,
-				28DF81481B3D8BB50013E090 /* TableViewSection.swift */,
-				28DF81491B3D8BB50013E090 /* ViewModelType.swift */,
 				2838CB9E1B3419820010D5D0 /* README.md */,
 				2838CBA11B3419820010D5D0 /* SPLogger.swift */,
 				2838CBA21B3419820010D5D0 /* SPUIHelper.swift */,
@@ -261,7 +257,7 @@
 				2838CB5D1B3418B80010D5D0 /* SwiftUI.h */,
 				2838CB5F1B3418B80010D5D0 /* Info.plist */,
 			);
-			name = Metadata;
+			path = Metadata;
 			sourceTree = "<group>";
 		};
 		2838CB751B3419820010D5D0 /* Listing Automation */ = {
@@ -272,6 +268,7 @@
 				2838CB941B3419820010D5D0 /* Listing Data */,
 				2838CB9C1B3419820010D5D0 /* SPListingCellProtocol.swift */,
 				2838CB9D1B3419820010D5D0 /* SPListingViewProtocol.swift */,
+				28DF81501B3D929B0013E090 /* ListingTableViewProtocol.swift */,
 			);
 			path = "Listing Automation";
 			sourceTree = "<group>";
@@ -346,6 +343,12 @@
 		2838CB941B3419820010D5D0 /* Listing Data */ = {
 			isa = PBXGroup;
 			children = (
+				28DF81441B3D8BB50013E090 /* ArrayWrapperType.swift */,
+				28DF81451B3D8BB50013E090 /* CollectionViewSection.swift */,
+				28DF81461B3D8BB50013E090 /* ListingData.swift */,
+				28DF81471B3D8BB50013E090 /* SectionType.swift */,
+				28DF81481B3D8BB50013E090 /* TableViewSection.swift */,
+				28DF81491B3D8BB50013E090 /* ViewModelType.swift */,
 				2838CB9B1B3419820010D5D0 /* SPListingData.swift */,
 				2838CB951B3419820010D5D0 /* Section */,
 			);
@@ -539,6 +542,7 @@
 				28DF814E1B3D8BB50013E090 /* TableViewSection.swift in Sources */,
 				2838CBBB1B3419820010D5D0 /* SPCollectionViewSection.swift in Sources */,
 				28DF814B1B3D8BB50013E090 /* CollectionViewSection.swift in Sources */,
+				28DF81511B3D929B0013E090 /* ListingTableViewProtocol.swift in Sources */,
 				2838CBA41B3419820010D5D0 /* SPCollectionViewLayout.swift in Sources */,
 				2838CBBC1B3419820010D5D0 /* SPListingSection.swift in Sources */,
 				2838CBAB1B3419820010D5D0 /* SPFixedColumnRowLayout.swift in Sources */,
@@ -685,7 +689,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftUI/Info.plist;
+				INFOPLIST_FILE = SwiftUI/Metadata/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -705,7 +709,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftUI/Info.plist;
+				INFOPLIST_FILE = SwiftUI/Metadata/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

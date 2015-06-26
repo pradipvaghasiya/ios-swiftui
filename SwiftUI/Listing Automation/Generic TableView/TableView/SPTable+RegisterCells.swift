@@ -12,9 +12,9 @@ import UIKit
 extension SPTableView{
    ///Registers all nib file or Subclass which may be in SPListingData for reuse purpose.
    final func registerReusableCellsIfRequired(){
-      for sectionDetail in spListingData{
-         for cellData in sectionDetail{
-            self.registerCellsFor(CellGroup: cellData)
+      for section in listingData.items{
+         for viewModel in section.items{
+            self.registerCellsFor(ViewModel: viewModel)
          }
       }
    }
@@ -22,25 +22,23 @@ extension SPTableView{
    ///Registers given cell using CellData.
    ///
    ///:param: cellData Registers class based on its type and cell Id contained in this param.
-   final func registerCellsFor(CellGroup cellGroup : SPListingCellGroup){
-      if let cellId = cellGroup.cellId{
-         switch cellGroup.cellType{
-         case .SubclassCell:
-            if let cellClass = NSClassFromString(cellId){
-               if cellClass.isSubclassOfClass(UITableViewCell){
-                  self.registerClass(NSClassFromString(cellId),forCellReuseIdentifier: cellId)
-               }
-            }else{
-               SPLogger.logError(Message: "\(cellId) must be subclass of UITableViewCell to use it with SPTableView.")
+   final func registerCellsFor(ViewModel viewModel : ViewModelType){
+      switch viewModel.cellType{
+      case .SubClass:
+         if let cellClass = NSClassFromString(viewModel.cellId){
+            if cellClass.isSubclassOfClass(UITableViewCell){
+               self.registerClass(NSClassFromString(viewModel.cellId),forCellReuseIdentifier: viewModel.cellId)
             }
-         case .NibCell:
-            self.registerNib(UINib(nibName: cellId, bundle: nil),
-               forCellReuseIdentifier: cellId)
-            
-         case .PrototypeCell:
-            true
+         }else{
+            SPLogger.logError(Message: "\(viewModel.cellId) must be subclass of UITableViewCell to use it with SPTableView.")
          }
+      case .Nib:
+         self.registerNib(UINib(nibName: viewModel.cellId, bundle: nil),
+            forCellReuseIdentifier: viewModel.cellId)
          
+      case .ProtoType:
+         true
       }
+      
    }
 }

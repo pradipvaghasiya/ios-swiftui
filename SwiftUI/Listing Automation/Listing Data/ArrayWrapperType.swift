@@ -18,7 +18,7 @@ public protocol ArrayWrapperType{
 }
 
 
-extension ArrayWrapperType{
+public extension ArrayWrapperType{
    var startIndex: Int { get {return 0}}
    var endIndex: Int {
       get{
@@ -37,12 +37,12 @@ extension ArrayWrapperType{
    }
 }
 
-extension ArrayWrapperType{
-   mutating func reserveCapacity(n: Int.Distance){
+public extension ArrayWrapperType{
+   public mutating func reserveCapacity(n: Int.Distance){
       items.reserveCapacity(n)
    }
    
-   mutating func append(x: Element){
+    mutating func append(x: Element){
       items.append(x)
    }
    
@@ -51,7 +51,7 @@ extension ArrayWrapperType{
    }
 }
 
-extension ArrayWrapperType{
+public extension ArrayWrapperType{
    mutating func replaceRange<C : CollectionType where C.Generator.Element == Element>(subRange: Range<Int>, with newElements: C){
       items.replaceRange(subRange, with: newElements)
    }
@@ -79,8 +79,12 @@ extension ArrayWrapperType{
    
 }
 
-///TODO: Run time Crash
-//extension ArrayWrapperType where Self.Element : ArrayWrapperType{
+public extension ArrayWrapperType{
+   var count : Int{ get {return items.count}}
+}
+
+///TODO: Run time Crash in subscript
+public extension ArrayWrapperType where Self.Element : ArrayWrapperType{
 //   subscript(indexPath: NSIndexPath) -> Any{
 //      get{
 //         return self[indexPath.section][indexPath.row]
@@ -90,5 +94,10 @@ extension ArrayWrapperType{
 ////         self.items[indexPath.section].items[indexPath.row] = newValue
 //      }
 //   }
-//}
+   
+   func getItem(indexPath: NSIndexPath) -> Self.Element.Element{
+      return self[indexPath.section][indexPath.row]
+   }
+
+}
 
