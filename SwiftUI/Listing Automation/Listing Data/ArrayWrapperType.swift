@@ -10,7 +10,7 @@ import Foundation
 
 
 ///TODO: Extending existing Protocols with already defined methods does not work. 
-///TODO: items need to be made public
+///TODO: items need to be made public though this should hide this
 
 public protocol ArrayWrapperType{
    typealias Element
