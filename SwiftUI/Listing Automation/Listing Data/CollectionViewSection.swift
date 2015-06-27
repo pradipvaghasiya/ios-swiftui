@@ -11,7 +11,7 @@ import Foundation
 public struct CollectionViewSection: CollectionViewSectionType{
    
    public var items: [ViewModelType]
-   init (viewModels : [ViewModelType]){
+   public init (viewModels : [ViewModelType]){
       self.items = viewModels
    }
 }

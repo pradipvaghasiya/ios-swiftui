@@ -13,9 +13,9 @@ private let kSectionHeaderFooterWithTextHeight : CGFloat  = 20.0
 ///
 ///Delegate must conform to SPListingViewProtocol
 public class SPTableViewDatasource : NSObject, UITableViewDataSource {
-   var listingData : ListingData<TableViewSection>
+   public var listingData : ListingData<TableViewSection>
    
-   init(listingData : ListingData<TableViewSection>){
+   public init(_ listingData : ListingData<TableViewSection>){
       self.listingData = listingData
    }
    
@@ -36,15 +36,17 @@ public class SPTableViewDatasource : NSObject, UITableViewDataSource {
    {
       let viewModel = listingData[indexPath.section][indexPath.row]
       
-         if let tableViewCell = self.createCellUsing(
-            TableView: tableView,
-            ViewModelType: viewModel,
-            IndexPath: indexPath) as? SPListingCellProtocol{
-               tableViewCell.configureCellUsing(viewModel)
-
+      let tableViewCell = self.createCellUsing(
+         TableView: tableView,
+         ViewModelType: viewModel,
+         IndexPath: indexPath)
+      
+      if let listingCell = tableViewCell as? SPListingCellProtocol{
+         listingCell.configureCellUsing(viewModel)
+         
       }
       
-      return UITableViewCell()
+      return tableViewCell
    }
    
    ///Creates or Dequeues Cell with given Cell Id at given indexPath

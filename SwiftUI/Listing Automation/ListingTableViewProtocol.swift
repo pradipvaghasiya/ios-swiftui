@@ -8,7 +8,7 @@
 
 import Foundation
 public protocol ListingTableViewProtocol : class {
-   /// It contains content details (Section list) of Tableview/CollectionView to be used in any listing UI Automation.
+   /// It contains content details (Section list) of Tableview to be used in any listing UI Automation.
    var listingData : ListingData<TableViewSection> {get set}
    
 }
