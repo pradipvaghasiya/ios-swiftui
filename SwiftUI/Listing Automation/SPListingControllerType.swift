@@ -13,11 +13,11 @@ public protocol SPListingControllerType : class{
 }
 
 public protocol SPTableListingControllerType : SPListingControllerType{
-   var listingData : ListingData<TableViewSection> {get set}
+   func tableListingData(tableView : UITableView)->ListingData<TableViewSection>
 }
 
 public protocol SPCollectionListingControllerType : SPListingControllerType{
-   var listingData : ListingData<CollectionViewSection> {get set}
+   func collectionListingData(collectionView : UICollectionView)->ListingData<CollectionViewSection>
 }
 
 

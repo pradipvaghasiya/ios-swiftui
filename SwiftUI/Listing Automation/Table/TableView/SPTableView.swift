@@ -37,7 +37,7 @@ extension SPTableView{
    ///Registers all nib file or Subclass which may be in SPListingData for reuse purpose.
    public final func registerReusableCellsIfRequired(){
       if let controller = self.controller{
-         for section in controller.listingData.items{
+         for section in controller.tableListingData(self).items{
             for viewModel in section.items{
                self.registerCellsFor(ViewModel: viewModel)
             }

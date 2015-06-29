@@ -21,19 +21,19 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPTableLis
    // MARK: Number Of Sections
    final public func numberOfSectionsInTableView(tableView: UITableView) -> Int
    {
-      return controller.listingData.count
+      return controller.tableListingData(tableView).count
    }
    
    // MARK: Number Of Rows in Section
    final public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
    {
-      return controller.listingData[section].count
+      return controller.tableListingData(tableView)[section].count
    }
    
    // MARK: cellForRowAtIndexPath
    final public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
    {
-      let viewModel = controller.listingData[indexPath.section][indexPath.row]
+      let viewModel = controller.tableListingData(tableView)[indexPath.section][indexPath.row]
       
       let tableViewCell = self.createCellUsing(
          TableView: tableView,
@@ -72,11 +72,11 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPTableLis
    
    // MARK: Section Header & Footer Title
    final public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      return controller.listingData[section].sectionHeader
+      return controller.tableListingData(tableView)[section].sectionHeader
    }
    
    final public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-      return controller.listingData[section].sectionFooter
+      return controller.tableListingData(tableView)[section].sectionFooter
    }
    
 }

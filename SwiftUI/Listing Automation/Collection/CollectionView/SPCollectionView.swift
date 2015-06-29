@@ -33,7 +33,7 @@ extension SPCollectionView{
    ///Registers all nib file or Subclass which may be in SPListingData for reuse purpose.
    final func registerReusableCellsIfRequired(){
       if let controller = self.controller{
-         for section in controller.listingData.items{
+         for section in controller.collectionListingData(self).items{
             for viewModel in section.items{
                self.registerCellsFor(ViewModel: viewModel)
             }

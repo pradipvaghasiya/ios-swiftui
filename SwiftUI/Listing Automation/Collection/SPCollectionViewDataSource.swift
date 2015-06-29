@@ -21,18 +21,18 @@ public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource, 
    
    // MARK: Number Of Sections
    final public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int{
-      return controller.listingData.count
+      return controller.collectionListingData(collectionView).count
    }
    
    // MARK: Number Of Rows in Section
    final public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-      return controller.listingData[section].count
+      return controller.collectionListingData(collectionView)[section].count
    }
    
    // MARK: cellForItemAtIndexPath
    final public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
       
-      let viewModel = controller.listingData[indexPath.section][indexPath.row]
+      let viewModel = controller.collectionListingData(collectionView)[indexPath.section][indexPath.row]
       
       let collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(viewModel.cellId, forIndexPath: indexPath)
       
