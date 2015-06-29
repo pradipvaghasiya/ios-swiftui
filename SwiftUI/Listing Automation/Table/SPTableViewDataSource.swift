@@ -41,7 +41,8 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPTableLis
          IndexPath: indexPath)
       
       if let listingCell = tableViewCell as? SPTableCellProtocol{
-         listingCell.configureCellUsing(viewModel)
+         listingCell.viewModel = viewModel
+         listingCell.configureCell()
          listingCell.parentView = tableView
       }
       

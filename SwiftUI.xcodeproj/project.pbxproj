@@ -77,10 +77,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		181E639E1B41174800519B92 /* SPListingViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingViewType.swift; sourceTree = "<group>"; };
+		181E639E1B41174800519B92 /* SPListingViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SPListingViewType.swift; path = ../SPListingViewType.swift; sourceTree = "<group>"; };
 		181E63A11B41262600519B92 /* ArrayWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayWrapper.swift; sourceTree = "<group>"; };
-		181E63A31B41295F00519B92 /* SPListingControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingControllerType.swift; sourceTree = "<group>"; };
-		181E63A51B412ABB00519B92 /* SPListingDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingDataSourceType.swift; sourceTree = "<group>"; };
+		181E63A31B41295F00519B92 /* SPListingControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SPListingControllerType.swift; path = ../SPListingControllerType.swift; sourceTree = "<group>"; };
+		181E63A51B412ABB00519B92 /* SPListingDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SPListingDataSourceType.swift; path = ../SPListingDataSourceType.swift; sourceTree = "<group>"; };
 		1899F6E51B3C1336002F038B /* SwiftUI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1899F6E91B3C1336002F038B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1899F6F91B3C1398002F038B /* SPCollectionViewDatasourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewDatasourceTests.swift; sourceTree = "<group>"; };
@@ -162,9 +162,6 @@
 		181E63A01B411D1400519B92 /* Listing View */ = {
 			isa = PBXGroup;
 			children = (
-				181E63A31B41295F00519B92 /* SPListingControllerType.swift */,
-				181E639E1B41174800519B92 /* SPListingViewType.swift */,
-				181E63A51B412ABB00519B92 /* SPListingDataSourceType.swift */,
 				2838CB8C1B3419820010D5D0 /* Table */,
 				2838CB761B3419820010D5D0 /* Collection */,
 			);
@@ -268,7 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				2838CB941B3419820010D5D0 /* Data */,
-				28823EC91B3E859E00FA6022 /* Cell */,
+				28823EC91B3E859E00FA6022 /* Protocols */,
 				181E63A01B411D1400519B92 /* Listing View */,
 			);
 			path = "Listing Automation";
@@ -354,11 +351,15 @@
 			path = "Segmented Controllers";
 			sourceTree = "<group>";
 		};
-		28823EC91B3E859E00FA6022 /* Cell */ = {
+		28823EC91B3E859E00FA6022 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				181E63A31B41295F00519B92 /* SPListingControllerType.swift */,
+				181E639E1B41174800519B92 /* SPListingViewType.swift */,
+				181E63A51B412ABB00519B92 /* SPListingDataSourceType.swift */,
 				2838CB9C1B3419820010D5D0 /* SPCellProtocol.swift */,
 			);
+			name = Protocols;
 			path = Cell;
 			sourceTree = "<group>";
 		};

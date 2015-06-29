@@ -15,7 +15,6 @@ public protocol SPListingTableViewType : SPListingViewType{
    weak var controller : SPTableListingControllerType? {get set}
 }
 
-
 public protocol SPListingCollectionViewType : SPListingViewType  {
    weak var controller : SPCollectionListingControllerType? {get set}
 }
