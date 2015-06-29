@@ -18,12 +18,11 @@ import UIKit
 ///
 ///If you add bulk cell data and not tracking them you can also call registerReusableCellsIfRequired instead of registerCellsForCellGroup. It will register all cells present in listing data. Otherwise it may crash.
 
-public class SPTableView: UITableView,ListingTableViewProtocol {
+public class SPTableView: UITableView,SPListingTableViewType {
    
    /// ListingData contains content details (Section list) of Tableview to be used while displaying TableView.
    public var listingData : ListingData<TableViewSection> {
       didSet{
-         spTableDatasource.listingData = listingData
          // If the spListingData first time gets some values in it.
          if oldValue.count == 0{
             self.registerReusableCellsIfRequired()
@@ -31,12 +30,15 @@ public class SPTableView: UITableView,ListingTableViewProtocol {
       }
    }
    
+   public weak var cellDelegate : UIViewController?
+   
    ///Generic datasource takes control of Tableview Datasource Management.
-   private let spTableDatasource : SPTableViewDatasource
+   private lazy var spTableDatasource : SPTableViewDatasource = {
+      return SPTableViewDatasource(self)
+      }()
    
    override public init(frame: CGRect, style: UITableViewStyle = .Plain) {
       listingData = ListingData(sections: [])
-      spTableDatasource = SPTableViewDatasource(listingData)
       
       super.init(frame: frame, style:style)
       
@@ -47,7 +49,6 @@ public class SPTableView: UITableView,ListingTableViewProtocol {
    
    required public init(coder aDecoder: NSCoder) {
       listingData = ListingData(sections: [])
-      spTableDatasource = SPTableViewDatasource(listingData)
 
       super.init(coder: aDecoder)
       

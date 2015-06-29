@@ -16,7 +16,7 @@ import UIKit
 ///When you add any new Cell from nib or Code in SplistingData you must call registerCellsForCellGroup method.
 ///
 ///If you add bulk cell data and not tracking them you can also call registerReusableCellsIfRequired instead of registerCellsForCellGroup. It will register all cells present in listing data. Otherwise it may crash.
-public class SPCollectionView: UICollectionView,ListingCollectionViewProtocol {
+public class SPCollectionView: UICollectionView,SPListingCollectionViewType {
 
    /// spListingData contains content details (Section list) of CollectionView to be used while displaying CollectionView.
    public var listingData : ListingData<CollectionViewSection> {

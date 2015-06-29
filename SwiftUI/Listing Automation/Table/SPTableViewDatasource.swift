@@ -13,37 +13,37 @@ private let kSectionHeaderFooterWithTextHeight : CGFloat  = 20.0
 ///
 ///Delegate must conform to SPListingViewProtocol
 public class SPTableViewDatasource : NSObject, UITableViewDataSource {
-   public var listingData : ListingData<TableViewSection>
+   unowned var listingTableView : SPListingTableViewType
    
-   public init(_ listingData : ListingData<TableViewSection>){
-      self.listingData = listingData
+   public init(_ listingTableView : SPListingTableViewType){
+      self.listingTableView = listingTableView
    }
    
    // MARK: Number Of Sections
    final public func numberOfSectionsInTableView(tableView: UITableView) -> Int
    {
-      return listingData.count
+      return listingTableView.listingData.count
    }
    
    // MARK: Number Of Rows in Section
    final public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
    {
-      return listingData[section].count
+      return listingTableView.listingData[section].count
    }
    
    // MARK: cellForRowAtIndexPath
    final public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
    {
-      let viewModel = listingData[indexPath.section][indexPath.row]
+      let viewModel = listingTableView.listingData[indexPath.section][indexPath.row]
       
       let tableViewCell = self.createCellUsing(
          TableView: tableView,
          ViewModelType: viewModel,
          IndexPath: indexPath)
       
-      if let listingCell = tableViewCell as? SPListingCellProtocol{
+      if let listingCell = tableViewCell as? SPCellProtocol{
          listingCell.configureCellUsing(viewModel)
-         
+         listingCell.delegate = listingTableView.cellDelegate
       }
       
       return tableViewCell
@@ -72,11 +72,11 @@ public class SPTableViewDatasource : NSObject, UITableViewDataSource {
    
    // MARK: Section Header & Footer Title
    final public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      return listingData[section].sectionHeader
+      return listingTableView.listingData[section].sectionHeader
    }
    
    final public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-      return listingData[section].sectionFooter
+      return listingTableView.listingData[section].sectionFooter
    }
    
 }
