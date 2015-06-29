@@ -11,8 +11,14 @@ import Foundation
 public class TableViewSection: ArrayWrapper<ViewModelType>, TableViewSectionType{
    public var sectionHeader : String?
    public var sectionFooter : String?
-      
-   public init (viewModels : [ViewModelType]){
-      super.init(items: viewModels)
+   
+//   public init (viewModels : [ViewModelType]){
+//      super.init(items: viewModels)
+//   }
+
+   public required init(arrayLiteral elements: ViewModelType...){
+      super.init(items: elements)
    }
+   
 }
+
