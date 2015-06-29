@@ -12,15 +12,10 @@ public protocol SPListingViewType : class{
 }
 
 public protocol SPListingTableViewType : SPListingViewType{
-   
-   /// It contains content details (Section list) of Tableview to be used in any listing UI Automation.
-   var listingData : ListingData<TableViewSection> {get set}
-   
+   weak var controller : SPTableListingControllerType? {get set}
 }
 
 
 public protocol SPListingCollectionViewType : SPListingViewType  {
-   /// It contains content details (Section list) of CollectionView to be used in any listing UI Automation.
-   var listingData : ListingData<CollectionViewSection> {get set}
-   
+   weak var controller : SPCollectionListingControllerType? {get set}
 }

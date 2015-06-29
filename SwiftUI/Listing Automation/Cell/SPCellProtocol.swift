@@ -13,6 +13,8 @@ public protocol SPCellProtocol : class{
    ///
    /// :param: model Data model object which is defined by Cell/Item.
    func configureCellUsing(model:ViewModelType)
+   
+   weak var viewModel : ViewModelType? {get set}
 }
 
 

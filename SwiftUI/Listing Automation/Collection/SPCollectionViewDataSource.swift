@@ -11,28 +11,28 @@ import UIKit
 ///Generic datasource takes control of CollectionView Datasource Management.
 ///
 ///Delegate must conform to SPListingViewProtocol
-public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
+public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource, SPCollectionListingDataSourceType{
    
-   unowned var listingCollectionView : SPListingCollectionViewType
+   unowned public let controller : SPCollectionListingControllerType
    
-   public init(_ listingCollectionView : SPListingCollectionViewType){
-      self.listingCollectionView = listingCollectionView
+   public init(_ controller : SPCollectionListingControllerType){
+      self.controller = controller
    }
    
    // MARK: Number Of Sections
    final public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int{
-      return listingCollectionView.listingData.count
+      return controller.listingData.count
    }
    
    // MARK: Number Of Rows in Section
    final public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-      return listingCollectionView.listingData[section].count
+      return controller.listingData[section].count
    }
    
    // MARK: cellForItemAtIndexPath
    final public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
       
-      let viewModel = listingCollectionView.listingData[indexPath.section][indexPath.row]
+      let viewModel = controller.listingData[indexPath.section][indexPath.row]
       
       let collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(viewModel.cellId, forIndexPath: indexPath)
       

@@ -11,29 +11,29 @@ import UIKit
 ///Generic datasource takes control of Tableview Datasource Management.
 ///
 ///Delegate must conform to SPListingViewProtocol
-public class SPTableViewDataSource : NSObject, UITableViewDataSource {
-   unowned var listingTableView : SPListingTableViewType
+public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPTableListingDataSourceType {
+   unowned public let controller : SPTableListingControllerType
    
-   public init(_ listingTableView : SPListingTableViewType){
-      self.listingTableView = listingTableView
+   public init(_ controller : SPTableListingControllerType){
+      self.controller = controller
    }
    
    // MARK: Number Of Sections
    final public func numberOfSectionsInTableView(tableView: UITableView) -> Int
    {
-      return listingTableView.listingData.count
+      return controller.listingData.count
    }
    
    // MARK: Number Of Rows in Section
    final public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
    {
-      return listingTableView.listingData[section].count
+      return controller.listingData[section].count
    }
    
    // MARK: cellForRowAtIndexPath
    final public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
    {
-      let viewModel = listingTableView.listingData[indexPath.section][indexPath.row]
+      let viewModel = controller.listingData[indexPath.section][indexPath.row]
       
       let tableViewCell = self.createCellUsing(
          TableView: tableView,
@@ -71,11 +71,11 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource {
    
    // MARK: Section Header & Footer Title
    final public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      return listingTableView.listingData[section].sectionHeader
+      return controller.listingData[section].sectionHeader
    }
    
    final public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-      return listingTableView.listingData[section].sectionFooter
+      return controller.listingData[section].sectionFooter
    }
    
 }

@@ -9,11 +9,10 @@
 import Foundation
 
 
-public struct ListingData<T : SectionType> : ArrayWrapperType{
-      
-   public var items : [T]
+public class ListingData<T : SectionType> : ArrayWrapper<T>{
+   
    public init (sections : [T]){
-      self.items = sections
+      super.init(items: sections)
    }
-
 }
+

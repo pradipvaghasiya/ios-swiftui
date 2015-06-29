@@ -8,12 +8,11 @@
 
 import Foundation
 
-public struct TableViewSection: TableViewSectionType{
+public class TableViewSection: ArrayWrapper<ViewModelType>, TableViewSectionType{
    public var sectionHeader : String?
    public var sectionFooter : String?
       
-   public var items : [ViewModelType]
    public init (viewModels : [ViewModelType]){
-      self.items = viewModels
+      super.init(items: viewModels)
    }
 }

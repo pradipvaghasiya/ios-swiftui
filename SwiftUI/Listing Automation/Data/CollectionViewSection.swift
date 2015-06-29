@@ -8,10 +8,9 @@
 
 import Foundation
 
-public struct CollectionViewSection: CollectionViewSectionType{
+public class CollectionViewSection: ArrayWrapper<ViewModelType>,CollectionViewSectionType{
    
-   public var items: [ViewModelType]
    public init (viewModels : [ViewModelType]){
-      self.items = viewModels
+      super.init(items: viewModels)
    }
 }

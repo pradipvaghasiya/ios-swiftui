@@ -8,60 +8,65 @@
 
 import UIKit
 
-
-// MARK: Properties
-///TableView instance which can be added via interface builder or code.
-///
-///Set spListingData - Listing Automation Compatible.
-///
-///When you add any new Cell from nib or Code in SplistingData you must call registerCellsForCellGroup method.
-///
-///If you add bulk cell data and not tracking them you can also call registerReusableCellsIfRequired instead of registerCellsForCellGroup. It will register all cells present in listing data. Otherwise it may crash.
-
 public class SPTableView: UITableView,SPListingTableViewType {
    
-   /// ListingData contains content details (Section list) of Tableview to be used while displaying TableView.
-   public var listingData : ListingData<TableViewSection> {
+   public weak var controller : SPTableListingControllerType? {
       didSet{
-         // If the spListingData first time gets some values in it.
-         if oldValue.count == 0{
+         if oldValue == nil && controller != nil{
             self.registerReusableCellsIfRequired()
+            self.tableDataSource = SPTableViewDataSource(controller!)
+            self.dataSource = self.tableDataSource
          }
       }
    }
-      
-   ///Generic datasource takes control of Tableview Datasource Management.
-   private lazy var tableDataSource : SPTableViewDataSource = {
-      return SPTableViewDataSource(self)
-      }()
+   
+   private var tableDataSource : SPTableViewDataSource?
    
    override public init(frame: CGRect, style: UITableViewStyle = .Plain) {
-      listingData = ListingData(sections: [])
-      
-      super.init(frame: frame, style:style)
-      
-      //Setup
-      self.setupSPTableView()
-      
+      super.init(frame: frame, style: style)
    }
    
    required public init(coder aDecoder: NSCoder) {
-      listingData = ListingData(sections: [])
-
-      super.init(coder: aDecoder)
-      
-      //Setup
-      self.setupSPTableView()
+      super.init(coder: aDecoder)      
    }
    
-   ///Sets up Tableview once it is created by Interface Builder or Code
-   private func setupSPTableView(){
+}
+
+//MARK: Register Nib Or Subclass
+extension SPTableView{
+   ///Registers all nib file or Subclass which may be in SPListingData for reuse purpose.
+   public final func registerReusableCellsIfRequired(){
+      if let controller = self.controller{
+         for section in controller.listingData.items{
+            for viewModel in section.items{
+               self.registerCellsFor(ViewModel: viewModel)
+            }
+         }         
+      }
+   }
+   
+   ///Registers given cell using CellData.
+   ///
+   ///:param: cellData Registers class based on its type and cell Id contained in this param.
+   public final func registerCellsFor(ViewModel viewModel : ViewModelType){
+      switch viewModel.cellType{
+      case .SubClass:
+         if let cellClass = NSClassFromString(viewModel.cellId){
+            if cellClass.isSubclassOfClass(UITableViewCell){
+               self.registerClass(NSClassFromString(viewModel.cellId),forCellReuseIdentifier: viewModel.cellId)
+            }
+         }else{
+            SPLogger.logError(Message: "\(viewModel.cellId) must be subclass of UITableViewCell to use it with SPTableView.")
+         }
+      case .Nib:
+         self.registerNib(UINib(nibName: viewModel.cellId, bundle: nil),
+            forCellReuseIdentifier: viewModel.cellId)
+         
+      case .ProtoType:
+         true
+      }
       
-      // Registers Nib before using in Dequeueing
-      self.registerReusableCellsIfRequired()
-      
-      // Table View Datasource setup
-      self.dataSource = tableDataSource
    }
 }
+
 

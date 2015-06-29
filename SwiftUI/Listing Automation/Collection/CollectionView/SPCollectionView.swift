@@ -8,62 +8,23 @@
 
 import UIKit
 
-// MARK: Properties
-///CollectionView instance which can be added via interface builder or code.
-///
-///Set spListingData - Listing Automation Compatible.
-///
-///When you add any new Cell from nib or Code in SplistingData you must call registerCellsForCellGroup method.
-///
-///If you add bulk cell data and not tracking them you can also call registerReusableCellsIfRequired instead of registerCellsForCellGroup. It will register all cells present in listing data. Otherwise it may crash.
 public class SPCollectionView: UICollectionView,SPListingCollectionViewType {
 
-   /// spListingData contains content details (Section list) of CollectionView to be used while displaying CollectionView.
-   public var listingData : ListingData<CollectionViewSection> {
+   public weak var controller : SPCollectionListingControllerType?
+      {
       didSet{
-         // If the spListingData first time gets some values in it.
-         if oldValue.count == 0{
+         if oldValue == nil && controller != nil{
             self.registerReusableCellsIfRequired()
+            self.collectionDataSource = SPCollectionViewDataSource(controller!)
+            self.dataSource = self.collectionDataSource
          }
       }
    }
    
-   public weak var cellDelegate : UIViewController?
+   private var collectionDataSource : SPCollectionViewDataSource?
 
-   ///Generic datasource takes control of Collectionview Datasource Management.
-   private lazy var spCollectionDatasource : SPCollectionViewDataSource = {
-      return SPCollectionViewDataSource(self)
-      }()
-   
-   public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout){
-      listingData = ListingData(sections: [])
-
-      super.init(frame: frame, collectionViewLayout : layout)
-      
-      //Setup
-      self.setupSPCollectionView()
-      
-   }
-   
    public required init(coder aDecoder: NSCoder) {
-      listingData = ListingData(sections: [])
-
       super.init(coder: aDecoder)
-      
-      //Setup
-      self.setupSPCollectionView()
-   }
-}
-
-// MARK: Setup SPCollectionView
-extension SPCollectionView{
-   ///Sets up CollectionView once it is created by Interface Builder or Code
-   private func setupSPCollectionView(){
-      
-      // Registers Nib before using in Dequeueing
-      self.registerReusableCellsIfRequired()
-
-      self.dataSource = spCollectionDatasource
    }
 }
 
@@ -71,9 +32,11 @@ extension SPCollectionView{
 extension SPCollectionView{
    ///Registers all nib file or Subclass which may be in SPListingData for reuse purpose.
    final func registerReusableCellsIfRequired(){
-      for section in listingData.items{
-         for viewModel in section.items{
-            self.registerCellsFor(ViewModel: viewModel)
+      if let controller = self.controller{
+         for section in controller.listingData.items{
+            for viewModel in section.items{
+               self.registerCellsFor(ViewModel: viewModel)
+            }
          }
       }
    }
