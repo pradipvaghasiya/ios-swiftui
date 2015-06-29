@@ -21,21 +21,22 @@ public class SPCollectionView: UICollectionView,SPListingCollectionViewType {
    /// spListingData contains content details (Section list) of CollectionView to be used while displaying CollectionView.
    public var listingData : ListingData<CollectionViewSection> {
       didSet{
-         spCollectionDatasource.listingData = listingData
-         
          // If the spListingData first time gets some values in it.
          if oldValue.count == 0{
             self.registerReusableCellsIfRequired()
          }
       }
    }
+   
+   public weak var cellDelegate : UIViewController?
 
    ///Generic datasource takes control of Collectionview Datasource Management.
-   private var spCollectionDatasource : SPCollectionViewDataSource
+   private lazy var spCollectionDatasource : SPCollectionViewDataSource = {
+      return SPCollectionViewDataSource(self)
+      }()
    
    public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout){
       listingData = ListingData(sections: [])
-      spCollectionDatasource = SPCollectionViewDataSource(listingData)
 
       super.init(frame: frame, collectionViewLayout : layout)
       
@@ -46,7 +47,6 @@ public class SPCollectionView: UICollectionView,SPListingCollectionViewType {
    
    public required init(coder aDecoder: NSCoder) {
       listingData = ListingData(sections: [])
-      spCollectionDatasource = SPCollectionViewDataSource(listingData)
 
       super.init(coder: aDecoder)
       

@@ -7,12 +7,11 @@
 //
 
 import UIKit
-private let kSectionHeaderFooterWithTextHeight : CGFloat  = 20.0
 
 ///Generic datasource takes control of Tableview Datasource Management.
 ///
 ///Delegate must conform to SPListingViewProtocol
-public class SPTableViewDatasource : NSObject, UITableViewDataSource {
+public class SPTableViewDataSource : NSObject, UITableViewDataSource {
    unowned var listingTableView : SPListingTableViewType
    
    public init(_ listingTableView : SPListingTableViewType){

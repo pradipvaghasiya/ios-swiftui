@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol SPListingViewType : class{
-   
+   weak var cellDelegate : UIViewController? {get set}
 }
 
 public protocol SPListingTableViewType : SPListingViewType{
@@ -18,7 +18,6 @@ public protocol SPListingTableViewType : SPListingViewType{
    /// It contains content details (Section list) of Tableview to be used in any listing UI Automation.
    var listingData : ListingData<TableViewSection> {get set}
    
-   weak var cellDelegate : UIViewController? {get set}
 }
 
 

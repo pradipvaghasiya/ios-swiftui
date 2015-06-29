@@ -33,8 +33,8 @@ public class SPTableView: UITableView,SPListingTableViewType {
    public weak var cellDelegate : UIViewController?
    
    ///Generic datasource takes control of Tableview Datasource Management.
-   private lazy var spTableDatasource : SPTableViewDatasource = {
-      return SPTableViewDatasource(self)
+   private lazy var tableDataSource : SPTableViewDataSource = {
+      return SPTableViewDataSource(self)
       }()
    
    override public init(frame: CGRect, style: UITableViewStyle = .Plain) {
@@ -63,7 +63,7 @@ public class SPTableView: UITableView,SPListingTableViewType {
       self.registerReusableCellsIfRequired()
       
       // Table View Datasource setup
-      self.dataSource = spTableDatasource
+      self.dataSource = tableDataSource
    }
 }
 

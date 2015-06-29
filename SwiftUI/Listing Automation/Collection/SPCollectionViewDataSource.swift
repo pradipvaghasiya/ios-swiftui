@@ -13,26 +13,26 @@ import UIKit
 ///Delegate must conform to SPListingViewProtocol
 public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
    
-   public var listingData : ListingData<CollectionViewSection>
+   unowned var listingCollectionView : SPListingCollectionViewType
    
-   public init(_ listingData : ListingData<CollectionViewSection>){
-      self.listingData = listingData
+   public init(_ listingCollectionView : SPListingCollectionViewType){
+      self.listingCollectionView = listingCollectionView
    }
    
    // MARK: Number Of Sections
    final public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int{
-      return listingData.count
+      return listingCollectionView.listingData.count
    }
    
    // MARK: Number Of Rows in Section
    final public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-      return listingData[section].count
+      return listingCollectionView.listingData[section].count
    }
    
    // MARK: cellForItemAtIndexPath
    final public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
       
-      let viewModel = listingData[indexPath.section][indexPath.row]
+      let viewModel = listingCollectionView.listingData[indexPath.section][indexPath.row]
       
       let collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(viewModel.cellId, forIndexPath: indexPath)
       
