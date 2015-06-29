@@ -40,9 +40,9 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource {
          ViewModelType: viewModel,
          IndexPath: indexPath)
       
-      if let listingCell = tableViewCell as? SPCellProtocol{
+      if let listingCell = tableViewCell as? SPTableCellProtocol{
          listingCell.configureCellUsing(viewModel)
-         listingCell.delegate = listingTableView.cellDelegate
+         listingCell.parentView = tableView
       }
       
       return tableViewCell

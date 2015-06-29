@@ -29,9 +29,7 @@ public class SPTableView: UITableView,SPListingTableViewType {
          }
       }
    }
-   
-   public weak var cellDelegate : UIViewController?
-   
+      
    ///Generic datasource takes control of Tableview Datasource Management.
    private lazy var tableDataSource : SPTableViewDataSource = {
       return SPTableViewDataSource(self)

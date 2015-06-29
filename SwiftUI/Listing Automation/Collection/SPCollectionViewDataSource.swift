@@ -36,9 +36,9 @@ public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource{
       
       let collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(viewModel.cellId, forIndexPath: indexPath)
       
-      if let listingCell = collectionViewCell as? SPCellProtocol{
+      if let listingCell = collectionViewCell as? SPCollectionCellProtocol{
          listingCell.configureCellUsing(viewModel)
-         
+         listingCell.parentView = collectionView
       }
       
       return collectionViewCell
