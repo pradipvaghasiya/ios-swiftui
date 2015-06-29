@@ -13,3 +13,15 @@ public protocol ArrayWrapperType : CollectionType,ExtensibleCollectionType,Range
    var items : [Element] {get set}
 }
 
+//public extension ArrayWrapperType where Self.Element : SectionType{
+//   public subscript (indexPath: NSIndexPath) -> ViewModelType{
+//      get{
+//         return items[indexPath.section].items[indexPath.row] as! ViewModelType
+//      }
+//      
+//      set{
+//         items[indexPath.section].items[indexPath.row]  = newValue
+//      }
+//   }
+//
+//}

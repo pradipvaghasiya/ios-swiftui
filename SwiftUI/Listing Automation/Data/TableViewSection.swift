@@ -15,6 +15,8 @@ public class TableViewSection: ArrayWrapper<ViewModelType>, TableViewSectionType
 //   public init (viewModels : [ViewModelType]){
 //      super.init(items: viewModels)
 //   }
+   
+   typealias Element = ViewModelType
 
    public required init(arrayLiteral elements: ViewModelType...){
       super.init(items: elements)
