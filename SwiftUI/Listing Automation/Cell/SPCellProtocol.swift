@@ -14,10 +14,10 @@ public protocol SPCellProtocol : class{
 
 
 public protocol SPTableCellProtocol : SPCellProtocol{
-   weak var parentView : UITableView? {get set}
+   weak var tableView : UITableView? {get set}
 }
 
 
 public protocol SPCollectionCellProtocol : SPCellProtocol{
-   weak var parentView : UICollectionView? {get set}
+   weak var collectionView : UICollectionView? {get set}
 }

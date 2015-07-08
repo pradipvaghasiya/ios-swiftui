@@ -39,7 +39,7 @@ public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource, 
       if let listingCell = collectionViewCell as? SPCollectionCellProtocol{
          listingCell.viewModel = viewModel
          listingCell.configureCell()
-         listingCell.parentView = collectionView
+         listingCell.collectionView = collectionView
       }
       
       return collectionViewCell
