@@ -1,10 +1,10 @@
-# SpeedKit #
+# SwiftUI #
 
 Speeds up iOS UI Development, Enforces developers to follow MVC.
 
 #ListinAutomation 
 
-To Create a TableView or Collection view you just need to create the SPListingData and provide it to SpeedKit views. It will generate the TableView or CollectionView for you.
+To Create a TableView or Collection view you just need to create the SPListingData and provide it to SwiftUI views. It will generate the TableView or CollectionView for you.
 
 ###SPListingData
 SPListingData contains array of SPListingSection. 
@@ -17,7 +17,7 @@ Reusability: Here you can create Cell once and use it in all your apps without c
 
 
 ###Below code will create the UITableView for you. 
-This Tableview contains SPTitleLabelCell as its rows. You can create generic tableview cells and use it with SpeedKit.
+This Tableview contains SPTitleLabelCell as its rows. You can create generic tableview cells and use it with SwiftUI.
 
  var spTableView = SPTableView(frame: self.view.frame)
 

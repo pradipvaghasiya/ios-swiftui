@@ -8,16 +8,16 @@
 
 import Foundation
 
-private var kSpeedKitWarningMessagePrefix = "SpeedKit Warning:"
-private var kSpeedKitErrorMessagePrefix = "SpeedKit Error:"
+private var kSwiftUIWarningMessagePrefix = "SwiftUI Warning:"
+private var kSwiftUIErrorMessagePrefix = "SwiftUI Error:"
 
 final class SPLogger{
 
    class func logWarning(Message message: String){
-      print("\(kSpeedKitWarningMessagePrefix) \(message)")
+      print("\(kSwiftUIWarningMessagePrefix) \(message)")
    }
    
    class func logError(Message message: String){
-      print("\(kSpeedKitErrorMessagePrefix) \(message)")
+      print("\(kSwiftUIErrorMessagePrefix) \(message)")
    }
 }

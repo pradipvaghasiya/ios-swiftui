@@ -164,7 +164,7 @@ class SPTableViewDataSourceTests: XCTestCase {
 
       let cell = twoSectionDatasource.tableView(spTableViewTestVC.tableView, cellForRowAtIndexPath: NSIndexPath(forRow: 3, inSection: 2))
 
-      XCTAssert(NSStringFromClass(cell.classForCoder) == "SpeedKitTests.SPTitleTestCell", "Test Cell should be created")
+      XCTAssert(NSStringFromClass(cell.classForCoder) == "SwiftUITests.SPTitleTestCell", "Test Cell should be created")
       
    }
    

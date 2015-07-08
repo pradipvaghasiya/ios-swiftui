@@ -66,7 +66,7 @@ class SPFixedColumnRowLayoutTests: XCTestCase {
 
       layout.prepareLayout()
       
-      XCTAssert(true, "No Crash only SpeedKit Errors are expected")
+      XCTAssert(true, "No Crash only SwiftUI Errors are expected")
    }
 }
 

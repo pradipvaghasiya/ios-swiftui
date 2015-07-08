@@ -162,7 +162,7 @@ class SPCollectionViewDatasourceTests: XCTestCase {
      
      let cell = twoSectionDatasource.collectionView(spCollectionViewTestVC.collectionView, cellForItemAtIndexPath: NSIndexPath(forRow: 3, inSection: 2))
      
-     XCTAssert(NSStringFromClass(cell.classForCoder) == "SpeedKitTests.SPTitleTestCCell", "Test Cell should be created")
+     XCTAssert(NSStringFromClass(cell.classForCoder) == "SwiftUITests.SPTitleTestCCell", "Test Cell should be created")
       
    }
    

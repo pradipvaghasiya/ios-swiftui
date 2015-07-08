@@ -1,6 +1,6 @@
 //
 //  SPHorizontalLayout.swift
-//  SpeedKit
+//  SwiftUI
 //
 //  Created by Pradip Vaghasiya on 09/08/14.
 //  Copyright (c) 2014 SpeedUI. All rights reserved.

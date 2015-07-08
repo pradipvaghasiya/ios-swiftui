@@ -53,7 +53,7 @@ extension SPTitleTestCCell{
    ///
    ///:param: stringArray Array of string using which SPListingData would be created.
    ///
-   ///:returns: SPListingData which can be used to create CollectionView using SpeedKit
+   ///:returns: SPListingData which can be used to create CollectionView using SwiftUI
    class func getBasicDefaultSPListingData(UsingStringArray stringArray: [String]) -> SPListingData{
       
       var SPTitleTestCCellModelArray : [SPTitleTestCCellModel] = []
