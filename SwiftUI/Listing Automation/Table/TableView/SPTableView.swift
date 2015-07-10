@@ -36,13 +36,29 @@ public class SPTableView: UITableView,SPListingTableViewType {
 extension SPTableView{
    ///Registers all nib file or Subclass which may be in SPListingData for reuse purpose.
    public final func registerReusableCellsIfRequired(){
+      var nibCells : Set<String> = Set()
+      var subclassCells : Set<String> = Set()
+      
       if let controller = self.controller{
          for section in controller.tableListingData(self).items{
             for viewModel in section.items{
-               self.registerCellsFor(ViewModel: viewModel)
+               if viewModel.cellType == .Nib{
+                  nibCells.insert(viewModel.cellId)
+               }else if viewModel.cellType == .SubClass{
+                  subclassCells.insert(viewModel.cellId)
+               }
             }
          }         
       }
+      
+      for cellId in nibCells{
+         self.registerNib(cellId)
+      }
+      
+      for cellId in subclassCells{
+         self.registerClass(cellId)
+      }
+      
    }
    
    ///Registers given cell using CellData.
@@ -51,22 +67,29 @@ extension SPTableView{
    public final func registerCellsFor(ViewModel viewModel : ViewModelType){
       switch viewModel.cellType{
       case .SubClass:
-         if let cellClass = NSClassFromString(viewModel.cellId){
-            if cellClass.isSubclassOfClass(UITableViewCell){
-               self.registerClass(NSClassFromString(viewModel.cellId),forCellReuseIdentifier: viewModel.cellId)
-            }
-         }else{
-            SPLogger.logError(Message: "\(viewModel.cellId) must be subclass of UITableViewCell to use it with SPTableView.")
-         }
+         self.registerClass(viewModel.cellId)
       case .Nib:
-         self.registerNib(UINib(nibName: viewModel.cellId, bundle: nil),
-            forCellReuseIdentifier: viewModel.cellId)
-         
+         self.registerNib(viewModel.cellId)
       case .ProtoType:
          true
       }
       
    }
+   
+   public final func registerNib(nibId : String){
+      self.registerNib(UINib(nibName: nibId, bundle: nil),forCellReuseIdentifier: nibId)
+   }
+
+   public final func registerClass(className : String){
+      if let cellClass = NSClassFromString(className){
+         if cellClass.isSubclassOfClass(UITableViewCell){
+            self.registerClass(NSClassFromString(className),forCellReuseIdentifier: className)
+         }
+      }else{
+         SPLogger.logError(Message: "\(className) must be subclass of UITableViewCell to use it with SPTableView.")
+      }
+   }
+
 }
 
 
