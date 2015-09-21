@@ -32,7 +32,7 @@ public class SPFixedColumnRowLayout: SPCollectionViewLayout {
    }
    
    required public init(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
+      super.init(coder: aDecoder)!
    }
    
    ///TODO: Pagination

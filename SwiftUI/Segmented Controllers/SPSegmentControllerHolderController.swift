@@ -23,7 +23,7 @@ class SPSegmentControllerHolderController : UIViewController{
 
     required init(coder aDecoder: NSCoder) {
         self.viewControllers = []
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
 
 }

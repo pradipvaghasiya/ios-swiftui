@@ -24,7 +24,7 @@ public class SPCollectionView: UICollectionView,SPListingCollectionViewType {
    private var collectionDataSource : SPCollectionViewDataSource?
 
    public required init(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
+      super.init(coder: aDecoder)!
    }
 }
 

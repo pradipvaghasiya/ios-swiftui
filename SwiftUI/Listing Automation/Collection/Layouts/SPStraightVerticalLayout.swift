@@ -37,7 +37,7 @@ public class SPStraightVerticalLayout: SPStraightLayout {
    }
    
    required public init(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
+      super.init(coder: aDecoder)!
    }
    
    override public func prepareLayout() {

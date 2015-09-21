@@ -10,7 +10,7 @@ import Foundation
 
 public class ArrayWrapper<T> : ArrayWrapperType{
    
-   typealias Element = T
+   public typealias Element = T
 
    public var items : [Element]
    public init (items : [Element]){
@@ -48,7 +48,7 @@ extension ArrayWrapper : CollectionType{
 }
 
 
-extension ArrayWrapper : ExtensibleCollectionType{
+extension ArrayWrapper : RangeReplaceableCollectionType{
    
    public func reserveCapacity(n: Int.Distance){
       items.reserveCapacity(n)
@@ -58,18 +58,12 @@ extension ArrayWrapper : ExtensibleCollectionType{
       items.append(x)
    }
    
-   public func extend<S : SequenceType where S.Generator.Element == T>(newElements: S){
-      items.extend(newElements)
-   }
-}
-
-extension ArrayWrapper : RangeReplaceableCollectionType{
    public func replaceRange<C : CollectionType where C.Generator.Element == T>(subRange: Range<Int>, with newElements: C){
       items.replaceRange(subRange, with: newElements)
    }
    
    public func splice<S : CollectionType where S.Generator.Element == T>(newElements: S, atIndex i: Int){
-      items.splice(newElements, atIndex: i)
+      items.insertContentsOf(newElements, at: i)
    }
    
    
