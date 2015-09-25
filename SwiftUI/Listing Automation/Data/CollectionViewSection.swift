@@ -10,10 +10,6 @@ import Foundation
 
 public class CollectionViewSection: ArrayWrapper<ViewModelType>,CollectionViewSectionType{
    
-//   public init (viewModels : [ViewModelType]){
-//      super.init(items: viewModels)
-//   }
-
    public required init(arrayLiteral elements: ViewModelType...){
       super.init(items: elements)
    }

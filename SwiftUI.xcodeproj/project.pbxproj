@@ -346,10 +346,10 @@
 		2838CB941B3419820010D5D0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				181E63A11B41262600519B92 /* ArrayWrapper.swift */,
 				28DF81441B3D8BB50013E090 /* ArrayWrapperType.swift */,
 				28DF81471B3D8BB50013E090 /* SectionType.swift */,
 				28DF81491B3D8BB50013E090 /* ViewModelType.swift */,
-				181E63A11B41262600519B92 /* ArrayWrapper.swift */,
 				28DF81461B3D8BB50013E090 /* ListingData.swift */,
 				28DF81481B3D8BB50013E090 /* TableViewSection.swift */,
 				28DF81451B3D8BB50013E090 /* CollectionViewSection.swift */,
