@@ -4,6 +4,8 @@ Speeds up iOS UI Development, Enforces developers to follow MVVM.
 
 CollectionView
 
+* Class of Collectionview in Storyboard should SPCollectionView
+
 * Setup CollectionView
 spCollectionView.controller = self
 spCollectionView.collectionViewLayout = layout
