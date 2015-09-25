@@ -12,6 +12,8 @@ CollectionView
 var collectionData : ListingData<CollectionViewSection> = []
 var layout : SPStraightVerticalLayout = SPStraightVerticalLayout(NoOfColumns: 2, ItemHeight: 200.0)
 
+self.configureCollectionView()
+
 private func configureCollectionView(){
         spCollectionView.controller = self
         spCollectionView.collectionViewLayout = layout
@@ -37,7 +39,6 @@ spCollectionView.reloadData()
 // MARK: Collectionview delegate
 extension AlbumsVC : UICollectionViewDelegate{
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
-        self.performSegueWithIdentifier(kSegueToPhotosGridVC, sender: self)
     }
 
 }
