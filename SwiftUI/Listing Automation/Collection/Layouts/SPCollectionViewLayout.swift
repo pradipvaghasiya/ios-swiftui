@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let kDefaultSpacing : CGFloat = 10.0
+private let kDefaultSpacing : CGFloat = 5
 
 public class SPCollectionViewLayout: UICollectionViewLayout {
    /// Denotes spacing between two lines incase of horizontal layout it is distance between columns and in vertical it is distance between rows.
