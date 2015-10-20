@@ -12,26 +12,26 @@ public class SPCollectionCell: UICollectionViewCell,SPCollectionCellProtocol{
     public weak var viewModel : ViewModelType?
     public weak var collectionView : UICollectionView?
     
-    public var highlightedBackgroundColor : UIColor?
+    public var selectedBackgroundColor : UIColor?
     private var defaultBackgroundColor : UIColor?
     
-    override public var highlighted : Bool{
+    override public var selected : Bool{
         didSet{
-            if let color = highlightedBackgroundColor{
-                if oldValue != highlighted{
-                    if highlighted{
-                        defaultBackgroundColor = self.backgroundColor
+            if let color = selectedBackgroundColor{
+                if oldValue != selected{
+                    if selected{
                         self.backgroundColor = color
                     }else{
-                        let delay = 0.5 * Double(NSEC_PER_SEC)
-                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                        dispatch_after(time, dispatch_get_main_queue(), { [unowned self] in
-                            self.backgroundColor = self.defaultBackgroundColor
-                        })
+                        self.backgroundColor = defaultBackgroundColor
                     }
                 }
             }
         }
+    }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        defaultBackgroundColor = self.backgroundColor
     }
     
     public func configureCell(){
