@@ -9,8 +9,10 @@
 import Foundation
 
 public protocol ViewModelType : class{
-   var cellId : String {get}
-   var cellType : CellType {get}
+    var cellId : String {get}
+    var cellType : CellType {get}
+    
+    var serverId: AnyObject? {get}
 }
 
 public enum CellType{
