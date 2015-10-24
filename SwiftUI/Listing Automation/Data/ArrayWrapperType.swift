@@ -6,9 +6,5 @@
 //  Copyright © 2015 speedui. All rights reserved.
 //
 
-import Foundation
-
 public protocol ArrayWrapperType : CollectionType,RangeReplaceableCollectionType,ArrayLiteralConvertible{
-   typealias Element
-   var items : [Element] {get set}
 }

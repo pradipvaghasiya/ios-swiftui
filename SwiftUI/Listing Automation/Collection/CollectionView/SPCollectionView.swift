@@ -38,7 +38,7 @@ extension SPCollectionView{
       
       if let controller = self.controller{
          for section in controller.collectionListingData(self).items{
-            for viewModel in section.items{
+            for viewModel in section{
                if viewModel.cellType == .Nib{
                   nibCells.insert(viewModel.cellId)
                }else if viewModel.cellType == .SubClass{
