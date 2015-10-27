@@ -20,4 +20,13 @@ public protocol SPCollectionListingControllerType : SPListingControllerType{
    func collectionListingData(collectionView : UICollectionView)->ListingData<CollectionViewSection>
 }
 
+public protocol SPSingleCollectionListingControllerType : SPCollectionListingControllerType{
+    weak var collectionView: SPCollectionView! {get set}
+    var collectionData : ListingData<CollectionViewSection> {get set}
+}
 
+public extension SPSingleCollectionListingControllerType{
+    public func collectionListingData(collectionView: UICollectionView) -> ListingData<CollectionViewSection> {
+        return collectionData
+    }
+}
