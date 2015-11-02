@@ -35,7 +35,6 @@ public protocol SPCollectionListingControllerType : SPListingControllerType{
 }
 
 public protocol SPSingleCollectionListingControllerType : SPCollectionListingControllerType{
-    weak var collectionView: SPCollectionView! {get set}
     var collectionData : ListingData<CollectionViewSection> {get set}
 }
 

@@ -12,7 +12,7 @@ public protocol ViewModelType : class{
     var cellId : String {get}
     var cellType : CellType {get}
     
-    var serverId: Any? {get}
+    var serverId: Any? {get set}
 }
 
 public enum CellType{
