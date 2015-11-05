@@ -11,6 +11,7 @@ import UIKit
 public class SPCollectionCell: UICollectionViewCell,SPCollectionCellProtocol{
     public weak var viewModel : ViewModelType?
     public weak var collectionView : UICollectionView?
+    public weak var indexPath : NSIndexPath?
     
     public var selectedBackgroundColor : UIColor?
     private var defaultBackgroundColor : UIColor?
