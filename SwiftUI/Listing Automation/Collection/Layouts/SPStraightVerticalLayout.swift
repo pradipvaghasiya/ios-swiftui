@@ -178,7 +178,7 @@ public class SPStraightVerticalLayout: SPStraightLayout {
         super.finalizeAnimatedBoundsChange()
         
         // Leave it alone if pagingEnabled
-        guard pagingEnabled else{
+        guard !pagingEnabled else{
             return
         }
 

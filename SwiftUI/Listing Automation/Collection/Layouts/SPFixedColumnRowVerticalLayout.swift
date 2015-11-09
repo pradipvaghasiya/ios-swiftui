@@ -149,7 +149,7 @@ public final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
         super.finalizeAnimatedBoundsChange()
         
         // Leave it alone if pagingEnabled
-        guard pagingEnabled else{
+        guard !pagingEnabled else{
             return
         }
 
