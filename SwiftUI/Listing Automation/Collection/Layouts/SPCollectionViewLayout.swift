@@ -138,6 +138,13 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
         return (0,0)
     }
     
+    // Update layout on bounds change
+    final override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+        if newBounds.width != self.collectionView!.bounds.size.width{
+            return true
+        }
+        return false
+    }
 }
 
 // MARK: Pass Attributes to Apple's collectionview Mechanism
