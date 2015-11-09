@@ -151,9 +151,39 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
         return CGSizeMake(0, 0)
     }
     
+    
+// On rotation below method needs to be implemented in case of Paging Enabled
+// Need to get indexPath from proposedContentOffset and calculate accordingly.
+    public override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint) -> CGPoint {
+        
+        guard let noOfSections = self.collectionView?.numberOfSections() where noOfSections == 1 else{
+            return proposedContentOffset
+        }
+        
+        //Below assumes only one cell is visible per page
+        guard pagingEnabled &&
+            noOfColumns == 1 &&
+        oldBoundsBeforeInvalidationLayout.width > 0
+            else{
+            return proposedContentOffset
+        }
+
+        let itemWidthWithGapBeforeRotation =  oldBoundsBeforeInvalidationLayout.width + lineSpacing
+        let itemWidthWithGapAfterRotation =  collectionView!.bounds.width + lineSpacing
+        
+        let itemNo = ceil(proposedContentOffset.x / itemWidthWithGapBeforeRotation)
+        
+        return CGPointMake(itemNo * itemWidthWithGapAfterRotation, proposedContentOffset.y)
+    }
+    
     public override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint{
         
         guard pagingEnabled else{
+            return proposedContentOffset
+        }
+        
+        //Below assumes only one cell is visible per page
+        guard noOfColumns == 1 else{
             return proposedContentOffset
         }
         
@@ -161,7 +191,9 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
             return proposedContentOffset
         }
         
-        var originX = collectionView!.visibleCells()[0].frame.origin.x
+        guard var originX = collectionView?.visibleCells()[0].frame.origin.x else{
+            return proposedContentOffset
+        }
         
         if proposedContentOffset.x < currentPointX{
             collectionView?.visibleCells().forEach{

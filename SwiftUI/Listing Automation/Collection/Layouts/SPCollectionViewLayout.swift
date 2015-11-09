@@ -138,9 +138,11 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
         return (0,0)
     }
     
+    var oldBoundsBeforeInvalidationLayout = CGRectZero
     // Update layout on bounds change
     final override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
         if newBounds.width != self.collectionView!.bounds.size.width{
+            oldBoundsBeforeInvalidationLayout = self.collectionView!.bounds
             return true
         }
         return false
