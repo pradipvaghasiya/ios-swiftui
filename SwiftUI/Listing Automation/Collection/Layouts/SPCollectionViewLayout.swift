@@ -36,6 +36,13 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
     override public func prepareLayout() {
         super.prepareLayout()
         
+        // Set decelerationRate as fast in case of pagination.
+        if pagingEnabled{
+            collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
+        }else{
+            collectionView?.decelerationRate = UIScrollViewDecelerationRateNormal
+        }
+        
         // Clear all attribute and content size values
         attributesDictionary.removeAll(keepCapacity: false)
         sectionSizeDictionary.removeAll(keepCapacity: false)
