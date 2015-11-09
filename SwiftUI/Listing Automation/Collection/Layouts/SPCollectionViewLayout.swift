@@ -154,6 +154,7 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
         }
         return false
     }
+    
 }
 
 // MARK: Pass Attributes to Apple's collectionview Mechanism

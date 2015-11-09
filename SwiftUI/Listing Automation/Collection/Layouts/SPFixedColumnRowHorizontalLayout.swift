@@ -151,6 +151,27 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
         return CGSizeMake(0, 0)
     }
     
+    public override func finalizeAnimatedBoundsChange() {
+        super.finalizeAnimatedBoundsChange()
+        
+        // Leave it alone if pagingEnabled
+        guard pagingEnabled else{
+            return
+        }
+
+        // On bounds change if previous content offset was to big for current content size then
+        // Reduce the new offset to contentsize width - bounds width
+        
+        let maxOffSetX = collectionView!.contentSize.width - collectionView!.bounds.width
+        guard maxOffSetX < collectionView!.contentOffset.x else{
+            return
+        }
+        
+        var newOffset = collectionView!.contentOffset
+        newOffset.x = maxOffSetX
+        collectionView!.setContentOffset(newOffset, animated: false)
+    }
+
     
 // On rotation below method needs to be implemented in case of Paging Enabled
 // Need to get indexPath from proposedContentOffset and calculate accordingly.

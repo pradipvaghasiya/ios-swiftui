@@ -173,6 +173,27 @@ public class SPStraightVerticalLayout: SPStraightLayout {
         }
         return CGSizeMake(0, 0)
     }
+    
+    public override func finalizeAnimatedBoundsChange() {
+        super.finalizeAnimatedBoundsChange()
+        
+        // Leave it alone if pagingEnabled
+        guard pagingEnabled else{
+            return
+        }
+
+        // On bounds change if previous content offset was to big for current content size then
+        // Reduce the new offset to contentsize height - bounds height
+        
+        let maxOffSetY = collectionView!.contentSize.height - collectionView!.bounds.height
+        guard maxOffSetY < collectionView!.contentOffset.y else{
+            return
+        }
+        
+        var newOffset = collectionView!.contentOffset
+        newOffset.y = maxOffSetY
+        collectionView!.setContentOffset(newOffset, animated: false)
+    }
 }
 
 // MARK: Helper methods
