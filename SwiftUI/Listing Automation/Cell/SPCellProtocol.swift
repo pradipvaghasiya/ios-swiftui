@@ -9,7 +9,6 @@
 /// To Listing Automation to work, Cell or Item must conform to this protocol.
 public protocol SPCellProtocol : class{
     weak var viewModel : ViewModelType? {get set}
-    weak var indexPath : NSIndexPath? {get set}
     func configureCell()
 }
 
