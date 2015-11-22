@@ -156,6 +156,17 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
         updateContentOffsetForHorizontalLayoutOnBoundsChange()
     }
 
+    public var currentPageIndex : Int? {
+        guard let collectionView = collectionView where pagingEnabled && noOfColumns == 1 else{
+            return nil
+        }
+
+        let itemWidth =  collectionView.bounds.width + lineSpacing
+        let itemNo = ceil(collectionView.contentOffset.x / itemWidth)
+        return Int(itemNo)
+    }
+    
+    
     
 // On rotation below method needs to be implemented in case of Paging Enabled
 // Need to get indexPath from proposedContentOffset and calculate accordingly.
