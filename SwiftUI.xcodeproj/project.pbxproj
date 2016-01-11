@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		181E639F1B41174800519B92 /* SPListingViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E639E1B41174800519B92 /* SPListingViewType.swift */; };
-		181E63A21B41262600519B92 /* ArrayWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E63A11B41262600519B92 /* ArrayWrapper.swift */; };
 		181E63A41B41295F00519B92 /* SPListingControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E63A31B41295F00519B92 /* SPListingControllerType.swift */; };
 		181E63A61B412ABB00519B92 /* SPListingDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E63A51B412ABB00519B92 /* SPListingDataSourceType.swift */; };
 		1826FE801B41A677007BA401 /* SPTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826FE7F1B41A677007BA401 /* SPTableCell.swift */; };
@@ -37,22 +36,6 @@
 		1899F7241B3C1398002F038B /* SPTitleTestNibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899F70F1B3C1398002F038B /* SPTitleTestNibCell.xib */; };
 		2838CB5E1B3418B80010D5D0 /* SwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 2838CB5D1B3418B80010D5D0 /* SwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2838CBA31B3419820010D5D0 /* SPCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB781B3419820010D5D0 /* SPCollectionView.swift */; };
-		2838CBA41B3419820010D5D0 /* SPCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB7A1B3419820010D5D0 /* SPCollectionViewLayout.swift */; };
-		2838CBA51B3419820010D5D0 /* SPCollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB7B1B3419820010D5D0 /* SPCollectionViewLayoutDelegate.swift */; };
-		2838CBA61B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB7C1B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayout.swift */; };
-		2838CBA71B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB7D1B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayoutDelegate.swift */; };
-		2838CBA81B3419820010D5D0 /* SPColumnBasedVerticalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB7E1B3419820010D5D0 /* SPColumnBasedVerticalLayoutDelegate.swift */; };
-		2838CBA91B3419820010D5D0 /* SPFixedColumnRowHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB7F1B3419820010D5D0 /* SPFixedColumnRowHorizontalLayout.swift */; };
-		2838CBAA1B3419820010D5D0 /* SPFixedColumnRowHorizontalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB801B3419820010D5D0 /* SPFixedColumnRowHorizontalLayoutDelegate.swift */; };
-		2838CBAB1B3419820010D5D0 /* SPFixedColumnRowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB811B3419820010D5D0 /* SPFixedColumnRowLayout.swift */; };
-		2838CBAC1B3419820010D5D0 /* SPFixedColumnRowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB821B3419820010D5D0 /* SPFixedColumnRowLayoutDelegate.swift */; };
-		2838CBAD1B3419820010D5D0 /* SPFixedColumnRowVerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB831B3419820010D5D0 /* SPFixedColumnRowVerticalLayout.swift */; };
-		2838CBAE1B3419820010D5D0 /* SPFixedColumnRowVerticalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB841B3419820010D5D0 /* SPFixedColumnRowVerticalLayoutDelegate.swift */; };
-		2838CBAF1B3419820010D5D0 /* SPListingColumnBasedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB851B3419820010D5D0 /* SPListingColumnBasedLayout.swift */; };
-		2838CBB01B3419820010D5D0 /* SPListingColumnBasedLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB861B3419820010D5D0 /* SPListingColumnBasedLayoutDelegate.swift */; };
-		2838CBB11B3419820010D5D0 /* SPListingColumnBasedLayoutInvalidationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB871B3419820010D5D0 /* SPListingColumnBasedLayoutInvalidationContext.swift */; };
-		2838CBB21B3419820010D5D0 /* SPStraightLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB881B3419820010D5D0 /* SPStraightLayout.swift */; };
-		2838CBB31B3419820010D5D0 /* SPStraightVerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB891B3419820010D5D0 /* SPStraightVerticalLayout.swift */; };
 		2838CBB41B3419820010D5D0 /* SPCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB8B1B3419820010D5D0 /* SPCollectionViewDataSource.swift */; };
 		2838CBB71B3419820010D5D0 /* SPTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB901B3419820010D5D0 /* SPTableViewDataSource.swift */; };
 		2838CBB91B3419820010D5D0 /* SPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB931B3419820010D5D0 /* SPTableView.swift */; };
@@ -66,6 +49,19 @@
 		28DF814D1B3D8BB50013E090 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81471B3D8BB50013E090 /* SectionType.swift */; };
 		28DF814E1B3D8BB50013E090 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81481B3D8BB50013E090 /* TableViewSection.swift */; };
 		28DF814F1B3D8BB50013E090 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81491B3D8BB50013E090 /* ViewModelType.swift */; };
+		32B793AC1C43C4F0001FC751 /* SPCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7939F1C43C4F0001FC751 /* SPCollectionViewLayout.swift */; };
+		32B793AD1C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A01C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift */; };
+		32B793AE1C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A11C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayout.swift */; };
+		32B793AF1C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A21C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayoutDelegate.swift */; };
+		32B793B01C43C4F0001FC751 /* SPFixedColumnRowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A31C43C4F0001FC751 /* SPFixedColumnRowLayout.swift */; };
+		32B793B11C43C4F0001FC751 /* SPFixedColumnRowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A41C43C4F0001FC751 /* SPFixedColumnRowLayoutDelegate.swift */; };
+		32B793B21C43C4F0001FC751 /* SPFixedColumnRowVerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A51C43C4F0001FC751 /* SPFixedColumnRowVerticalLayout.swift */; };
+		32B793B31C43C4F0001FC751 /* SPFixedColumnRowVerticalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A61C43C4F0001FC751 /* SPFixedColumnRowVerticalLayoutDelegate.swift */; };
+		32B793B41C43C4F0001FC751 /* SPStraightLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A71C43C4F0001FC751 /* SPStraightLayout.swift */; };
+		32B793B51C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A81C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayout.swift */; };
+		32B793B61C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A91C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift */; };
+		32B793B71C43C4F0001FC751 /* SPStraightVerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793AA1C43C4F0001FC751 /* SPStraightVerticalLayout.swift */; };
+		32B793B81C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793AB1C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +76,6 @@
 
 /* Begin PBXFileReference section */
 		181E639E1B41174800519B92 /* SPListingViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SPListingViewType.swift; path = ../SPListingViewType.swift; sourceTree = "<group>"; };
-		181E63A11B41262600519B92 /* ArrayWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayWrapper.swift; sourceTree = "<group>"; };
 		181E63A31B41295F00519B92 /* SPListingControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SPListingControllerType.swift; path = ../SPListingControllerType.swift; sourceTree = "<group>"; };
 		181E63A51B412ABB00519B92 /* SPListingDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SPListingDataSourceType.swift; path = ../SPListingDataSourceType.swift; sourceTree = "<group>"; };
 		1826FE7F1B41A677007BA401 /* SPTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableCell.swift; sourceTree = "<group>"; };
@@ -112,22 +107,6 @@
 		2838CB5D1B3418B80010D5D0 /* SwiftUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftUI.h; sourceTree = "<group>"; };
 		2838CB5F1B3418B80010D5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2838CB781B3419820010D5D0 /* SPCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionView.swift; sourceTree = "<group>"; };
-		2838CB7A1B3419820010D5D0 /* SPCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayout.swift; sourceTree = "<group>"; };
-		2838CB7B1B3419820010D5D0 /* SPCollectionViewLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayoutDelegate.swift; sourceTree = "<group>"; };
-		2838CB7C1B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPColumnBasedSpaceOptimizedVerticalLayout.swift; sourceTree = "<group>"; };
-		2838CB7D1B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPColumnBasedSpaceOptimizedVerticalLayoutDelegate.swift; sourceTree = "<group>"; };
-		2838CB7E1B3419820010D5D0 /* SPColumnBasedVerticalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPColumnBasedVerticalLayoutDelegate.swift; sourceTree = "<group>"; };
-		2838CB7F1B3419820010D5D0 /* SPFixedColumnRowHorizontalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowHorizontalLayout.swift; sourceTree = "<group>"; };
-		2838CB801B3419820010D5D0 /* SPFixedColumnRowHorizontalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowHorizontalLayoutDelegate.swift; sourceTree = "<group>"; };
-		2838CB811B3419820010D5D0 /* SPFixedColumnRowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowLayout.swift; sourceTree = "<group>"; };
-		2838CB821B3419820010D5D0 /* SPFixedColumnRowLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowLayoutDelegate.swift; sourceTree = "<group>"; };
-		2838CB831B3419820010D5D0 /* SPFixedColumnRowVerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowVerticalLayout.swift; sourceTree = "<group>"; };
-		2838CB841B3419820010D5D0 /* SPFixedColumnRowVerticalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowVerticalLayoutDelegate.swift; sourceTree = "<group>"; };
-		2838CB851B3419820010D5D0 /* SPListingColumnBasedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingColumnBasedLayout.swift; sourceTree = "<group>"; };
-		2838CB861B3419820010D5D0 /* SPListingColumnBasedLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingColumnBasedLayoutDelegate.swift; sourceTree = "<group>"; };
-		2838CB871B3419820010D5D0 /* SPListingColumnBasedLayoutInvalidationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPListingColumnBasedLayoutInvalidationContext.swift; sourceTree = "<group>"; };
-		2838CB881B3419820010D5D0 /* SPStraightLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightLayout.swift; sourceTree = "<group>"; };
-		2838CB891B3419820010D5D0 /* SPStraightVerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightVerticalLayout.swift; sourceTree = "<group>"; };
 		2838CB8B1B3419820010D5D0 /* SPCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		2838CB901B3419820010D5D0 /* SPTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableViewDataSource.swift; sourceTree = "<group>"; };
 		2838CB931B3419820010D5D0 /* SPTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPTableView.swift; sourceTree = "<group>"; };
@@ -142,6 +121,19 @@
 		28DF81471B3D8BB50013E090 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		28DF81481B3D8BB50013E090 /* TableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
 		28DF81491B3D8BB50013E090 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		32B7939F1C43C4F0001FC751 /* SPCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayout.swift; sourceTree = "<group>"; };
+		32B793A01C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayoutDelegate.swift; sourceTree = "<group>"; };
+		32B793A11C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowHorizontalLayout.swift; sourceTree = "<group>"; };
+		32B793A21C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowHorizontalLayoutDelegate.swift; sourceTree = "<group>"; };
+		32B793A31C43C4F0001FC751 /* SPFixedColumnRowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowLayout.swift; sourceTree = "<group>"; };
+		32B793A41C43C4F0001FC751 /* SPFixedColumnRowLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowLayoutDelegate.swift; sourceTree = "<group>"; };
+		32B793A51C43C4F0001FC751 /* SPFixedColumnRowVerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowVerticalLayout.swift; sourceTree = "<group>"; };
+		32B793A61C43C4F0001FC751 /* SPFixedColumnRowVerticalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPFixedColumnRowVerticalLayoutDelegate.swift; sourceTree = "<group>"; };
+		32B793A71C43C4F0001FC751 /* SPStraightLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightLayout.swift; sourceTree = "<group>"; };
+		32B793A81C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightSpaceOptimizedVerticalLayout.swift; sourceTree = "<group>"; };
+		32B793A91C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightSpaceOptimizedVerticalLayoutDelegate.swift; sourceTree = "<group>"; };
+		32B793AA1C43C4F0001FC751 /* SPStraightVerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightVerticalLayout.swift; sourceTree = "<group>"; };
+		32B793AB1C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightVerticalLayoutDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,8 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				2838CB8B1B3419820010D5D0 /* SPCollectionViewDataSource.swift */,
+				32B7939E1C43C4F0001FC751 /* Layouts */,
 				2838CB771B3419820010D5D0 /* CollectionView */,
-				2838CB791B3419820010D5D0 /* Layouts */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -301,29 +293,6 @@
 				2838CB781B3419820010D5D0 /* SPCollectionView.swift */,
 			);
 			path = CollectionView;
-			sourceTree = "<group>";
-		};
-		2838CB791B3419820010D5D0 /* Layouts */ = {
-			isa = PBXGroup;
-			children = (
-				2838CB7A1B3419820010D5D0 /* SPCollectionViewLayout.swift */,
-				2838CB7B1B3419820010D5D0 /* SPCollectionViewLayoutDelegate.swift */,
-				2838CB7C1B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayout.swift */,
-				2838CB7D1B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayoutDelegate.swift */,
-				2838CB7E1B3419820010D5D0 /* SPColumnBasedVerticalLayoutDelegate.swift */,
-				2838CB7F1B3419820010D5D0 /* SPFixedColumnRowHorizontalLayout.swift */,
-				2838CB801B3419820010D5D0 /* SPFixedColumnRowHorizontalLayoutDelegate.swift */,
-				2838CB811B3419820010D5D0 /* SPFixedColumnRowLayout.swift */,
-				2838CB821B3419820010D5D0 /* SPFixedColumnRowLayoutDelegate.swift */,
-				2838CB831B3419820010D5D0 /* SPFixedColumnRowVerticalLayout.swift */,
-				2838CB841B3419820010D5D0 /* SPFixedColumnRowVerticalLayoutDelegate.swift */,
-				2838CB851B3419820010D5D0 /* SPListingColumnBasedLayout.swift */,
-				2838CB861B3419820010D5D0 /* SPListingColumnBasedLayoutDelegate.swift */,
-				2838CB871B3419820010D5D0 /* SPListingColumnBasedLayoutInvalidationContext.swift */,
-				2838CB881B3419820010D5D0 /* SPStraightLayout.swift */,
-				2838CB891B3419820010D5D0 /* SPStraightVerticalLayout.swift */,
-			);
-			path = Layouts;
 			sourceTree = "<group>";
 		};
 		2838CB8C1B3419820010D5D0 /* Table */ = {
@@ -346,7 +315,6 @@
 		2838CB941B3419820010D5D0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				181E63A11B41262600519B92 /* ArrayWrapper.swift */,
 				28DF81441B3D8BB50013E090 /* ArrayWrapperType.swift */,
 				28DF81471B3D8BB50013E090 /* SectionType.swift */,
 				28DF81491B3D8BB50013E090 /* ViewModelType.swift */,
@@ -375,6 +343,26 @@
 			);
 			name = Protocols;
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		32B7939E1C43C4F0001FC751 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				32B7939F1C43C4F0001FC751 /* SPCollectionViewLayout.swift */,
+				32B793A01C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift */,
+				32B793A11C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayout.swift */,
+				32B793A21C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayoutDelegate.swift */,
+				32B793A31C43C4F0001FC751 /* SPFixedColumnRowLayout.swift */,
+				32B793A41C43C4F0001FC751 /* SPFixedColumnRowLayoutDelegate.swift */,
+				32B793A51C43C4F0001FC751 /* SPFixedColumnRowVerticalLayout.swift */,
+				32B793A61C43C4F0001FC751 /* SPFixedColumnRowVerticalLayoutDelegate.swift */,
+				32B793A71C43C4F0001FC751 /* SPStraightLayout.swift */,
+				32B793A81C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayout.swift */,
+				32B793A91C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift */,
+				32B793AA1C43C4F0001FC751 /* SPStraightVerticalLayout.swift */,
+				32B793AB1C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,42 +501,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32B793B41C43C4F0001FC751 /* SPStraightLayout.swift in Sources */,
+				32B793B01C43C4F0001FC751 /* SPFixedColumnRowLayout.swift in Sources */,
 				2838CBB41B3419820010D5D0 /* SPCollectionViewDataSource.swift in Sources */,
+				32B793AC1C43C4F0001FC751 /* SPCollectionViewLayout.swift in Sources */,
 				2838CBA31B3419820010D5D0 /* SPCollectionView.swift in Sources */,
-				2838CBAD1B3419820010D5D0 /* SPFixedColumnRowVerticalLayout.swift in Sources */,
+				32B793B21C43C4F0001FC751 /* SPFixedColumnRowVerticalLayout.swift in Sources */,
 				1826FE801B41A677007BA401 /* SPTableCell.swift in Sources */,
-				2838CBAC1B3419820010D5D0 /* SPFixedColumnRowLayoutDelegate.swift in Sources */,
 				2838CBB91B3419820010D5D0 /* SPTableView.swift in Sources */,
-				2838CBB11B3419820010D5D0 /* SPListingColumnBasedLayoutInvalidationContext.swift in Sources */,
+				32B793AF1C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayoutDelegate.swift in Sources */,
 				181E639F1B41174800519B92 /* SPListingViewType.swift in Sources */,
 				2838CBC41B3419820010D5D0 /* SPUIHelper.swift in Sources */,
-				2838CBAE1B3419820010D5D0 /* SPFixedColumnRowVerticalLayoutDelegate.swift in Sources */,
-				2838CBAF1B3419820010D5D0 /* SPListingColumnBasedLayout.swift in Sources */,
 				2838CBC31B3419820010D5D0 /* SPLogger.swift in Sources */,
-				2838CBA91B3419820010D5D0 /* SPFixedColumnRowHorizontalLayout.swift in Sources */,
 				28DF814C1B3D8BB50013E090 /* ListingData.swift in Sources */,
-				2838CBA51B3419820010D5D0 /* SPCollectionViewLayoutDelegate.swift in Sources */,
 				181E63A41B41295F00519B92 /* SPListingControllerType.swift in Sources */,
-				2838CBB21B3419820010D5D0 /* SPStraightLayout.swift in Sources */,
 				2838CBB71B3419820010D5D0 /* SPTableViewDataSource.swift in Sources */,
+				32B793B61C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift in Sources */,
 				28DF814A1B3D8BB50013E090 /* ArrayWrapperType.swift in Sources */,
 				28DF814E1B3D8BB50013E090 /* TableViewSection.swift in Sources */,
+				32B793AE1C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayout.swift in Sources */,
 				28DF814B1B3D8BB50013E090 /* CollectionViewSection.swift in Sources */,
-				2838CBA41B3419820010D5D0 /* SPCollectionViewLayout.swift in Sources */,
-				2838CBAB1B3419820010D5D0 /* SPFixedColumnRowLayout.swift in Sources */,
+				32B793B11C43C4F0001FC751 /* SPFixedColumnRowLayoutDelegate.swift in Sources */,
+				32B793B31C43C4F0001FC751 /* SPFixedColumnRowVerticalLayoutDelegate.swift in Sources */,
+				32B793AD1C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift in Sources */,
 				28DF814D1B3D8BB50013E090 /* SectionType.swift in Sources */,
-				2838CBB31B3419820010D5D0 /* SPStraightVerticalLayout.swift in Sources */,
-				2838CBA71B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayoutDelegate.swift in Sources */,
-				2838CBAA1B3419820010D5D0 /* SPFixedColumnRowHorizontalLayoutDelegate.swift in Sources */,
-				2838CBA61B3419820010D5D0 /* SPColumnBasedSpaceOptimizedVerticalLayout.swift in Sources */,
 				1826FE821B41A7B5007BA401 /* SPCollectionCell.swift in Sources */,
 				2838CBBF1B3419820010D5D0 /* SPCellProtocol.swift in Sources */,
+				32B793B71C43C4F0001FC751 /* SPStraightVerticalLayout.swift in Sources */,
 				28DF814F1B3D8BB50013E090 /* ViewModelType.swift in Sources */,
-				2838CBB01B3419820010D5D0 /* SPListingColumnBasedLayoutDelegate.swift in Sources */,
-				2838CBA81B3419820010D5D0 /* SPColumnBasedVerticalLayoutDelegate.swift in Sources */,
 				2838CBC21B3419820010D5D0 /* SPSegmentControllerHolderController.swift in Sources */,
+				32B793B81C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift in Sources */,
 				181E63A61B412ABB00519B92 /* SPListingDataSourceType.swift in Sources */,
-				181E63A21B41262600519B92 /* ArrayWrapper.swift in Sources */,
+				32B793B51C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
