@@ -19,7 +19,6 @@ public protocol SPTableListingControllerType : SPListingControllerType{
 }
 
 public protocol SPSingleTableListingControllerType : SPTableListingControllerType{
-    weak var tableView: SPTableView! {get set}
     var tableData : ListingData<TableViewSection> {get set}
 }
 
