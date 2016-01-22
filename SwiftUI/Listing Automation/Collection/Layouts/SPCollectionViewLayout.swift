@@ -32,6 +32,12 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
     /// Set as true if Pagination is needed. Default is false.
     public var pagingEnabled = false
     
+    /// Set different kind of supplymentary views if any
+    public var supplementaryViewKinds : [String] = []
+
+    /// Set different kind of decoration views if any
+    public var decorationViewKinds : [String] = []
+    
     // MARK: Prepare Layout
     override public func prepareLayout() {
         super.prepareLayout()
@@ -164,6 +170,22 @@ extension SPCollectionViewLayout{
         for (_,attributes) in attributesDictionary{
             if CGRectIntersectsRect(rect, attributes.frame){
                 attribuetsInRectArray.append(attributes)
+                
+                //Add Supplementary views if any
+                for kind in supplementaryViewKinds{
+                    guard let supplementaryAttributes = layoutAttributesForSupplementaryViewOfKind(kind, atIndexPath: attributes.indexPath) else{
+                        continue
+                    }
+                    attribuetsInRectArray.append(supplementaryAttributes)
+                }
+                
+                //Add Decoration views if any
+                for kind in decorationViewKinds{
+                    guard let decorationAttributes = layoutAttributesForDecorationViewOfKind(kind, atIndexPath: attributes.indexPath) else{
+                        continue
+                    }
+                    attribuetsInRectArray.append(decorationAttributes)
+                }
             }
         }
         

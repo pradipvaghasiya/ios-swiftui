@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 SpeedUI. All rights reserved.
 //
 
+import UIKit
 /// To Listing Automation to work, Cell or Item must conform to this protocol.
 public protocol SPCellProtocol : class{
     weak var viewModel : ViewModelType? {get set}

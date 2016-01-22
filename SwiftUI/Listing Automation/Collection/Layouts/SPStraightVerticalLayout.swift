@@ -79,7 +79,7 @@ public class SPStraightVerticalLayout: SPStraightLayout {
         return (itemWidth, self.itemHeightAt(IndexPath: indexPath))
     }
     
-    final override func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath: NSIndexPath) -> (x: CGFloat, y: CGFloat) {
+    override func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath: NSIndexPath) -> (x: CGFloat, y: CGFloat) {
         let sectionInsetForCurrentSection = self.sectionInset(ForSection: indexPath.section)
         
         if indexPath.section == 0{
