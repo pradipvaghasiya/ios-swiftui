@@ -12,7 +12,7 @@ public class SPCollectionCell: UICollectionViewCell,SPCollectionCellProtocol{
     public weak var viewModel : ViewModelType?
     public weak var collectionView : UICollectionView?
     
-    public var selectedBackgroundColor : UIColor?
+    public var selectedBackgroundColor : UIColor? // Set this if you wish to have selection color change behaviour
     private var defaultBackgroundColor : UIColor?
     
     override public var selected : Bool{
