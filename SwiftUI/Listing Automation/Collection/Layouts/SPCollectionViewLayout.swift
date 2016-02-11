@@ -78,6 +78,7 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
             let noOfItemsInCurrentSection = collectionView.numberOfItemsInSection(section)
             
             if noOfItemsInCurrentSection == 0{
+                sectionSizeDictionary[section] = (0,0)
                 // Update Section Size array
                 continue
             }
