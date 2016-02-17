@@ -189,7 +189,7 @@ extension SPStraightVerticalLayout{
     ///
     ///:returns: Int No Of Columns
     final func noOfColumns(ForSection section : Int) -> Int{
-        if let delegate = self.delegate as? SPFixedColumnRowLayoutDelegate{
+        if let delegate = self.delegate as? SPStraightVerticalLayoutDelegate{
             if let noOfColumns = delegate.noOfColumns?(ForSection: section){
                 return Int(noOfColumns)
             }
