@@ -1,6 +1,6 @@
 //
 //  SPStraightHorizontalLayout.swift
-//  FolderDetailUI
+//  SwiftUI
 //
 //  Created by Pradip V on 2/11/16.
 //  Copyright © 2016 Speedui. All rights reserved.
