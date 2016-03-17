@@ -2,7 +2,7 @@
 //  Section.swift
 //  SwiftUI
 //
-//  Created by ibm on 26/06/15.
+//  Created by Pradip V on 26/06/15.
 //  Copyright © 2015 speedui. All rights reserved.
 //
 
