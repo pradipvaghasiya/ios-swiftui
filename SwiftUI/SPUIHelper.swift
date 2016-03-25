@@ -21,19 +21,14 @@ public final class SPUIHelper{
     /// :param: viewcontroller on which alert controller needs to be displayed. Required for iOS 8 and above.
     @available(iOS, introduced=7.0)
     public class func showWarningAlert(WithMessage message:String, OnViewController viewController:UIViewController) {
-        if #available(iOS 8.0, *) {
-            // Create Alert Controller with given message.
-            let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: .Alert)
-            // Add Action
-            let cancelAction = UIAlertAction(title:"Ok", style: .Cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            
-            // Present alert controller.
-            viewController.presentViewController(alertController, animated: true, completion: nil)
-        } else {
-            // Fallback on earlier versions
-///TODO: Add UIALert for iOS 7
-        }
+        // Create Alert Controller with given message.
+        let alertController = UIAlertController(title: "Warning", message: message, preferredStyle: .Alert)
+        // Add Action
+        let cancelAction = UIAlertAction(title:"Ok", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // Present alert controller.
+        viewController.presentViewController(alertController, animated: true, completion: nil)
     }
     
     /// It displays alert with given title and message.
@@ -43,22 +38,15 @@ public final class SPUIHelper{
     /// :param: viewcontroller on which alert controller needs to be displayed. Required for iOS 8 and above.
     @available(iOS, introduced=7.0)
     public class func showSimpleAlert(WithTitle title:String, WithMessage message:String, OnViewController viewController:UIViewController) {
-        if #available(iOS 8.0, *) {
-            // Create Alert Controller with given message.
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-            
-            // Add Action
-            let cancelAction = UIAlertAction(title:"Ok", style: .Cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            
-            // Present alert controller.
-            viewController.presentViewController(alertController, animated: true, completion: nil)
-
-        } else {
-            // Fallback on earlier versions
-///TODO: Add UIALert for iOS 7
-
-        }
+        // Create Alert Controller with given message.
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        // Add Action
+        let cancelAction = UIAlertAction(title:"Ok", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // Present alert controller.
+        viewController.presentViewController(alertController, animated: true, completion: nil)
     }
     
     // MARK: 2. Add View controller to container controller

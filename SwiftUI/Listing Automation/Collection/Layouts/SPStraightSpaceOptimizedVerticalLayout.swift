@@ -55,7 +55,7 @@ public final class SPStraightSpaceOptimizedVerticalLayout: SPStraightVerticalLay
       var lastItemInShortestColumnIndexPath : NSIndexPath?
       
       while indexPath.item - currentPreviousItemOffset >= 0{
-         currentPreviousItemOffset++
+         currentPreviousItemOffset += 1
          
          let currentPreviousItemOffsetIndexPath = NSIndexPath(forItem: indexPath.item - currentPreviousItemOffset, inSection: indexPath.section)
          

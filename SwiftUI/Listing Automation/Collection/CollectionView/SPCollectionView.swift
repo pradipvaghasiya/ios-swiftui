@@ -41,7 +41,7 @@ public class SPCollectionView: UICollectionView,SPListingCollectionViewType {
         didSet{
             if enableEditing{
                 guard let _ = panGesture else{
-                    panGesture = UIPanGestureRecognizer(target: self, action: "userPanned:")
+                    panGesture = UIPanGestureRecognizer(target: self, action: #selector(SPCollectionView.userPanned(_:)))
                     panGesture?.delegate = self
                     addGestureRecognizer(panGesture!)
                     return
