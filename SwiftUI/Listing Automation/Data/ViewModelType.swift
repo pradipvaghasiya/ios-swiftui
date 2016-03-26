@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ViewModelType : class{
+public protocol ViewModelType : class, NSObjectProtocol{
     var cellId : String {get}
     var cellType : CellType {get}
     
