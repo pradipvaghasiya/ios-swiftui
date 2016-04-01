@@ -3,7 +3,7 @@
 //  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 16/04/15.
-//  Copyright (c) 2015 SpeedUI. All rights reserved.
+//  Copyright (c) 2015 Happyfall. All rights reserved.
 //
 
 import UIKit
