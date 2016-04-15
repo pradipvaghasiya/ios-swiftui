@@ -10,7 +10,7 @@ import UIKit
 
 private let kDefaultEditViewWidth : CGFloat = 80
 public protocol SPCollectionViewEditingDelegate : class{
-    func editView() -> UIView?
+    func editView(indexPath : NSIndexPath) -> UIView?
 }
 
 public class SPCollectionView: UICollectionView,SPListingCollectionViewType {
@@ -269,7 +269,8 @@ extension SPCollectionView : UIGestureRecognizerDelegate{
     }
 
     func addEditViewForCell(cell : UICollectionViewCell) -> UIView?{
-        guard let editView = editingDelegate?.editView() else{
+        guard let indexPath = indexPathForCell(cell),
+            let editView = editingDelegate?.editView(indexPath) else{
             return nil
         }
         var editViewFrame = getCellFrameInCollectionView(cell.frame)
