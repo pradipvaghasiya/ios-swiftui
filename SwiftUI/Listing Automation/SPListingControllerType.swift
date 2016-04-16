@@ -10,36 +10,16 @@ import Foundation
 import UIKit
 
 public protocol SPListingControllerType : class{
-   
+   func listingData(listingView : UIView)->ListingData<ListingSection>
 }
 
-//MARK: TableView
-
-public protocol SPTableListingControllerType : SPListingControllerType{
-   func tableListingData(tableView : UITableView)->ListingData<TableViewSection>
+public protocol SPSingleSectionListingControllerType : SPListingControllerType{
+    var listingData : ListingData<ListingSection> {get set}
 }
 
-public protocol SPSingleTableListingControllerType : SPTableListingControllerType{
-    var tableData : ListingData<TableViewSection> {get set}
-}
-
-public extension SPSingleTableListingControllerType{
-    public func tableListingData(tableView : UITableView)->ListingData<TableViewSection>{
-        return tableData
+public extension SPSingleSectionListingControllerType{
+    public func listingData(listingView : UIView)->ListingData<ListingSection>{
+        return listingData
     }
 }
 
-//MARK: CollectionView
-public protocol SPCollectionListingControllerType : SPListingControllerType{
-    func collectionListingData(collectionView : UICollectionView)->ListingData<CollectionViewSection>
-}
-
-public protocol SPSingleCollectionListingControllerType : SPCollectionListingControllerType{
-    var collectionData : ListingData<CollectionViewSection> {get set}
-}
-
-public extension SPSingleCollectionListingControllerType{
-    public func collectionListingData(collectionView: UICollectionView) -> ListingData<CollectionViewSection> {
-        return collectionData
-    }
-}

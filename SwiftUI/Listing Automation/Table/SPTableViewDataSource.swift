@@ -12,28 +12,28 @@ import UIKit
 ///
 ///Delegate must conform to SPListingViewProtocol
 public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPTableListingDataSourceType {
-    unowned public let controller : SPTableListingControllerType
+    unowned public let controller : SPListingControllerType
     
-    public init(_ controller : SPTableListingControllerType){
+    public init(_ controller : SPListingControllerType){
         self.controller = controller
     }
     
     // MARK: Number Of Sections
     final public func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return controller.tableListingData(tableView).count
+        return controller.listingData(tableView).count
     }
     
     // MARK: Number Of Rows in Section
     final public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return controller.tableListingData(tableView)[section].count
+        return controller.listingData(tableView)[section].count
     }
     
     // MARK: cellForRowAtIndexPath
     final public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let viewModel = controller.tableListingData(tableView)[indexPath.section][indexPath.row]
+        let viewModel = controller.listingData(tableView)[indexPath.section][indexPath.row]
         
         let tableViewCell = self.createCellUsing(
             TableView: tableView,
@@ -72,11 +72,11 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPTableLis
     
     // MARK: Section Header & Footer Title
     final public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return controller.tableListingData(tableView)[section].sectionHeader
+        return controller.listingData(tableView)[section].sectionHeader
     }
     
     final public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return controller.tableListingData(tableView)[section].sectionFooter
+        return controller.listingData(tableView)[section].sectionFooter
     }
     
 }
