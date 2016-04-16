@@ -78,8 +78,4 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPListingD
     final public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return controller.listingData(tableView)[section].sectionFooter
     }
- 
-    final public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
-        
-    }
 }

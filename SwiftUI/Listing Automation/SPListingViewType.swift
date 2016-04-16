@@ -6,8 +6,8 @@
 //  Copyright © 2015 Happyfall. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-public protocol SPListingViewType : class{
+public protocol SPListingViewType : class, UIGestureRecognizerDelegate{
     weak var controller : SPListingControllerType? {get set}
 }
