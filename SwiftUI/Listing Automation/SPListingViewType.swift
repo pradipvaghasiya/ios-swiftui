@@ -12,9 +12,9 @@ public protocol SPListingViewType : class{
 }
 
 public protocol SPListingTableViewType : SPListingViewType{
-   weak var controller : SPTableListingControllerType? {get set}
+   weak var controller : SPListingControllerType? {get set}
 }
 
 public protocol SPListingCollectionViewType : SPListingViewType  {
-   weak var controller : SPCollectionListingControllerType? {get set}
+   weak var controller : SPSingleSectionListingControllerType? {get set}
 }

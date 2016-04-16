@@ -10,17 +10,17 @@ import UIKit
 
 public class SPTableView: UITableView,SPListingTableViewType {
    
-   public weak var controller : SPTableListingControllerType? {
+   public weak var controller : SPListingControllerType? {
       didSet{
          if oldValue == nil && controller != nil{
             self.registerReusableCellsIfRequired()
-            self.tableDataSource = SPTableViewDataSource(controller!)
-            self.dataSource = self.tableDataSource
+            self.listingDataSource = SPTableViewDataSource(controller!)
+            self.dataSource = self.listingDataSource
          }
       }
    }
    
-   private var tableDataSource : SPTableViewDataSource?
+   private var listingDataSource : SPTableViewDataSource?
    
    override public init(frame: CGRect, style: UITableViewStyle = .Plain) {
       super.init(frame: frame, style: style)
@@ -40,7 +40,7 @@ extension SPTableView{
       var subclassCells : Set<String> = Set()
       
       if let controller = self.controller{
-         for section in controller.tableListingData(self).items{
+         for section in controller.listingData(self).items{
             for viewModel in section{
                if viewModel.cellType == .Nib{
                   nibCells.insert(viewModel.cellId)

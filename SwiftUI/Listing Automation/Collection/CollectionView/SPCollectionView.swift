@@ -15,7 +15,7 @@ public protocol SPCollectionViewEditingDelegate : class{
 
 public class SPCollectionView: UICollectionView,SPListingCollectionViewType {
     
-    public weak var controller : SPCollectionListingControllerType?
+    public weak var controller : SPSingleSectionListingControllerType?
         {
         didSet{
             if oldValue == nil && controller != nil{
@@ -77,7 +77,7 @@ extension SPCollectionView{
         var subclassCells : Set<String> = Set()
         
         if let controller = self.controller{
-            for section in controller.collectionListingData(self).items{
+            for section in controller.listingData(self).items{
                 for viewModel in section{
                     if viewModel.cellType == .Nib{
                         nibCells.insert(viewModel.cellId)

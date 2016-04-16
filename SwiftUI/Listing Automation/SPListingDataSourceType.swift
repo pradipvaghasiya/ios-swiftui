@@ -12,9 +12,9 @@ public protocol SPListingDataSourceType{
 }
 
 public protocol SPTableListingDataSourceType : SPListingDataSourceType{
-   unowned var controller : SPTableListingControllerType {get}
+   unowned var controller : SPListingControllerType {get}
 }
 
 public protocol SPCollectionListingDataSourceType : SPListingDataSourceType{
-   unowned var controller : SPCollectionListingControllerType {get}
+   unowned var controller : SPSingleSectionListingControllerType {get}
 }

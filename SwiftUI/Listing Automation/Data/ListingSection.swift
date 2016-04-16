@@ -1,42 +1,34 @@
 //
 //  Section.swift
-//  SwiftUI
+//  Kamero
 //
-//  Created by Pradip V on 26/06/15.
-//  Copyright © 2015 speedui. All rights reserved.
+//  Created by Pradip V on 4/15/16.
+//  Copyright © 2016 Happyfall. All rights reserved.
 //
 
-import Foundation
-
-public class TableViewSection: TableViewSectionType{
+public class ListingSection: SectionType{
+    ///Only valid for TableView
     public var sectionHeader : String?
+    ///Only valid for TableView
     public var sectionFooter : String?
-    
-    private var items : [ViewModelType]
+
+    var items : [ViewModelType]
     init (items : [ViewModelType]){
         self.items = items
-    }
-    
-    public required init(){
-        items = []
     }
     
     public required init(arrayLiteral elements: ViewModelType...){
         items = Array(elements)
     }
-    
+
+    public required init(){
+        items = []
+    }
+        
     public var count: Int { get {return items.count} }
-    
-    //     required init(arrayLiteral elements: T...){
-    //        super.init(items: elements)
-    //    }
-    
-    //    public func viewModelAtIndexPath(indexPath: NSIndexPath) -> ViewModelType{
-    //        return items[indexPath.section].items[1]
-    //    }
 }
 
-extension TableViewSection : CollectionType{
+extension ListingSection : CollectionType{
     public var startIndex: Int { get {return 0}}
     public var endIndex: Int {
         get{
@@ -56,7 +48,7 @@ extension TableViewSection : CollectionType{
 }
 
 
-extension TableViewSection : RangeReplaceableCollectionType{
+extension ListingSection : RangeReplaceableCollectionType{
     
     public func reserveCapacity(n: Int.Distance){
         items.reserveCapacity(n)
@@ -92,6 +84,6 @@ extension TableViewSection : RangeReplaceableCollectionType{
     }
 }
 
-extension TableViewSection : ArrayLiteralConvertible{
+extension ListingSection : ArrayLiteralConvertible{
+    
 }
-

@@ -12,13 +12,3 @@ import Foundation
 public protocol SectionType : ArrayWrapperType{
    
 }
-
-public protocol TableViewSectionType : SectionType{
-   var sectionHeader : String? {get set}
-   var sectionFooter : String? {get set}
-}
-
-
-public protocol CollectionViewSectionType : SectionType{
-   
-}
