@@ -9,7 +9,7 @@ CollectionView
 * 
 
 * Setup CollectionView
-var listingData : ListingData<ListingSection> = []
+var listingData : ListingData = []
 var layout : SPStraightVerticalLayout = SPStraightVerticalLayout(NoOfColumns: 2, ItemHeight: 200.0)
 
 self.configureCollectionView()
@@ -26,7 +26,7 @@ listingData = [[SPTitleTestCCellModel(TitleText: "0")]]  // 1 Section and 1 Row
 * Provide Data
 //MARK: SwiftUI Collection View
 extension AlbumsVC: SPListingControllerType{
-    func listingData(collectionView: UICollectionView) -> ListingData<ListingSection> {
+    func listingData(collectionView: UICollectionView) -> ListingSection {
         return listingData
     }
 }

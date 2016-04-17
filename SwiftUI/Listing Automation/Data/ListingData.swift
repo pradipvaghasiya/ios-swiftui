@@ -9,10 +9,10 @@
 import Foundation
 
 
-public class ListingData<Element : SectionType> : ArrayWrapperType{
+public class ListingData : ArrayWrapperType{
     
-    public var items : [Element]
-    public init (items : [Element]){
+    public var items : [ListingSection]
+    public init (items : [ListingSection]){
         self.items = items
     }
     
@@ -20,7 +20,7 @@ public class ListingData<Element : SectionType> : ArrayWrapperType{
         items = []
     }
     
-    public required init(arrayLiteral elements: Element...){
+    public required init(arrayLiteral elements: ListingSection...){
         items = Array(elements)
     }
     
@@ -35,7 +35,7 @@ extension ListingData : CollectionType{
         }
     }
     
-    public subscript (index: Int) -> Element{
+    public subscript (index: Int) -> ListingSection{
         get{
             return items[index]
         }
@@ -53,15 +53,15 @@ extension ListingData : RangeReplaceableCollectionType{
         items.reserveCapacity(n)
     }
     
-    public func append(x: Element){
+    public func append(x: ListingSection){
         items.append(x)
     }
     
-    public func replaceRange<C : CollectionType where C.Generator.Element == Element>(subRange: Range<Int>, with newElements: C){
+    public func replaceRange<C : CollectionType where C.Generator.Element == ListingSection>(subRange: Range<Int>, with newElements: C){
         items.replaceRange(subRange, with: newElements)
     }
     
-   public func splice<S : CollectionType where S.Generator.Element == Element>(newElements: S, atIndex i: Int){
+   public func splice<S : CollectionType where S.Generator.Element == ListingSection>(newElements: S, atIndex i: Int){
       items.insertContentsOf(newElements, at: i)
    }
    
@@ -70,11 +70,11 @@ extension ListingData : RangeReplaceableCollectionType{
       items.removeRange(subRange)
    }
    
-   public func insert(newElement: Element, atIndex i: Int){
+   public func insert(newElement: ListingSection, atIndex i: Int){
       items.insert(newElement, atIndex: i)
    }
    
-   public func removeAtIndex(index: Int) -> Element{
+   public func removeAtIndex(index: Int) -> ListingSection{
       return items.removeAtIndex(index)
    }
    
