@@ -42,12 +42,9 @@
 		2838CBBF1B3419820010D5D0 /* SPCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CB9C1B3419820010D5D0 /* SPCellProtocol.swift */; };
 		2838CBC21B3419820010D5D0 /* SPSegmentControllerHolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CBA01B3419820010D5D0 /* SPSegmentControllerHolderController.swift */; };
 		2838CBC31B3419820010D5D0 /* SPLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CBA11B3419820010D5D0 /* SPLogger.swift */; };
-		2838CBC41B3419820010D5D0 /* SPUIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2838CBA21B3419820010D5D0 /* SPUIHelper.swift */; };
 		28DF814A1B3D8BB50013E090 /* ArrayWrapperType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81441B3D8BB50013E090 /* ArrayWrapperType.swift */; };
-		28DF814B1B3D8BB50013E090 /* CollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81451B3D8BB50013E090 /* CollectionViewSection.swift */; };
 		28DF814C1B3D8BB50013E090 /* ListingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81461B3D8BB50013E090 /* ListingData.swift */; };
 		28DF814D1B3D8BB50013E090 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81471B3D8BB50013E090 /* SectionType.swift */; };
-		28DF814E1B3D8BB50013E090 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81481B3D8BB50013E090 /* TableViewSection.swift */; };
 		28DF814F1B3D8BB50013E090 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF81491B3D8BB50013E090 /* ViewModelType.swift */; };
 		32B793AC1C43C4F0001FC751 /* SPCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7939F1C43C4F0001FC751 /* SPCollectionViewLayout.swift */; };
 		32B793AD1C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A01C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift */; };
@@ -62,6 +59,8 @@
 		32B793B61C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793A91C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift */; };
 		32B793B71C43C4F0001FC751 /* SPStraightVerticalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793AA1C43C4F0001FC751 /* SPStraightVerticalLayout.swift */; };
 		32B793B81C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B793AB1C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift */; };
+		32DB2ACB1CC3612D00E0971E /* ListingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB2ACA1CC3612D00E0971E /* ListingSection.swift */; };
+		32DB2ACD1CC361B800E0971E /* SPEditableListingViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DB2ACC1CC361B800E0971E /* SPEditableListingViewType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,12 +113,9 @@
 		2838CB9E1B3419820010D5D0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2838CBA01B3419820010D5D0 /* SPSegmentControllerHolderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPSegmentControllerHolderController.swift; sourceTree = "<group>"; };
 		2838CBA11B3419820010D5D0 /* SPLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPLogger.swift; sourceTree = "<group>"; };
-		2838CBA21B3419820010D5D0 /* SPUIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPUIHelper.swift; sourceTree = "<group>"; };
 		28DF81441B3D8BB50013E090 /* ArrayWrapperType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayWrapperType.swift; sourceTree = "<group>"; };
-		28DF81451B3D8BB50013E090 /* CollectionViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewSection.swift; sourceTree = "<group>"; };
 		28DF81461B3D8BB50013E090 /* ListingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingData.swift; sourceTree = "<group>"; };
 		28DF81471B3D8BB50013E090 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
-		28DF81481B3D8BB50013E090 /* TableViewSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
 		28DF81491B3D8BB50013E090 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		32B7939F1C43C4F0001FC751 /* SPCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayout.swift; sourceTree = "<group>"; };
 		32B793A01C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPCollectionViewLayoutDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +130,8 @@
 		32B793A91C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightSpaceOptimizedVerticalLayoutDelegate.swift; sourceTree = "<group>"; };
 		32B793AA1C43C4F0001FC751 /* SPStraightVerticalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightVerticalLayout.swift; sourceTree = "<group>"; };
 		32B793AB1C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPStraightVerticalLayoutDelegate.swift; sourceTree = "<group>"; };
+		32DB2ACA1CC3612D00E0971E /* ListingSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingSection.swift; sourceTree = "<group>"; };
+		32DB2ACC1CC361B800E0971E /* SPEditableListingViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPEditableListingViewType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +156,7 @@
 		181E63A01B411D1400519B92 /* Listing View */ = {
 			isa = PBXGroup;
 			children = (
+				32DB2ACC1CC361B800E0971E /* SPEditableListingViewType.swift */,
 				1826FE7E1B41A669007BA401 /* Cell */,
 				2838CB8C1B3419820010D5D0 /* Table */,
 				2838CB761B3419820010D5D0 /* Collection */,
@@ -250,7 +249,6 @@
 			children = (
 				2838CB9E1B3419820010D5D0 /* README.md */,
 				2838CBA11B3419820010D5D0 /* SPLogger.swift */,
-				2838CBA21B3419820010D5D0 /* SPUIHelper.swift */,
 				2838CB751B3419820010D5D0 /* Listing Automation */,
 				2838CB9F1B3419820010D5D0 /* Segmented Controllers */,
 				2838CB741B3419660010D5D0 /* Metadata */,
@@ -319,8 +317,7 @@
 				28DF81471B3D8BB50013E090 /* SectionType.swift */,
 				28DF81491B3D8BB50013E090 /* ViewModelType.swift */,
 				28DF81461B3D8BB50013E090 /* ListingData.swift */,
-				28DF81481B3D8BB50013E090 /* TableViewSection.swift */,
-				28DF81451B3D8BB50013E090 /* CollectionViewSection.swift */,
+				32DB2ACA1CC3612D00E0971E /* ListingSection.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -511,16 +508,14 @@
 				2838CBB91B3419820010D5D0 /* SPTableView.swift in Sources */,
 				32B793AF1C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayoutDelegate.swift in Sources */,
 				181E639F1B41174800519B92 /* SPListingViewType.swift in Sources */,
-				2838CBC41B3419820010D5D0 /* SPUIHelper.swift in Sources */,
 				2838CBC31B3419820010D5D0 /* SPLogger.swift in Sources */,
 				28DF814C1B3D8BB50013E090 /* ListingData.swift in Sources */,
 				181E63A41B41295F00519B92 /* SPListingControllerType.swift in Sources */,
+				32DB2ACD1CC361B800E0971E /* SPEditableListingViewType.swift in Sources */,
 				2838CBB71B3419820010D5D0 /* SPTableViewDataSource.swift in Sources */,
 				32B793B61C43C4F0001FC751 /* SPStraightSpaceOptimizedVerticalLayoutDelegate.swift in Sources */,
 				28DF814A1B3D8BB50013E090 /* ArrayWrapperType.swift in Sources */,
-				28DF814E1B3D8BB50013E090 /* TableViewSection.swift in Sources */,
 				32B793AE1C43C4F0001FC751 /* SPFixedColumnRowHorizontalLayout.swift in Sources */,
-				28DF814B1B3D8BB50013E090 /* CollectionViewSection.swift in Sources */,
 				32B793B11C43C4F0001FC751 /* SPFixedColumnRowLayoutDelegate.swift in Sources */,
 				32B793B31C43C4F0001FC751 /* SPFixedColumnRowVerticalLayoutDelegate.swift in Sources */,
 				32B793AD1C43C4F0001FC751 /* SPCollectionViewLayoutDelegate.swift in Sources */,
@@ -529,6 +524,7 @@
 				2838CBBF1B3419820010D5D0 /* SPCellProtocol.swift in Sources */,
 				32B793B71C43C4F0001FC751 /* SPStraightVerticalLayout.swift in Sources */,
 				28DF814F1B3D8BB50013E090 /* ViewModelType.swift in Sources */,
+				32DB2ACB1CC3612D00E0971E /* ListingSection.swift in Sources */,
 				2838CBC21B3419820010D5D0 /* SPSegmentControllerHolderController.swift in Sources */,
 				32B793B81C43C4F0001FC751 /* SPStraightVerticalLayoutDelegate.swift in Sources */,
 				181E63A61B412ABB00519B92 /* SPListingDataSourceType.swift in Sources */,
@@ -606,7 +602,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -648,7 +644,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -668,7 +664,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftUI/Metadata/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.speedui.SwiftUI;
@@ -688,7 +684,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftUI/Metadata/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.speedui.SwiftUI;

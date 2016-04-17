@@ -1,5 +1,5 @@
 //
-//  SPTableViewSectionTests.swift
+//  ListingSectionTests.swift
 //  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 01/05/15.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class SPTableViewSectionTests: XCTestCase {
+class ListingSectionTests: XCTestCase {
 
    
    var cellGroup1 = SPListingCellGroup(cellId: "SPTitleLabelCell", cellCount: 12, cellCommonModel: "CommonModel")
@@ -17,13 +17,13 @@ class SPTableViewSectionTests: XCTestCase {
    var cellGroup3 = SPListingCellGroup(cellId: "SPTitleLabelCell", cellCommonModel: "CommonModel", cellModelArray: ["1","2"])
    
    var cellGroups : [SPListingCellGroup] = []
-   var sectionData = SPTableViewSection(CellGroups: [])
+   var sectionData = ListingSection(CellGroups: [])
    
    override func setUp() {
       super.setUp()
       
       cellGroups = [cellGroup1,cellGroup2]
-      sectionData = SPTableViewSection(CellGroups: [cellGroup1,cellGroup2])
+      sectionData = ListingSection(CellGroups: [cellGroup1,cellGroup2])
    }
    
    override func tearDown() {
@@ -39,7 +39,7 @@ class SPTableViewSectionTests: XCTestCase {
    }
    
    func testSectionDataWithEmptyCells(){
-      let sectionData = SPTableViewSection(CellGroups: [])
+      let sectionData = ListingSection(CellGroups: [])
       XCTAssert(sectionData.spCellGroupArray.count == 0 &&
          sectionData.sectionHeader == nil &&
          sectionData.sectionFooter == nil &&
@@ -47,7 +47,7 @@ class SPTableViewSectionTests: XCTestCase {
    }
    
    func testSectionDataWithSectionHeader(){
-      let sectionData = SPTableViewSection(CellGroups: cellGroups, SectionHeader: "header")
+      let sectionData = ListingSection(CellGroups: cellGroups, SectionHeader: "header")
       XCTAssert(sectionData.spCellGroupArray.count == 2 &&
          sectionData.sectionHeader == "header" &&
          sectionData.sectionFooter == nil &&
@@ -55,7 +55,7 @@ class SPTableViewSectionTests: XCTestCase {
    }
    
    func testSectionDataWithSectionFooter(){
-      let sectionData = SPTableViewSection(CellGroups: cellGroups, SectionFooter: "footer")
+      let sectionData = ListingSection(CellGroups: cellGroups, SectionFooter: "footer")
       XCTAssert(sectionData.spCellGroupArray.count == 2 &&
          sectionData.sectionHeader == nil &&
          sectionData.sectionFooter == "footer" &&
@@ -63,7 +63,7 @@ class SPTableViewSectionTests: XCTestCase {
    }
    
    func testSectionDataWithSectionHeaderNFooter(){
-      let sectionData = SPTableViewSection(CellGroups: cellGroups, SectionHeader: "header", SectionFooter : "footer")
+      let sectionData = ListingSection(CellGroups: cellGroups, SectionHeader: "header", SectionFooter : "footer")
       XCTAssert(sectionData.spCellGroupArray.count == 2 &&
          sectionData.sectionHeader == "header" &&
          sectionData.sectionFooter == "footer" &&
@@ -71,7 +71,7 @@ class SPTableViewSectionTests: XCTestCase {
    }
    
    func testSectionCellCountWithOneCellSet(){
-      let sectionData = SPTableViewSection(CellGroups: [cellGroup1])
+      let sectionData = ListingSection(CellGroups: [cellGroup1])
       XCTAssert(sectionData.spCellGroupArray.count == 1 &&
          sectionData.sectionHeader == nil &&
          sectionData.sectionFooter == nil &&

@@ -1,6 +1,6 @@
 
 //
-//  SPCollectionViewSectionTests.swift
+//  ListingSectionTests.swift
 //  SwiftUIDemo
 //
 //  Created by Pradip Vaghasiya on 01/05/15.
@@ -10,17 +10,17 @@
 import UIKit
 import XCTest
 
-class SPCollectionViewSectionTests: XCTestCase {
+class ListingSectionTests: XCTestCase {
 
    var cellGroup1 = SPListingCellGroup(cellId: "SPTitleLabelCell", cellCount: 12, cellCommonModel: "CommonModel")
    var cellGroup2 = SPListingCellGroup(cellId: "SPTitleLabelCell",cellModelArray: ["1","2","3"])
    
-   var sectionData = SPCollectionViewSection(CellGroups: [])
+   var sectionData = ListingSection(CellGroups: [])
    
    override func setUp() {
       super.setUp()
       
-      sectionData = SPCollectionViewSection(CellGroups: [cellGroup1,cellGroup2])
+      sectionData = ListingSection(CellGroups: [cellGroup1,cellGroup2])
    }
    
    override func tearDown() {
