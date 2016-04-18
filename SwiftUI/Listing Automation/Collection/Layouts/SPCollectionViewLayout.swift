@@ -94,11 +94,11 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
                 let (itemWidth,itemHeight) = self.calculateItemWidthAndHeightAt(IndexPath: indexPath)
                 
                 let attributes : UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                attributes.frame = CGRectMake(self.roundFloatUptoTwoDecimalPoints(x),
-                    self.roundFloatUptoTwoDecimalPoints(y),
-                    self.roundFloatUptoTwoDecimalPoints(itemWidth),
-                    self.roundFloatUptoTwoDecimalPoints(itemHeight))
-                
+                attributes.frame = CGRectMake(x,
+                                              y,
+                                              itemWidth,
+                                              itemHeight)
+
                 // Update main attributes dictionary
                 self.attributesDictionary[indexPath] = attributes
                 
@@ -261,21 +261,7 @@ extension SPCollectionViewLayout{
         }
         
         return self.sectionInset
-    }
-    
-    ///Converts Long float into 2 decimal points.
-    ///
-    ///:param: floatValue Float value for which 2 decimal points are needed.
-    ///
-    ///:returns: CGFloat upto 2 decimal points
-    final func roundFloatUptoTwoDecimalPoints(floatValue : CGFloat) -> CGFloat{
-        let floatString = String(format: "%0.2f", floatValue)
-        if let floatNumber = NSNumberFormatter().numberFromString(floatString) {
-            return CGFloat(floatNumber)
-        }
-        return 0
-    }
-    
+    }    
     
     final func updateContentOffsetForVerticalLayoutOnBoundsChange(){
         // Leave it alone if pagingEnabled
