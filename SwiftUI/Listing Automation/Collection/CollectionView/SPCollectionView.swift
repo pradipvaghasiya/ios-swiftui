@@ -118,3 +118,14 @@ extension SPCollectionView{
     }
     
 }
+
+//MARK: Cell Update
+extension SPCollectionView{
+    ///Update the viewmodel and call this method. ViewModel is reference type so cell's ViewModel will automatically updated.
+    func reConfigureCellIfVisibleAtIndexPath(indexPath: NSIndexPath){
+        guard let cell = cellForItemAtIndexPath(indexPath) as? SPCollectionCell else{
+            return
+        }
+        cell.configureCell()
+    }
+}
