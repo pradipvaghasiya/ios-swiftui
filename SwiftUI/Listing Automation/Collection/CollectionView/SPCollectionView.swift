@@ -28,7 +28,8 @@ public class SPCollectionView: UICollectionView {
     
     //editing Cell
     public weak var editingCell : UIView?
-    public var editingTouchStartPoint : CGPoint?
+    var editingTouchStartPointInCell : CGPoint?
+    var touchStartPoint : CGPoint?
     public weak var editView : UIView?
     public var panGesture : UIPanGestureRecognizer?
     public weak var editingDelegate : SPEditableListingViewEditingDelegate?

@@ -9,16 +9,18 @@
 
 public let kDefaultListingEditViewWidth : CGFloat = 80
 public let kDefaultListingEditViewBounceUpto : CGFloat = 60
+public let kDefaultListingEditViewMinimumLeftScrollToOpen : CGFloat = 30
 
 public protocol SPEditableListingViewEditingDelegate : class{
     func editView(indexPath : NSIndexPath) -> UIView?
 }
 
-public protocol SPEditableListingViewType : SPListingViewType{
+protocol SPEditableListingViewType : SPListingViewType{
     //editing Cell
     var enableEditing : Bool { get set }
     weak var editingCell : UIView?  {get set}
-    var editingTouchStartPoint : CGPoint?  {get set}
+    var editingTouchStartPointInCell : CGPoint?  {get set}
+    var touchStartPoint : CGPoint?  {get set}
     weak var editView : UIView?  {get set}
     var panGesture : UIPanGestureRecognizer?  {get set}
     weak var editingDelegate : SPEditableListingViewEditingDelegate?  {get set}
@@ -53,10 +55,10 @@ extension SPEditableListingViewType where Self : UIScrollView{
         {
         case .Began:
             //There must not be other gesture running, if thats not the case return.
-            guard editingTouchStartPoint == nil else{
+            guard editingTouchStartPointInCell == nil else{
                 return
             }
-            
+            touchStartPoint = touchPoint
             guard let editCell = getCellFromTouch(touchPoint) else{
                 if editingCell != nil {
                     removeEditView()
@@ -82,7 +84,7 @@ extension SPEditableListingViewType where Self : UIScrollView{
         case .Changed:
             guard
                 let editingStartedWithCell = editingCell,
-                let startPoint = editingTouchStartPoint else{
+                let startPoint = editingTouchStartPointInCell else{
                     editingGestureEnded(touchPoint)
                     return
             }
@@ -100,14 +102,14 @@ extension SPEditableListingViewType where Self : UIScrollView{
     }
     
     func beginEditing(touchPoint : CGPoint, editCell: UIView, addEditView: Bool){
-        editingTouchStartPoint = touchPoint
+        editingTouchStartPointInCell = touchPoint
         editingCell = editCell
         if(addEditView) {
             editView = addEditViewForCell(editCell)
         }
     }
     
-    public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let customGesture = panGesture where customGesture == gestureRecognizer else{
             removeEditView()
             return true
@@ -140,36 +142,50 @@ extension SPEditableListingViewType where Self : UIScrollView{
     func editingGestureEnded(point : CGPoint){
         guard let currentCell = editingCell,
             let editView = editView,
-            let startPoint = editingTouchStartPoint else{
-                editingTouchStartPoint = nil
+            let screenStartPoint = touchStartPoint else{
+                editingTouchStartPointInCell = nil
                 return
         }
         
-        //If User moved more than half of edit view width then it should show editView fully
-        guard abs(startPoint.x - point.x) > (editViewWidth/2) else{
+        let isUserMovingLeft = screenStartPoint.x > point.x
+        let userMovedOffset = abs(screenStartPoint.x - point.x)
+        let isUserMovedEnough = userMovedOffset > kDefaultListingEditViewMinimumLeftScrollToOpen
+        guard isUserMovingLeft else{
+            guard isUserMovedEnough else{
+                showEditView(currentCell, editView: editView)
+                return
+            }
             removeEditView()
             return
         }
         
+        guard isUserMovedEnough else{
+            removeEditView()
+            return
+        }
+        showEditView(currentCell, editView: editView)
+    }
+    
+    private func showEditView(currentCell : UIView, editView : UIView){
         UIView.animateWithDuration(0.3, animations: {
             currentCell.frame.origin.x = -self.editViewWidth
             editView.frame.origin.x = currentCell.frame.origin.x + currentCell.frame.width
             editView.frame.size.width = -currentCell.frame.origin.x
             }, completion: { [weak self] sunccess in
-                self?.editingTouchStartPoint = nil
-        })
+                self?.editingTouchStartPointInCell = nil
+            })
     }
     
     func removeEditView() -> Bool{
         guard let currentCell = editingCell,
             let editView = editView else{
-                self.editingTouchStartPoint = nil
+                self.editingTouchStartPointInCell = nil
                 return false
         }
         
         self.editView = nil
         self.editingCell = nil
-        self.editingTouchStartPoint = nil
+        self.editingTouchStartPointInCell = nil
         
         UIView.animateWithDuration(0.3, animations: {
             currentCell.frame.origin.x = 0
