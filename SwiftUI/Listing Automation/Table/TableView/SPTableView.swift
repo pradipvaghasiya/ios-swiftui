@@ -54,6 +54,10 @@ extension SPTableView : SPEditableListingViewType{
     func userPannedInTableView(gesture : UIPanGestureRecognizer ){
         userPanned(gesture)
     }
+    
+    public override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureShouldBegin(gestureRecognizer)
+    }
 }
 
 

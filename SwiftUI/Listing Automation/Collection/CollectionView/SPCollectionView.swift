@@ -57,6 +57,10 @@ extension SPCollectionView : SPEditableListingViewType{
     func userPannedInCollectionView(gesture : UIPanGestureRecognizer ){
         userPanned(gesture)
     }
+    
+    public override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureShouldBegin(gestureRecognizer)
+    }
 }
 
 //MARK: Register Nib Or Subclass

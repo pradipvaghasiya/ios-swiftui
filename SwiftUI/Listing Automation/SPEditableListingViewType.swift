@@ -48,6 +48,23 @@ extension SPEditableListingViewType where Self : UIScrollView{
         }
     }
     
+    func gestureShouldBegin(gestureRecognizer: UIGestureRecognizer)-> Bool{
+        guard let customGesture = panGesture where customGesture == gestureRecognizer else{
+            removeEditView()
+            return true
+        }
+        
+        let velocityPoint = customGesture.velocityInView(self)
+        let isGestureIntoLeftDirection = velocityPoint.x < 0
+        let isGestureInApproximateHorizontalDirectionToLeft = isGestureIntoLeftDirection && abs(velocityPoint.x) > (abs(velocityPoint.y) * 2)
+        guard isGestureInApproximateHorizontalDirectionToLeft else {
+            removeEditView()
+            return false
+        }
+        
+        return true
+    }
+    
     func userPanned(gesture : UIPanGestureRecognizer ){
         var touchPoint = gesture.locationInView(self)
 
@@ -107,21 +124,6 @@ extension SPEditableListingViewType where Self : UIScrollView{
         if(addEditView) {
             editView = addEditViewForCell(editCell)
         }
-    }
-    
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let customGesture = panGesture where customGesture == gestureRecognizer else{
-            removeEditView()
-            return true
-        }
-        
-        let velocityPoint = customGesture.velocityInView(self)
-        guard velocityPoint.x < 0 else {
-            removeEditView()
-            return false
-        }
-        
-        return true
     }
     
     func moveCell(cell : UIView, offset : CGFloat){
