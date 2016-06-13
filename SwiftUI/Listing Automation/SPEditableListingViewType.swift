@@ -179,6 +179,10 @@ extension SPEditableListingViewType where Self : UIScrollView{
     }
     
     func removeEditView() -> Bool{
+        return removeEditView(nil)
+    }
+    
+    func removeEditView(onComplete : (()->Void)?) -> Bool{
         guard let currentCell = editingCell,
             let editView = editView else{
                 self.editingTouchStartPointInCell = nil
@@ -189,19 +193,24 @@ extension SPEditableListingViewType where Self : UIScrollView{
         self.editingCell = nil
         self.editingTouchStartPointInCell = nil
         
+        animateEditViewOut(currentCell, editView: editView, onComplete : onComplete)
+        return true
+    }
+    
+    func animateEditViewOut(currentCell : UIView, editView : UIView, onComplete : (() ->Void)? ){
         UIView.animateWithDuration(0.3, animations: {
             currentCell.frame.origin.x = 0
             editView.frame.origin.x = currentCell.frame.origin.x + currentCell.frame.width
             editView.frame.size.width = -currentCell.frame.origin.x
             }
             , completion: {[weak self]success in
+                onComplete?()
                 editView.removeFromSuperview()
                 guard let cellBeforeAnimation = self?.editingCell
                     where cellBeforeAnimation == currentCell else{
                         return
                 }
             })
-        return true
     }
     
     func getCellFrameInCollectionView(cellFrame : CGRect) -> CGRect{
