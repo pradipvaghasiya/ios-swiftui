@@ -123,6 +123,9 @@ extension SPEditableListingViewType where Self : UIScrollView{
         editingCell = editCell
         if(addEditView) {
             editView = addEditViewForCell(editCell)
+            if editView == nil {
+                editingCell = nil
+            }
         }
     }
     
