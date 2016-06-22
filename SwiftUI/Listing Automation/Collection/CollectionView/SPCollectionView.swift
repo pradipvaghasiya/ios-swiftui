@@ -23,7 +23,7 @@ public class SPCollectionView: UICollectionView {
         }
     }
     
-    
+    ///Must be set before setting controller.
     var listingDataSource : SPCollectionViewDataSource?
     
     //editing Cell
