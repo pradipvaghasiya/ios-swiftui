@@ -93,7 +93,7 @@ class SPCollectionViewDatasourceTests: XCTestCase {
    
    
    func testCellAtIndexPathWithNilCellId(){
-      let cell = twoSectionDatasource.collectionView(collectionView, cellForItemAtIndexPath: NSIndexPath(forRow: 12, inSection: 0))
+      let cell = twoSectionDatasource.collectionView(collectionView, cellForItemAtIndexPath: IndexPath(forRow: 12, inSection: 0))
       XCTAssertNotNil(cell, "Default Cell should be created using Nil Cell Id")
    }
    
@@ -101,7 +101,7 @@ class SPCollectionViewDatasourceTests: XCTestCase {
       collectionView.registerClass (NSClassFromString("UICollectionViewCell"), forCellWithReuseIdentifier: "UICollectionViewCell")
       collectionView.dataSource = twoSectionDatasource
       
-      let cell = twoSectionDatasource.collectionView(collectionView, cellForItemAtIndexPath: NSIndexPath(forRow: 3, inSection: 1))
+      let cell = twoSectionDatasource.collectionView(collectionView, cellForItemAtIndexPath: IndexPath(forRow: 3, inSection: 1))
       XCTAssertNotNil(cell, "Default Cell should be created If not conform to SPListingViewProtocol")
    }
    
@@ -121,7 +121,7 @@ class SPCollectionViewDatasourceTests: XCTestCase {
       collectionView.registerNib(UINib(nibName: "SPTitleTestCCell", bundle: nil), forCellWithReuseIdentifier: "SPTitleTestCCell")
       collectionView.dataSource = twoSectionDatasource
       
-      let cell = twoSectionDatasource.collectionView(collectionView, cellForItemAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+      let cell = twoSectionDatasource.collectionView(collectionView, cellForItemAtIndexPath: IndexPath(forRow: 0, inSection: 0))
       
       XCTAssert(NSStringFromClass(cell.classForCoder) == "SwiftUIDemo.SPTitleTestCCell", "Nib Cell should be created")
    }
@@ -138,7 +138,7 @@ class SPCollectionViewDatasourceTests: XCTestCase {
       collectionView.registerClass(NSClassFromString("SwiftUIDemo.SPTitleTestCCell"), forCellWithReuseIdentifier: "SwiftUIDemo.SPTitleTestCCell")
       collectionView.dataSource = twoSectionDatasource
       
-      let cell = twoSectionDatasource.collectionView(collectionView, cellForItemAtIndexPath: NSIndexPath(forRow: 0, inSection: 1))
+      let cell = twoSectionDatasource.collectionView(collectionView, cellForItemAtIndexPath: IndexPath(forRow: 0, inSection: 1))
       
       XCTAssert(NSStringFromClass(cell.classForCoder) == "SwiftUIDemo.SPTitleTestCCell", "SubClass Cell should be created")
    }
@@ -154,13 +154,13 @@ class SPCollectionViewDatasourceTests: XCTestCase {
    }
    
    func testCellAtIndexPathWithPrototypeCell(){
-     let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: NSBundle(forClass: self.classForCoder))
-     let spCollectionViewTestVC : SPCollectionViewTestVC = (storyboard.instantiateViewControllerWithIdentifier("SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
+     let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: Bundle(for: self.classForCoder))
+     let spCollectionViewTestVC : SPCollectionViewTestVC = (storyboard.instantiateViewController(withIdentifier: "SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
      
      spCollectionViewTestVC.view.setNeedsDisplay()
      spCollectionViewTestVC.collectionView.dataSource = twoSectionDatasource
      
-     let cell = twoSectionDatasource.collectionView(spCollectionViewTestVC.collectionView, cellForItemAtIndexPath: NSIndexPath(forRow: 3, inSection: 2))
+     let cell = twoSectionDatasource.collectionView(spCollectionViewTestVC.collectionView, cellForItemAtIndexPath: IndexPath(forRow: 3, inSection: 2))
      
      XCTAssert(NSStringFromClass(cell.classForCoder) == "SwiftUITests.SPTitleTestCCell", "Test Cell should be created")
       
@@ -175,13 +175,13 @@ class SPCollectionViewDatasourceTests: XCTestCase {
    }
    
    func testConfigureCellUsingCellModel(){
-      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: NSBundle(forClass: self.classForCoder))
-      let spCollectionViewTestVC : SPCollectionViewTestVC = (storyboard.instantiateViewControllerWithIdentifier("SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
+      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: Bundle(for: self.classForCoder))
+      let spCollectionViewTestVC : SPCollectionViewTestVC = (storyboard.instantiateViewController(withIdentifier: "SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
       
       spCollectionViewTestVC.view.setNeedsDisplay()
       spCollectionViewTestVC.collectionView.dataSource = twoSectionDatasource
       
-      let cell : SPTitleTestCCell? = twoSectionDatasource.collectionView(spCollectionViewTestVC.collectionView, cellForItemAtIndexPath: NSIndexPath(forRow: 3, inSection: 2)) as? SPTitleTestCCell
+      let cell : SPTitleTestCCell? = twoSectionDatasource.collectionView(spCollectionViewTestVC.collectionView, cellForItemAtIndexPath: IndexPath(forRow: 3, inSection: 2)) as? SPTitleTestCCell
       
       
       XCTAssert(cell?.titleLabel?.text == "4", "Cell should be configured")
@@ -189,16 +189,16 @@ class SPCollectionViewDatasourceTests: XCTestCase {
    }
    
    func testConfigureCellUsingCellCommonModel(){
-      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: NSBundle(forClass: self.classForCoder))
-      let spCollectionViewTestVC : SPCollectionViewTestVC = (storyboard.instantiateViewControllerWithIdentifier("SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
+      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: Bundle(for: self.classForCoder))
+      let spCollectionViewTestVC : SPCollectionViewTestVC = (storyboard.instantiateViewController(withIdentifier: "SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
       
       spCollectionViewTestVC.view.setNeedsDisplay()
       spCollectionViewTestVC.collectionView.dataSource = twoSectionDatasource
       
-      let cell : SPTitleTestCCell? = twoSectionDatasource.collectionView(spCollectionViewTestVC.collectionView, cellForItemAtIndexPath: NSIndexPath(forRow: 6, inSection: 2)) as? SPTitleTestCCell
+      let cell : SPTitleTestCCell? = twoSectionDatasource.collectionView(spCollectionViewTestVC.collectionView, cellForItemAtIndexPath: IndexPath(forRow: 6, inSection: 2)) as? SPTitleTestCCell
       
       
-      XCTAssert(cell?.titleLabel?.textAlignment == NSTextAlignment.Center, "Cell should be configured")
+      XCTAssert(cell?.titleLabel?.textAlignment == NSTextAlignment.center, "Cell should be configured")
       
    }
    

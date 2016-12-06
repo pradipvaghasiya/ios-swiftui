@@ -11,7 +11,7 @@ import XCTest
 
 class SPFixedColumnRowLayoutTests: XCTestCase {
    var layout = SPFixedColumnRowLayout(NoOfRows: 3, NoOfColumns: 4)
-   private var delegate = SPTestFixedColumRowLayout()
+   fileprivate var delegate = SPTestFixedColumRowLayout()
 
    override func setUp() {
       super.setUp()
@@ -50,8 +50,8 @@ class SPFixedColumnRowLayoutTests: XCTestCase {
    }
 
    func testPrepareLayout(){
-      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: NSBundle(forClass: self.classForCoder))
-      let spCollectionViewTestVC = (storyboard.instantiateViewControllerWithIdentifier("SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
+      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: Bundle(for: self.classForCoder))
+      let spCollectionViewTestVC = (storyboard.instantiateViewController(withIdentifier: "SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
       spCollectionViewTestVC.view.setNeedsDisplay()
       spCollectionViewTestVC.spCollectionView.collectionViewLayout = layout
       layout.delegate = delegate

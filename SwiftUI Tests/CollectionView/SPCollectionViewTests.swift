@@ -26,8 +26,8 @@ class SPCollectionViewTests: XCTestCase {
     }
 
    func testFromStoryboard(){
-      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: NSBundle(forClass: self.classForCoder))
-      let spCollectionViewTestVC : SPCollectionViewTestVC = (storyboard.instantiateViewControllerWithIdentifier("SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
+      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: Bundle(for: self.classForCoder))
+      let spCollectionViewTestVC : SPCollectionViewTestVC = (storyboard.instantiateViewController(withIdentifier: "SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
       
       spCollectionViewTestVC.view.setNeedsDisplay()
       
@@ -45,7 +45,7 @@ class SPCollectionViewTests: XCTestCase {
             SPListingCellGroup(cellId: "SPTitleTestCCell", cellCount: 12, cellCommonModel: "12"),
             SPListingCellGroup(cellId: "SPTitleTestCCell", cellModelArray: ["1","2","3"])])])
       
-      XCTAssertNotNil(spCollectionView.dequeueReusableCellWithReuseIdentifier("SPTitleTestCCell", forIndexPath: NSIndexPath(forRow: 0, inSection: 0)), "Nib Registered")
+      XCTAssertNotNil(spCollectionView.dequeueReusableCellWithReuseIdentifier("SPTitleTestCCell", forIndexPath: IndexPath(forRow: 0, inSection: 0)), "Nib Registered")
    }
    
    func testDatasourceWrongTypeNibsRegistered(){
@@ -66,7 +66,7 @@ class SPCollectionViewTests: XCTestCase {
             SPListingCellGroup(cellId: "SPTitleTestCCell", cellCount: 12, cellCommonModel: "12"),
             SPListingCellGroup(cellId: "SwiftUIDemo.SPTitleTestCCell", cellModelArray: ["1","2","3"], cellType : SPCellType.SubclassCell)])])
       
-      XCTAssertNotNil(spCollectionView.dequeueReusableCellWithReuseIdentifier("SwiftUIDemo.SPTitleTestCCell", forIndexPath: NSIndexPath(forRow: 12, inSection: 0)), "Subclass Registered")
+      XCTAssertNotNil(spCollectionView.dequeueReusableCellWithReuseIdentifier("SwiftUIDemo.SPTitleTestCCell", forIndexPath: IndexPath(forRow: 12, inSection: 0)), "Subclass Registered")
    }
    
    func testDatasourceWrongTypeSubClassRegistered(){
@@ -105,7 +105,7 @@ class SPCollectionViewTests: XCTestCase {
       
       spCollectionView.registerCellsFor(CellGroup: cellGroup)
       
-      XCTAssertNotNil(spCollectionView.dequeueReusableCellWithReuseIdentifier("SwiftUIDemo.SPTitleTestCCell", forIndexPath: NSIndexPath(forRow: 0, inSection: 0)), "Subclass should not be Registered")
+      XCTAssertNotNil(spCollectionView.dequeueReusableCellWithReuseIdentifier("SwiftUIDemo.SPTitleTestCCell", forIndexPath: IndexPath(forRow: 0, inSection: 0)), "Subclass should not be Registered")
    }
    
    func testDatasourceDoesntRegisterCellsAfterFullUpdate(){
@@ -137,7 +137,7 @@ class SPCollectionViewTests: XCTestCase {
       
       spCollectionView.registerReusableCellsIfRequired()
       
-      XCTAssertNotNil(spCollectionView.dequeueReusableCellWithReuseIdentifier("SwiftUIDemo.SPTitleTestCCell", forIndexPath: NSIndexPath(forRow: 0, inSection: 0)), "Subclass should not be Registered")
+      XCTAssertNotNil(spCollectionView.dequeueReusableCellWithReuseIdentifier("SwiftUIDemo.SPTitleTestCCell", forIndexPath: IndexPath(forRow: 0, inSection: 0)), "Subclass should not be Registered")
    }
 
 

@@ -12,7 +12,7 @@ let kDefaultListingEditViewBounceUpto : CGFloat = 60
 private  let kDefaultListingEditViewMinimumScrollToAct : CGFloat = 30
 
 public protocol SPEditableListingViewEditingDelegate : class{
-    func editView(indexPath : NSIndexPath) -> UIView?
+    func editView(indexPath : IndexPath) -> UIView?
 }
 
 protocol SPEditableListingViewType : SPListingViewType{
@@ -30,7 +30,7 @@ protocol SPEditableListingViewType : SPListingViewType{
 }
 
 extension SPEditableListingViewType where Self : UIScrollView{
-    func enableEditing(shouldEnable : Bool){
+    func enableEditingChanged(shouldEnable : Bool){
         if shouldEnable{
             guard let _ = panGesture else{
                 configurePanGesture()
@@ -49,16 +49,16 @@ extension SPEditableListingViewType where Self : UIScrollView{
     }
     
     func gestureShouldBegin(gestureRecognizer: UIGestureRecognizer)-> Bool{
-        guard let customGesture = panGesture where customGesture == gestureRecognizer else{
-            removeEditView()
+        guard let customGesture = panGesture, customGesture == gestureRecognizer else{
+            let _ = removeEditView()
             return true
         }
         
-        let velocityPoint = customGesture.velocityInView(self)
+        let velocityPoint = customGesture.velocity(in: self)
         let isGestureIntoLeftDirection = velocityPoint.x < 0
         let isGestureInApproximateHorizontalDirectionToLeft = isGestureIntoLeftDirection && abs(velocityPoint.x) > (abs(velocityPoint.y) * 2)
         guard isGestureInApproximateHorizontalDirectionToLeft else {
-            removeEditView()
+            let _ = removeEditView()
             return false
         }
         
@@ -66,54 +66,54 @@ extension SPEditableListingViewType where Self : UIScrollView{
     }
     
     func userPanned(gesture : UIPanGestureRecognizer ){
-        var touchPoint = gesture.locationInView(self)
+        var touchPoint = gesture.location(in: self)
 
         switch(gesture.state)
         {
-        case .Began:
+        case .began:
             //There must not be other gesture running, if thats not the case return.
             guard editingTouchStartPointInCell == nil else{
                 return
             }
             touchStartPoint = touchPoint
-            guard let editCell = getCellFromTouch(touchPoint) else{
+            guard let editCell = getCellFromTouch(point: touchPoint) else{
                 if editingCell != nil {
-                    removeEditView()
+                    let _ = removeEditView()
                 }
                 return
             }
             
             guard let currentCell = editingCell else{
-                beginEditing(touchPoint, editCell: editCell, addEditView: true)
+                beginEditing(touchPoint: touchPoint, editCell: editCell, addEditView: true)
                 return
             }
             
             guard currentCell != editCell else{
                 touchPoint.x += editViewWidth
-                beginEditing(touchPoint, editCell: editCell, addEditView: false)
+                beginEditing(touchPoint: touchPoint, editCell: editCell, addEditView: false)
                 return
             }
             
             if(!removeEditView()){
-                beginEditing(touchPoint, editCell: editCell, addEditView: true)
+                beginEditing(touchPoint: touchPoint, editCell: editCell, addEditView: true)
             }
             
-        case .Changed:
+        case .changed:
             guard
                 let editingStartedWithCell = editingCell,
                 let startPoint = editingTouchStartPointInCell else{
-                    editingGestureEnded(touchPoint)
+                    editingGestureEnded(point: touchPoint)
                     return
             }
-            moveCell(editingStartedWithCell, offset: touchPoint.x - startPoint.x)
-        case .Ended:
-            editingGestureEnded(touchPoint)
-        case .Failed:
-            editingGestureEnded(touchPoint)
-        case .Cancelled:
-            editingGestureEnded(touchPoint)
+            moveCell(cell: editingStartedWithCell, offset: touchPoint.x - startPoint.x)
+        case .ended:
+            editingGestureEnded(point: touchPoint)
+        case .failed:
+            editingGestureEnded(point: touchPoint)
+        case .cancelled:
+            editingGestureEnded(point: touchPoint)
             break
-        case .Possible:
+        case .possible:
             break
         }
     }
@@ -122,7 +122,7 @@ extension SPEditableListingViewType where Self : UIScrollView{
         editingTouchStartPointInCell = touchPoint
         editingCell = editCell
         if(addEditView) {
-            editView = addEditViewForCell(editCell)
+            editView = addEditViewForCell(cell: editCell)
             if editView == nil {
                 editingCell = nil
             }
@@ -132,11 +132,11 @@ extension SPEditableListingViewType where Self : UIScrollView{
     func moveCell(cell : UIView, offset : CGFloat){
         //Positive Inset means user is swiping right
         //Negative less than -(editViewWidth + kDefaultListingEditViewBounceUpto) means user moved a lot to left
-        guard let editView = editView where offset > -(editViewWidth + kDefaultListingEditViewBounceUpto) && offset < 0 else{
+        guard let editView = editView, offset > -(editViewWidth + kDefaultListingEditViewBounceUpto) && offset < 0 else{
             return
         }
         
-        UIView.animateWithDuration(0, animations: {
+        UIView.animate(withDuration: 0, animations: {
             cell.frame.origin.x = offset
             editView.frame.origin.x = cell.frame.origin.x + cell.frame.width
             editView.frame.size.width = -cell.frame.origin.x
@@ -157,22 +157,22 @@ extension SPEditableListingViewType where Self : UIScrollView{
         let isUserMovedEnough = userMovedOffset > kDefaultListingEditViewMinimumScrollToAct
         guard isUserMovingLeft else{
             guard isUserMovedEnough else{
-                showEditView(currentCell, editView: editView)
+                showEditView(currentCell: currentCell, editView: editView)
                 return
             }
-            removeEditView()
+            let _ = removeEditView()
             return
         }
         
         guard isUserMovedEnough else{
-            removeEditView()
+            let _ = removeEditView()
             return
         }
-        showEditView(currentCell, editView: editView)
+        showEditView(currentCell: currentCell, editView: editView)
     }
     
     private func showEditView(currentCell : UIView, editView : UIView){
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             currentCell.frame.origin.x = -self.editViewWidth
             editView.frame.origin.x = currentCell.frame.origin.x + currentCell.frame.width
             editView.frame.size.width = -currentCell.frame.origin.x
@@ -182,7 +182,7 @@ extension SPEditableListingViewType where Self : UIScrollView{
     }
     
     func removeEditView() -> Bool{
-        return removeEditView(nil)
+        return removeEditView(onComplete: nil)
     }
     
     func removeEditView(onComplete : (()->Void)?) -> Bool{
@@ -196,12 +196,12 @@ extension SPEditableListingViewType where Self : UIScrollView{
         self.editingCell = nil
         self.editingTouchStartPointInCell = nil
         
-        animateEditViewOut(currentCell, editView: editView, onComplete : onComplete)
+        animateEditViewOut(currentCell: currentCell, editView: editView, onComplete : onComplete)
         return true
     }
     
     func animateEditViewOut(currentCell : UIView, editView : UIView, onComplete : (() ->Void)? ){
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             currentCell.frame.origin.x = 0
             editView.frame.origin.x = currentCell.frame.origin.x + currentCell.frame.width
             editView.frame.size.width = -currentCell.frame.origin.x
@@ -209,15 +209,14 @@ extension SPEditableListingViewType where Self : UIScrollView{
             , completion: {[weak self]success in
                 onComplete?()
                 editView.removeFromSuperview()
-                guard let cellBeforeAnimation = self?.editingCell
-                    where cellBeforeAnimation == currentCell else{
+                guard let cellBeforeAnimation = self?.editingCell, cellBeforeAnimation == currentCell else{
                         return
                 }
             })
     }
     
     func getCellFrameInCollectionView(cellFrame : CGRect) -> CGRect{
-        return convertRect(cellFrame, fromCoordinateSpace: self)
+        return convert(cellFrame, from: self)
     }
     
     func getCellFromTouch(point : CGPoint) -> UIView?{
@@ -226,8 +225,8 @@ extension SPEditableListingViewType where Self : UIScrollView{
         }
         
         for cell in visibleCells{
-            let cellFrameInCollectionView = getCellFrameInCollectionView(cell.frame)
-            if(CGRectContainsPoint(cellFrameInCollectionView, point)){
+            let cellFrameInCollectionView = getCellFrameInCollectionView(cellFrame: cell.frame)
+            if(cellFrameInCollectionView.contains(point)){
                 return cell
             }
         }
@@ -235,11 +234,11 @@ extension SPEditableListingViewType where Self : UIScrollView{
     }
     
     func addEditViewForCell(cell : UIView) -> UIView?{
-        guard let indexPath = getIndexPathForCell(cell),
-            let editView = editingDelegate?.editView(indexPath) else{
+        guard let indexPath = getIndexPathForCell(cell: cell),
+            let editView = editingDelegate?.editView(indexPath: indexPath) else{
                 return nil
         }
-        var editViewFrame = getCellFrameInCollectionView(cell.frame)
+        var editViewFrame = getCellFrameInCollectionView(cellFrame: cell.frame)
         editViewFrame.origin.x = editViewFrame.width
         editViewFrame.size.width = 0
         editView.frame = editViewFrame
@@ -252,21 +251,21 @@ extension SPEditableListingViewType where Self : UIScrollView{
             guard let collectionView = self as? UICollectionView else{
                 return nil
             }
-            return collectionView.visibleCells()
+            return collectionView.visibleCells
         }
         return tableView.visibleCells
     }
     
-    func getIndexPathForCell(cell : UIView) -> NSIndexPath?{
+    func getIndexPathForCell(cell : UIView) -> IndexPath?{
         guard let tableView = self as? UITableView,
             let tableCell = cell as? UITableViewCell else{
                 guard let collectionView = self as? UICollectionView,
                     let collectionCell = cell as? UICollectionViewCell else{
                         return nil
                 }
-                return collectionView.indexPathForCell(collectionCell)
+                return collectionView.indexPath(for: collectionCell)
         }
-        return tableView.indexPathForCell(tableCell)
+        return tableView.indexPath(for: tableCell)
     }
 }
 

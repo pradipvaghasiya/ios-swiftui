@@ -9,14 +9,14 @@
 import UIKit
 
 class SPSegmentControllerHolderController : UIViewController{
-    private let viewControllers : [UIViewController]
+    fileprivate let viewControllers : [UIViewController]
     
     init(viewControllers : [UIViewController]) {
         self.viewControllers = viewControllers
         super.init(nibName: nil,bundle: nil)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.viewControllers = []
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }

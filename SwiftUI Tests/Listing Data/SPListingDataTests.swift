@@ -89,11 +89,11 @@ class SPListingDataTests: XCTestCase {
    }
    
    func testGetListingCellGroupWithIndexOfCellModelArrayForEmptySectionArray(){
-      XCTAssert(spListingDataWithEmptySectionArray.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(index: 0)) == nil, "Should be nil")
+      XCTAssert(spListingDataWithEmptySectionArray.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(index: 0)) == nil, "Should be nil")
    }
    
    func testGetListingCellGroupWithIndexOfCellModelArrayWithSectionArray(){
-      var (cellGroup, cellModelIndex) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 14, inSection: 0))!
+      var (cellGroup, cellModelIndex) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 14, inSection: 0))!
       
       XCTAssert((cellGroup.cellModelArray[cellModelIndex] as? String) == "3", "Cell Model value should be 3")
    }
@@ -109,9 +109,9 @@ class SPListingDataTests: XCTestCase {
             SPListingCellGroup(cellId: "SPTitleLabelCell", cellModelArray: ["3","4"])
          ]))
       
-      var (cellGroup1, cellModelIndex1) = spListingDataWithEmptySectionArray.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 1, inSection: 0))!
+      var (cellGroup1, cellModelIndex1) = spListingDataWithEmptySectionArray.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 1, inSection: 0))!
 
-      var (cellGroup2, cellModelIndex2) = spListingDataWithEmptySectionArray.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 0, inSection: 1))!
+      var (cellGroup2, cellModelIndex2) = spListingDataWithEmptySectionArray.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 0, inSection: 1))!
 
       XCTAssert((cellGroup1.cellModelArray[cellModelIndex1] as? String) == "2" &&
          (cellGroup2.cellModelArray[cellModelIndex2] as? String) == "3", "Cell Model values are not OK")
@@ -125,13 +125,13 @@ class SPListingDataTests: XCTestCase {
             SPListingCellGroup(cellId: "SPTitleLabelCell", cellModelArray: ["1","2"])
          ]))
 
-      var (cellGroup1, cellModelIndex1) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 1, inSection: 0))!  // commonmodel
+      var (cellGroup1, cellModelIndex1) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 1, inSection: 0))!  // commonmodel
       
-      var (cellGroup2, cellModelIndex2) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 12, inSection: 0))! // should be 1
+      var (cellGroup2, cellModelIndex2) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 12, inSection: 0))! // should be 1
       
-      var (cellGroup3, cellModelIndex3) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 1, inSection: 1))!      // should be 5
+      var (cellGroup3, cellModelIndex3) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 1, inSection: 1))!      // should be 5
       
-      var (cellGroup4, cellModelIndex4) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 3, inSection: 1))!  // should be 2 index
+      var (cellGroup4, cellModelIndex4) = spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 3, inSection: 1))!  // should be 2 index
 
       
       XCTAssert(cellGroup1.cellModelArray.count == 0 && (cellGroup1.cellCommonModel as? String) == "CommonModel" &&
@@ -142,9 +142,9 @@ class SPListingDataTests: XCTestCase {
    
    func testGetListingCellGroupWithIndexOfCellModelArrayWithInvalidIndexPath(){
       
-      XCTAssert(spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 18, inSection: 0)) == nil, "Should be nil")
+      XCTAssert(spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 18, inSection: 0)) == nil, "Should be nil")
       
-      XCTAssert(spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: NSIndexPath(forRow: 0, inSection: 1)) == nil, "Should be nil")
+      XCTAssert(spListingData.getListingCellGroupWithIndexOfCellModelArray(ForIndexPath: IndexPath(forRow: 0, inSection: 1)) == nil, "Should be nil")
 
    }
 

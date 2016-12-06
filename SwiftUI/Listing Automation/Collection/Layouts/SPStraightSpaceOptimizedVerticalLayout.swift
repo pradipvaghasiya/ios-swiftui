@@ -11,16 +11,16 @@ import UIKit
 public final class SPStraightSpaceOptimizedVerticalLayout: SPStraightVerticalLayout {
    
    ///IndexPath array which indicates that the item is no more the last item in the column.
-   final var nonLastItemIndexPathArray : [NSIndexPath] = []
+   final var nonLastItemIndexPathArray : [IndexPath] = []
    
-   override public func prepareLayout() {
+   override public func prepare() {
       // Clear All indexpaths
-      self.nonLastItemIndexPathArray.removeAll(keepCapacity: false)
+      self.nonLastItemIndexPathArray.removeAll(keepingCapacity: false)
       
-      super.prepareLayout()
+      super.prepare()
    }
    
-   override func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath: NSIndexPath) -> (x: CGFloat, y: CGFloat) {
+   override func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath: IndexPath) -> (x: CGFloat, y: CGFloat) {
       // Ignore if this is first row of a section.
       if indexPath.item < self.noOfColumns(ForSection: indexPath.section){
          return super.calcualateOriginOfNonFirstItemOfSectionAt(IndexPath: indexPath)
@@ -49,15 +49,15 @@ public final class SPStraightSpaceOptimizedVerticalLayout: SPStraightVerticalLay
    ///:param:IndexPath before which items need to be calculated
    ///
    ///:returns: IndexPath of item which is last in shortest column.
-   func getLastItemInShortestColumnIndexPath(AtIndexPath indexPath:NSIndexPath) -> NSIndexPath?{
+   func getLastItemInShortestColumnIndexPath(AtIndexPath indexPath:IndexPath) -> IndexPath?{
       var currentPreviousItemOffset = 0
       var shortestColumnHeight : CGFloat?
-      var lastItemInShortestColumnIndexPath : NSIndexPath?
+      var lastItemInShortestColumnIndexPath : IndexPath?
       
       while indexPath.item - currentPreviousItemOffset >= 0{
          currentPreviousItemOffset += 1
          
-         let currentPreviousItemOffsetIndexPath = NSIndexPath(forItem: indexPath.item - currentPreviousItemOffset, inSection: indexPath.section)
+         let currentPreviousItemOffsetIndexPath = IndexPath(item: indexPath.item - currentPreviousItemOffset, section: indexPath.section)
          
          // If item is in middle then continue
          if nonLastItemIndexPathArray.contains(currentPreviousItemOffsetIndexPath){

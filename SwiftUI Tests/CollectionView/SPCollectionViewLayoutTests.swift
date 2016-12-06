@@ -11,8 +11,8 @@ import XCTest
 import SwiftUI
 
 class SPCollectionViewLayoutTests: XCTestCase {
-   private var layout = SPCollectionViewLayout()
-   private var delegate = SPTestLayout()
+   fileprivate var layout = SPCollectionViewLayout()
+   fileprivate var delegate = SPTestLayout()
    
    override func setUp() {
       super.setUp()
@@ -63,7 +63,7 @@ class SPCollectionViewLayoutTests: XCTestCase {
 
    func testUpdateSectionSize(){
       let attr : UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes()
-      attr.frame = CGRectMake(0, 5, 50, 60)
+      attr.frame = CGRect(x: 0, y: 5, width: 50, height: 60)
       
       layout.updateSectionSizeDictionary(OfSection: 0, ByAttributes: attr)
       
@@ -71,19 +71,19 @@ class SPCollectionViewLayoutTests: XCTestCase {
       XCTAssert(width == 50 &&
          height == 65, "sectionSizeDictionary should be valid.")
       
-      attr.frame = CGRectMake(50, 50, 50, 60)
+      attr.frame = CGRect(x: 50, y: 50, width: 50, height: 60)
       layout.updateSectionSizeDictionary(OfSection: 0, ByAttributes: attr)
       (width, height) = layout.sectionSizeDictionary[0]!
       XCTAssert(width == 100 &&
          height == 110, "sectionSizeDictionary should be valid.")
 
-      attr.frame = CGRectMake(40, 40, 50, 60)
+      attr.frame = CGRect(x: 40, y: 40, width: 50, height: 60)
       layout.updateSectionSizeDictionary(OfSection: 0, ByAttributes: attr)
       (width, height) = layout.sectionSizeDictionary[0]!
       XCTAssert(width == 100 &&
          height == 110, "sectionSizeDictionary should be valid.")
 
-      attr.frame = CGRectMake(40, 40, 50, 60)
+      attr.frame = CGRect(x: 40, y: 40, width: 50, height: 60)
       layout.updateSectionSizeDictionary(OfSection: 1, ByAttributes: attr)
       (width, height) = layout.sectionSizeDictionary[1]!
       XCTAssert(width == 90 &&
@@ -93,11 +93,11 @@ class SPCollectionViewLayoutTests: XCTestCase {
    
    func testPrepareLayout(){
       let attr : UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes()
-      attr.frame = CGRectMake(0, 5, 50, 60)
+      attr.frame = CGRect(x: 0, y: 5, width: 50, height: 60)
       
       layout.updateSectionSizeDictionary(OfSection: 0, ByAttributes: attr)
       
-      layout.prepareLayout()
+      layout.prepare()
       XCTAssert(layout.attributesDictionary.count == 0 &&
          layout.sectionSizeDictionary.count == 0, "Prepare Layout should clear all values.")
    }

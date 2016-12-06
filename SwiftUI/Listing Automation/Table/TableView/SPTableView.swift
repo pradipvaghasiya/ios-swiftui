@@ -20,7 +20,7 @@ public class SPTableView: UITableView{
         }
     }
     
-    private var listingDataSource : SPTableViewDataSource?
+    fileprivate var listingDataSource : SPTableViewDataSource?
     
     //editing Cell
     public weak var editingCell : UIView?
@@ -32,11 +32,11 @@ public class SPTableView: UITableView{
     public var editViewWidth : CGFloat = kDefaultListingEditViewWidth
     public var enableEditing : Bool = false{
         didSet{
-            enableEditing(enableEditing)
+            enableEditingChanged(shouldEnable: enableEditing)
         }
     }
 
-    override public init(frame: CGRect, style: UITableViewStyle = .Plain) {
+    override public init(frame: CGRect, style: UITableViewStyle = .plain) {
         super.init(frame: frame, style: style)
     }
     
@@ -51,12 +51,12 @@ extension SPTableView : SPEditableListingViewType{
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(SPTableView.userPannedInTableView(_:)))
     }
     
-    func userPannedInTableView(gesture : UIPanGestureRecognizer ){
-        userPanned(gesture)
+    func userPannedInTableView(_ gesture : UIPanGestureRecognizer ){
+        userPanned(gesture: gesture)
     }
     
-    public override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return gestureShouldBegin(gestureRecognizer)
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureShouldBegin(gestureRecognizer: gestureRecognizer)
     }
 }
 
@@ -71,9 +71,9 @@ extension SPTableView{
         if let controller = self.controller{
             for section in controller.listingData(self).items{
                 for viewModel in section{
-                    if viewModel.cellType == .Nib{
+                    if viewModel.cellType == .nib{
                         nibCells.insert(viewModel.cellId)
-                    }else if viewModel.cellType == .SubClass{
+                    }else if viewModel.cellType == .subClass{
                         subclassCells.insert(viewModel.cellId)
                     }
                 }
@@ -95,24 +95,24 @@ extension SPTableView{
     ///:param: cellData Registers class based on its type and cell Id contained in this param.
     public final func registerCellsFor(ViewModel viewModel : ViewModelType){
         switch viewModel.cellType{
-        case .SubClass:
+        case .subClass:
             self.registerClass(viewModel.cellId)
-        case .Nib:
+        case .nib:
             self.registerNib(viewModel.cellId)
-        case .ProtoType:
-            true
+        case .protoType:
+            break
         }
         
     }
     
-    public final func registerNib(nibId : String){
-        self.registerNib(UINib(nibName: nibId, bundle: nil),forCellReuseIdentifier: nibId)
+    public final func registerNib(_ nibId : String){
+        self.register(UINib(nibName: nibId, bundle: nil),forCellReuseIdentifier: nibId)
     }
     
-    public final func registerClass(className : String){
+    public final func registerClass(_ className : String){
         if let cellClass = NSClassFromString(className){
-            if cellClass.isSubclassOfClass(UITableViewCell){
-                self.registerClass(NSClassFromString(className),forCellReuseIdentifier: className)
+            if cellClass.isSubclass(of: UITableViewCell.self){
+                self.register(NSClassFromString(className),forCellReuseIdentifier: className)
             }
         }else{
             SPLogger.logError(Message: "\(className) must be subclass of UITableViewCell to use it with SPTableView.")

@@ -36,16 +36,12 @@ public class SPCollectionView: UICollectionView {
     public var editViewWidth : CGFloat = kDefaultListingEditViewWidth
     public var enableEditing : Bool = false{
         didSet{
-            enableEditing(enableEditing)
+            enableEditingChanged(shouldEnable: enableEditing)
         }
     }
     
     public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-    }
-    
-    public override func awakeFromNib() {
-        super.awakeFromNib()
     }
 }
 
@@ -54,12 +50,12 @@ extension SPCollectionView : SPEditableListingViewType{
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(SPCollectionView.userPannedInCollectionView(_:)))
     }
     
-    func userPannedInCollectionView(gesture : UIPanGestureRecognizer ){
-        userPanned(gesture)
+    func userPannedInCollectionView(_ gesture : UIPanGestureRecognizer ){
+        userPanned(gesture: gesture)
     }
     
-    public override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return gestureShouldBegin(gestureRecognizer)
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return gestureShouldBegin(gestureRecognizer: gestureRecognizer)
     }
 }
 
@@ -74,9 +70,9 @@ extension SPCollectionView{
         if let controller = self.controller{
             for section in controller.listingData(self).items{
                 for viewModel in section{
-                    if viewModel.cellType == .Nib{
+                    if viewModel.cellType == .nib{
                         nibCells.insert(viewModel.cellId)
-                    }else if viewModel.cellType == .SubClass{
+                    }else if viewModel.cellType == .subClass{
                         subclassCells.insert(viewModel.cellId)
                     }
                 }
@@ -98,24 +94,24 @@ extension SPCollectionView{
     ///:param: cellData Registers class based on its type and cell Id contained in this param.
     final func registerCellsFor(ViewModel viewModel : ViewModelType){
         switch viewModel.cellType{
-        case .SubClass:
+        case .subClass:
             self.registerClass(viewModel.cellId)
-        case .Nib:
+        case .nib:
             self.registerNib(viewModel.cellId)
-        case .ProtoType:
-            true
+        case .protoType:
+            break
         }
     }
     
     
-    public final func registerNib(nibId : String){
-        self.registerNib(UINib(nibName: nibId, bundle: nil),forCellWithReuseIdentifier: nibId)
+    public final func registerNib(_ nibId : String){
+        self.register(UINib(nibName: nibId, bundle: nil),forCellWithReuseIdentifier: nibId)
     }
     
-    public final func registerClass(className : String){
+    public final func registerClass(_ className : String){
         if let cellClass = NSClassFromString(className){
-            if cellClass.isSubclassOfClass(UICollectionViewCell){
-                self.registerClass(NSClassFromString(className),forCellWithReuseIdentifier: className)
+            if cellClass.isSubclass(of: UICollectionViewCell.self){
+                self.register(NSClassFromString(className),forCellWithReuseIdentifier: className)
             }
         }else{
             SPLogger.logError(Message: "\(className) must be subclass of UITableViewCell to use it with SPTableView.")
@@ -127,8 +123,8 @@ extension SPCollectionView{
 //MARK: Cell Update
 extension SPCollectionView{
     ///Update the viewmodel and call this method. ViewModel is reference type so cell's ViewModel will automatically updated.
-    func reConfigureCellIfVisibleAtIndexPath(indexPath: NSIndexPath){
-        guard let cell = cellForItemAtIndexPath(indexPath) as? SPCollectionCell else{
+    func reConfigureCellIfVisibleAtIndexPath(_ indexPath: IndexPath){
+        guard let cell = cellForItem(at: indexPath) as? SPCollectionCell else{
             return
         }
         cell.configureCell()

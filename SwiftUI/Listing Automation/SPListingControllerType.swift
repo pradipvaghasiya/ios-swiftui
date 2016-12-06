@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public protocol SPListingControllerType : class{
-   func listingData(listingView : UIView)->ListingData
+   func listingData(_ listingView : UIView)->ListingData
 }
 
 public protocol SPSingleSectionListingControllerType : SPListingControllerType{
@@ -18,7 +18,7 @@ public protocol SPSingleSectionListingControllerType : SPListingControllerType{
 }
 
 public extension SPSingleSectionListingControllerType{
-    public func listingData(listingView : UIView)->ListingData{
+    public func listingData(_ listingView : UIView)->ListingData{
         return listingData
     }
 }

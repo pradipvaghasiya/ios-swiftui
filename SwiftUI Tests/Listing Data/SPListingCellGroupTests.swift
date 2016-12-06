@@ -12,7 +12,7 @@ class SPListingCellGroupTests: XCTestCase {
    var spListingCellGroupWithAllDetails : SPListingCellGroup?
    
    var emptyCellModel : [AnyObject] = []
-   var cellModel : [AnyObject] = ["model1","model2"]
+   var cellModel : [AnyObject] = ["model1" as AnyObject,"model2" as AnyObject]
    var emptyCellCommonModel : AnyObject?
    var cellCommonModel : String = "Common Model"
   

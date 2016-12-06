@@ -14,18 +14,18 @@ public let kCellIdSPTitleTestCCell = "SPTitleTestCCell"
 
 //Default Label Parameters
 private let kDefaultFontSize : CGFloat = 16.0
-private let kDefaultFont = UIFont.systemFontOfSize(kDefaultFontSize)
-private let kDefaultTextColor = UIColor.blackColor()
-private let kDefaultTextAlignment : NSTextAlignment = .Left
+private let kDefaultFont = UIFont.systemFont(ofSize: kDefaultFontSize)
+private let kDefaultTextColor = UIColor.black
+private let kDefaultTextAlignment : NSTextAlignment = .left
 
 // MARK: Cell Configuration
 ///This cell shows single label covered in whole length and height
-class SPTitleTestCCell: UICollectionViewCell,SPListingCellProtocol {
+class SPTitleTestCCell: UICollectionViewCell {
    ///Title Label IBOutlet
    @IBOutlet var titleLabel: UILabel?
    
    // SPListingCellProtocol
-   func configureCellUsing(model: AnyObject){
+   func configureCellUsing(_ model: AnyObject){
       //If model is of type SPTitleTestCCellModel, It would set title text.
       if let myModel = model as? SPTitleTestCCellModel{
          self.titleLabel?.text = myModel.titleText

@@ -27,7 +27,16 @@ public class ListingData : ArrayWrapperType{
     public var count: Int { get {return items.count} }
 }
 
-extension ListingData : CollectionType{
+extension ListingData : Collection{
+    /// Returns the position immediately after the given index.
+    ///
+    /// - Parameter i: A valid index of the collection. `i` must be less than
+    ///   `endIndex`.
+    /// - Returns: The index value immediately after `i`.
+    public func index(after i: Int) -> Int {
+        return items.index(after: i)
+    }
+
     public var startIndex: Int { get {return 0}}
     public var endIndex: Int {
         get{
@@ -47,43 +56,42 @@ extension ListingData : CollectionType{
 }
 
 
-extension ListingData : RangeReplaceableCollectionType{
-    
-    public func reserveCapacity(n: Int.Distance){
-        items.reserveCapacity(n)
+extension ListingData : RangeReplaceableCollection{
+    public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == ListingSection {
+        items.replaceSubrange(subrange, with: newElements)
     }
+    
+//    public func reserveCapacity(n: Int.Distance){
+//        items.reserveCapacity(n)
+//    }
     
     public func append(x: ListingSection){
         items.append(x)
     }
     
-    public func replaceRange<C : CollectionType where C.Generator.Element == ListingSection>(subRange: Range<Int>, with newElements: C){
-        items.replaceRange(subRange, with: newElements)
-    }
-    
-   public func splice<S : CollectionType where S.Generator.Element == ListingSection>(newElements: S, atIndex i: Int){
-      items.insertContentsOf(newElements, at: i)
-   }
-   
+//   public func splice<S : CollectionType where S.Generator.Element == ListingSection>(newElements: S, atIndex i: Int){
+//      items.insertContentsOf(newElements, at: i)
+//   }
+//   
    
    public func removeRange(subRange: Range<Int>){
-      items.removeRange(subRange)
+      items.removeSubrange(subRange)
    }
    
    public func insert(newElement: ListingSection, atIndex i: Int){
-      items.insert(newElement, atIndex: i)
+      items.insert(newElement, at: i)
    }
    
    public func removeAtIndex(index: Int) -> ListingSection{
-      return items.removeAtIndex(index)
+      return items.remove(at: index)
    }
    
-   public func removeAll(keepCapacity keepCapacity: Bool){
-      items.removeAll(keepCapacity: keepCapacity)
+   public func removeAll(keepCapacity: Bool){
+      items.removeAll(keepingCapacity: keepCapacity)
    }
 }
 
-extension ListingData : ArrayLiteralConvertible{
+extension ListingData : ExpressibleByArrayLiteral{
 }
 
 

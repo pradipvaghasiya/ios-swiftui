@@ -13,7 +13,7 @@ class SPFixedColumnRowVerticalLayoutTests: XCTestCase {
    
    var layout = SPFixedColumnRowVerticalLayout(NoOfRows: 4, NoOfColumns: 3)
    var spCollectionViewTestVC : SPCollectionViewTestVC?
-   private var delegate = SPTestFixedColumRowLayout()
+   fileprivate var delegate = SPTestFixedColumRowLayout()
    
    override func setUp() {
       super.setUp()
@@ -21,8 +21,8 @@ class SPFixedColumnRowVerticalLayoutTests: XCTestCase {
       
       layout = SPFixedColumnRowVerticalLayout(NoOfRows: 3, NoOfColumns: 3)
       
-      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: NSBundle(forClass: self.classForCoder))
-      spCollectionViewTestVC = (storyboard.instantiateViewControllerWithIdentifier("SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
+      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: Bundle(for: self.classForCoder))
+      spCollectionViewTestVC = (storyboard.instantiateViewController(withIdentifier: "SPCollectionViewTestVC") as? SPCollectionViewTestVC)!
       spCollectionViewTestVC!.view.setNeedsDisplay()
       spCollectionViewTestVC!.spCollectionView.collectionViewLayout = layout
       layout.delegate = delegate
@@ -79,10 +79,10 @@ class SPFixedColumnRowVerticalLayoutTests: XCTestCase {
          print("\(indexPath.row) : \(indexPath.section) - \(attr.frame) ")
       }
 
-      XCTAssert(layout.attributesDictionary[NSIndexPath(forRow: 0, inSection: 0)]?.frame.size.width == 102.5 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 0, inSection: 0)]?.frame.size.height == 156.67 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 0, inSection: 1)]?.frame.size.width == 150.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 0, inSection: 1)]?.frame.size.height == 107.5, "Height and Width should be valid")
+      XCTAssert(layout.attributesDictionary[IndexPath(forRow: 0, inSection: 0)]?.frame.size.width == 102.5 &&
+         layout.attributesDictionary[IndexPath(forRow: 0, inSection: 0)]?.frame.size.height == 156.67 &&
+         layout.attributesDictionary[IndexPath(forRow: 0, inSection: 1)]?.frame.size.width == 150.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 0, inSection: 1)]?.frame.size.height == 107.5, "Height and Width should be valid")
    }
    
    func testEmptyPrepareLayout(){
@@ -125,20 +125,20 @@ class SPFixedColumnRowVerticalLayoutTests: XCTestCase {
 //         println("\(indexPath.row) : \(indexPath.section) - \(attr.frame) ")
 //      }
       
-      XCTAssert(layout.attributesDictionary[NSIndexPath(forRow: 0, inSection: 0)]?.frame.origin.x == 20.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 0, inSection: 0)]?.frame.origin.y == 10.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 2, inSection: 0)]?.frame.origin.x == 245.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 2, inSection: 0)]?.frame.origin.y == 10.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 4, inSection: 0)]?.frame.origin.x == 20.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 4, inSection: 0)]?.frame.origin.y == 171.67 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 5, inSection: 0)]?.frame.origin.x == 132.5 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 5, inSection: 0)]?.frame.origin.y == 171.67 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 0, inSection: 1)]?.frame.origin.x == 30.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 0, inSection: 1)]?.frame.origin.y == 883.35 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 3, inSection: 1)]?.frame.origin.x == 30.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 3, inSection: 1)]?.frame.origin.y == 1000.85 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 4, inSection: 1)]?.frame.origin.x == 185.0 &&
-         layout.attributesDictionary[NSIndexPath(forRow: 4, inSection: 1)]?.frame.origin.y == 1000.85 , "Height and Width should be valid")
+      XCTAssert(layout.attributesDictionary[IndexPath(forRow: 0, inSection: 0)]?.frame.origin.x == 20.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 0, inSection: 0)]?.frame.origin.y == 10.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 2, inSection: 0)]?.frame.origin.x == 245.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 2, inSection: 0)]?.frame.origin.y == 10.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 4, inSection: 0)]?.frame.origin.x == 20.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 4, inSection: 0)]?.frame.origin.y == 171.67 &&
+         layout.attributesDictionary[IndexPath(forRow: 5, inSection: 0)]?.frame.origin.x == 132.5 &&
+         layout.attributesDictionary[IndexPath(forRow: 5, inSection: 0)]?.frame.origin.y == 171.67 &&
+         layout.attributesDictionary[IndexPath(forRow: 0, inSection: 1)]?.frame.origin.x == 30.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 0, inSection: 1)]?.frame.origin.y == 883.35 &&
+         layout.attributesDictionary[IndexPath(forRow: 3, inSection: 1)]?.frame.origin.x == 30.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 3, inSection: 1)]?.frame.origin.y == 1000.85 &&
+         layout.attributesDictionary[IndexPath(forRow: 4, inSection: 1)]?.frame.origin.x == 185.0 &&
+         layout.attributesDictionary[IndexPath(forRow: 4, inSection: 1)]?.frame.origin.y == 1000.85 , "Height and Width should be valid")
    }
    
    

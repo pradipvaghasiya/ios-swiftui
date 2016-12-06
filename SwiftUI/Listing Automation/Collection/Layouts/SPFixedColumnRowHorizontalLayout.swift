@@ -22,7 +22,7 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
     }
     
     // MARK: Attributes Calculation
-    override func calculateItemWidthAndHeightAt(IndexPath indexPath : NSIndexPath) -> (itemWidth: CGFloat, itemHeight: CGFloat){
+    override func calculateItemWidthAndHeightAt(IndexPath indexPath : IndexPath) -> (itemWidth: CGFloat, itemHeight: CGFloat){
         
         // If itemWidth and itemHeight have already been calculated for this section then return it.
         if  let (itemWidth,itemHeight) = self.itemWidthHeightDictionary[indexPath.section]{
@@ -59,7 +59,7 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
         
     }
     
-    override func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
+    override func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
         let sectionInsetForCurrentSection = self.sectionInset(ForSection: indexPath.section)
         
         if indexPath.section == 0{
@@ -81,7 +81,7 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
         return (0,0)
     }
     
-    override func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
+    override func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
         
         // Item which should start from new line can be calculated based on noOfColumns Required
         if indexPath.item % self.noOfRows(ForSection: indexPath.section) == 0 {
@@ -96,8 +96,8 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    private func calculateOriginOfNonFirstOnNewRowItemAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
-        let firstItemOfPreviousRowIndexPath = NSIndexPath(forRow: indexPath.item - self.noOfRows(ForSection: indexPath.section), inSection: indexPath.section)
+    fileprivate func calculateOriginOfNonFirstOnNewRowItemAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
+        let firstItemOfPreviousRowIndexPath = IndexPath(row: indexPath.item - self.noOfRows(ForSection: indexPath.section), section: indexPath.section)
         
         if let firstItemOfPreviousRowAttributes = self.attributesDictionary[firstItemOfPreviousRowIndexPath] {
             // left item x + width + Line Spacing
@@ -117,8 +117,8 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    private func calculateOriginOfNonFirstOnSameRowItemAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
-        let previousItemOnSameRowIndexPath = NSIndexPath(forItem: indexPath.item-1, inSection: indexPath.section)
+    fileprivate func calculateOriginOfNonFirstOnSameRowItemAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
+        let previousItemOnSameRowIndexPath = IndexPath(item: indexPath.item-1, section: indexPath.section)
         
         if let previousItemOnSameRowAttributes = self.attributesDictionary[previousItemOnSameRowIndexPath] {
             let x = previousItemOnSameRowAttributes.frame.origin.x
@@ -134,21 +134,21 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
     }
     
     // MARK: Content Size
-    override public func collectionViewContentSize() -> CGSize {
-        if let noOfSections = self.collectionView?.numberOfSections(){
+    override public var collectionViewContentSize : CGSize {
+        if let noOfSections = self.collectionView?.numberOfSections{
             if noOfSections == 0 {
-                return CGSizeMake(0, 0)
+                return CGSize(width: 0, height: 0)
             }
             
             let lastSection = noOfSections - 1
             
             if let (sectionWidth, _) = sectionSizeDictionary[lastSection]{
-                return CGSizeMake(sectionWidth + self.sectionInset(ForSection: lastSection).right,
-                    self.collectionView!.bounds.size.height - self.collectionView!.contentInset.top - self.collectionView!.contentInset.bottom)
+                return CGSize(width: sectionWidth + self.sectionInset(ForSection: lastSection).right,
+                    height: self.collectionView!.bounds.size.height - self.collectionView!.contentInset.top - self.collectionView!.contentInset.bottom)
             }
             
         }
-        return CGSizeMake(0, 0)
+        return CGSize(width: 0, height: 0)
     }
     
     public override func finalizeAnimatedBoundsChange() {
@@ -157,7 +157,7 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
     }
 
     public var currentPageIndex : Int? {
-        guard let collectionView = collectionView where pagingEnabled && noOfColumns == 1 else{
+        guard let collectionView = collectionView, pagingEnabled && noOfColumns == 1 else{
             return nil
         }
 
@@ -170,9 +170,9 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
     
 // On rotation below method needs to be implemented in case of Paging Enabled
 // Need to get indexPath from proposedContentOffset and calculate accordingly.
-    public override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint) -> CGPoint {
+    public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
         
-        guard let noOfSections = self.collectionView?.numberOfSections() where noOfSections == 1 else{
+        guard let noOfSections = self.collectionView?.numberOfSections, noOfSections == 1 else{
             return proposedContentOffset
         }
         
@@ -189,10 +189,10 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
         
         let itemNo = ceil(proposedContentOffset.x / itemWidthWithGapBeforeRotation)
         
-        return CGPointMake(itemNo * itemWidthWithGapAfterRotation, proposedContentOffset.y)
+        return CGPoint(x: itemNo * itemWidthWithGapAfterRotation, y: proposedContentOffset.y)
     }
     
-    public override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint{
+    public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint{
         
         guard pagingEnabled else{
             return proposedContentOffset
@@ -207,25 +207,25 @@ public final class SPFixedColumnRowHorizontalLayout: SPFixedColumnRowLayout {
             return proposedContentOffset
         }
         
-        guard var originX = collectionView?.visibleCells()[0].frame.origin.x else{
+        guard var originX = collectionView?.visibleCells[0].frame.origin.x else{
             return proposedContentOffset
         }
         
         if proposedContentOffset.x < currentPointX{
-            collectionView?.visibleCells().forEach{
+            collectionView?.visibleCells.forEach{
                 if ($0.frame.origin.x < originX){
                     originX = $0.frame.origin.x
                 }
             }
             
         }else{
-            collectionView?.visibleCells().forEach{
+            collectionView?.visibleCells.forEach{
                 if ($0.frame.origin.x > originX){
                     originX = $0.frame.origin.x
                 }
             }
         }
         
-        return CGPointMake(originX, proposedContentOffset.y)
+        return CGPoint(x: originX, y: proposedContentOffset.y)
     }
 }

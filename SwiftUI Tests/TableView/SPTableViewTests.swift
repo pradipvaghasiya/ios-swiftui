@@ -27,8 +27,8 @@ class SPTableViewTests: XCTestCase {
    }
    
    func testFromStoryboard(){
-      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: NSBundle(forClass: self.classForCoder))
-      let spTableViewTestVC : SPTableViewTestVC = (storyboard.instantiateViewControllerWithIdentifier("SPTableViewTestVC") as? SPTableViewTestVC)!
+      let storyboard = UIStoryboard(name: "SPTestStoryboard", bundle: Bundle(for: self.classForCoder))
+      let spTableViewTestVC : SPTableViewTestVC = (storyboard.instantiateViewController(withIdentifier: "SPTableViewTestVC") as? SPTableViewTestVC)!
       
       spTableViewTestVC.view.setNeedsDisplay()
       

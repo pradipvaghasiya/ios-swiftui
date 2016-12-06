@@ -11,7 +11,7 @@ import UIKit
 ///Generic datasource takes control of CollectionView Datasource Management.
 ///
 ///Delegate must conform to SPListingViewProtocol
-public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource, SPListingDataSourceType{
+open class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource, SPListingDataSourceType{
     
     unowned public let controller : SPListingControllerType
     
@@ -20,21 +20,21 @@ public class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource, 
     }
     
     // MARK: Number Of Sections
-    final public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int{
+    final public func numberOfSections(in collectionView: UICollectionView) -> Int{
         return controller.listingData(collectionView).count
     }
     
     // MARK: Number Of Rows in Section
-    final public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    final public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return controller.listingData(collectionView)[section].count
     }
     
     // MARK: cellForItemAtIndexPath
-    final public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
+    final public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
         let viewModel = controller.listingData(collectionView)[indexPath.section][indexPath.row]
         
-        let collectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(viewModel.cellId, forIndexPath: indexPath)
+        let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.cellId, for: indexPath)
         
         if let listingCell = collectionViewCell as? SPCollectionCellProtocol{
             listingCell.viewModel = viewModel

@@ -14,9 +14,9 @@ public let kCellIdSPTitleTestCell = "SPTitleTestNibCell"
 
 //Default Label Parameters
 private let kDefaultFontSize : CGFloat = 16.0
-private let kDefaultFont = UIFont.systemFontOfSize(kDefaultFontSize)
-private let kDefaultTextColor = UIColor.blackColor()
-private let kDefaultTextAlignment : NSTextAlignment = .Left
+private let kDefaultFont = UIFont.systemFont(ofSize: kDefaultFontSize)
+private let kDefaultTextColor = UIColor.black
+private let kDefaultTextAlignment : NSTextAlignment = .left
 
 // MARK: Cell Configuration
 ///This cell shows single label covered in whole length and height
@@ -25,7 +25,7 @@ class SPTitleTestCell: UITableViewCell,SPListingCellProtocol {
     @IBOutlet var titleLabel: UILabel?
     
     // SPTableViewCellProtocol
-    func configureCellUsing(model: AnyObject){
+    func configureCellUsing(_ model: AnyObject){
         //If model is of type SPTitleTestCellModel, It would set title text.
         if let myModel = model as? SPTitleTestCellModel{
             self.titleLabel?.text = myModel.titleText
@@ -54,7 +54,7 @@ extension SPTitleTestCell{
     ///:param: stringArray Array of string using which SPListingData would be created.
     ///
     ///:returns: SPListingData which can be used to create TableView using SwiftUI
-    class func getBasicDefaultSPListingData(UsingStringArray stringArray: [String]) -> SPListingData{
+    class func getBasicDefaultSPListingData(UsingStringArray stringArray: [String]) -> ListingData{
 
         var spTitleTestCellModelArray : [SPTitleTestCellModel] = []
         

@@ -11,27 +11,27 @@ import UIKit
 ///Generic datasource takes control of Tableview Datasource Management.
 ///
 ///Delegate must conform to SPListingViewProtocol
-public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPListingDataSourceType {
-    unowned public let controller : SPListingControllerType
+open class SPTableViewDataSource : NSObject, UITableViewDataSource, SPListingDataSourceType {
+    unowned open let controller : SPListingControllerType
     
     public init(_ controller : SPListingControllerType){
         self.controller = controller
     }
     
     // MARK: Number Of Sections
-    final public func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    final public func numberOfSections(in tableView: UITableView) -> Int
     {
         return controller.listingData(tableView).count
     }
     
     // MARK: Number Of Rows in Section
-    final public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    final public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return controller.listingData(tableView)[section].count
     }
     
     // MARK: cellForRowAtIndexPath
-    final public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    final public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let viewModel = controller.listingData(tableView)[indexPath.section][indexPath.row]
         
@@ -56,12 +56,12 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPListingD
     ///:param: IndexPath
     ///
     ///:returns: UITableViewCell If Cell Id is not valid it returns empty default cell.
-    private func createCellUsing(TableView tableView: UITableView,
+    fileprivate func createCellUsing(TableView tableView: UITableView,
         ViewModelType viewModel: ViewModelType,
-        IndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        IndexPath indexPath: IndexPath) -> UITableViewCell{
             
-            if (tableView.dequeueReusableCellWithIdentifier(viewModel.cellId) != nil){
-                return tableView.dequeueReusableCellWithIdentifier(viewModel.cellId, forIndexPath: indexPath)
+            if (tableView.dequeueReusableCell(withIdentifier: viewModel.cellId) != nil){
+                return tableView.dequeueReusableCell(withIdentifier: viewModel.cellId, for: indexPath)
             }else{
                 SPLogger.logError(Message: "Class or Nib named \(viewModel.cellId) is not registered before dequeing or wrong prototype Cell.")
             }
@@ -71,11 +71,11 @@ public class SPTableViewDataSource : NSObject, UITableViewDataSource, SPListingD
     
     
     // MARK: Section Header & Footer Title
-    final public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    final public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return controller.listingData(tableView)[section].sectionHeader
     }
     
-    final public func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    final public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return controller.listingData(tableView)[section].sectionFooter
     }
 }

@@ -10,12 +10,12 @@ import UIKit
 private let kDefaultRowsAndColumns : UInt = 3
 
 /// This class must not be used as Layout. Use SPFixedColumnRowVerticalLayout or SPFixedColumnRowHorizontalLayout instead.
-public class SPFixedColumnRowLayout: SPCollectionViewLayout {
+open class SPFixedColumnRowLayout: SPCollectionViewLayout {
    ///Denotes no.of rows in vertical layout
-   public lazy var noOfRows : UInt = kDefaultRowsAndColumns
+   open lazy var noOfRows : UInt = kDefaultRowsAndColumns
    
    ///Denotes no.of columns in vertical layout
-   public lazy var noOfColumns : UInt = kDefaultRowsAndColumns
+   open lazy var noOfColumns : UInt = kDefaultRowsAndColumns
    
    ///For this layout width and height of an item for entire section would be same. So section wise height and width is stored in this dictionary.
    var itemWidthHeightDictionary : [Int : (width : CGFloat, height: CGFloat)] = [:]
@@ -37,11 +37,11 @@ public class SPFixedColumnRowLayout: SPCollectionViewLayout {
    
    ///TODO: Pagination
    // MARK: Prepare Layout
-   override public func prepareLayout() {
+   override open func prepare() {
       // Clear all values in itemWidthHeightDictionary
-      itemWidthHeightDictionary.removeAll(keepCapacity: false)
+      itemWidthHeightDictionary.removeAll(keepingCapacity: false)
 
-      super.prepareLayout()
+      super.prepare()
    }
 }
 
