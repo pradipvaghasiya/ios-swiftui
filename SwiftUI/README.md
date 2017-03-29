@@ -38,7 +38,7 @@ spCollectionView.reloadData()
 * Delegate
 // MARK: Collectionview delegate
 extension AlbumsVC : UICollectionViewDelegate{
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath){
     }
 
 }
