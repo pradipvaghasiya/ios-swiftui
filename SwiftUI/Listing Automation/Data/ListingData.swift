@@ -9,9 +9,9 @@
 import Foundation
 
 
-public class ListingData : ArrayWrapperType{
+open class ListingData : ArrayWrapperType{
     
-    public var items : [ListingSection]
+    open var items : [ListingSection]
     public init (items : [ListingSection]){
         self.items = items
     }
@@ -24,10 +24,17 @@ public class ListingData : ArrayWrapperType{
         items = Array(elements)
     }
     
-    public var count: Int { get {return items.count} }
+    open var count: Int { get {return items.count} }
 }
 
-extension ListingData : CollectionType{
+extension ListingData : Collection{
+    public func index(after i: Int) -> Int {
+        guard i != items.count else {
+            return 0
+        }
+        return i + 1
+    }
+
     public var startIndex: Int { get {return 0}}
     public var endIndex: Int {
         get{
@@ -47,43 +54,43 @@ extension ListingData : CollectionType{
 }
 
 
-extension ListingData : RangeReplaceableCollectionType{
+extension ListingData : RangeReplaceableCollection{
     
-    public func reserveCapacity(n: Int.Distance){
+    public func reserveCapacity(_ n: Int){
         items.reserveCapacity(n)
     }
     
-    public func append(x: ListingSection){
+    public func append(_ x: ListingSection){
         items.append(x)
     }
     
-    public func replaceRange<C : CollectionType where C.Generator.Element == ListingSection>(subRange: Range<Int>, with newElements: C){
-        items.replaceRange(subRange, with: newElements)
+    public func replaceSubrange<C : Collection>(_ subRange: Range<Int>, with newElements: C) where C.Iterator.Element == ListingSection{
+        items.replaceSubrange(subRange, with: newElements)
     }
     
-   public func splice<S : CollectionType where S.Generator.Element == ListingSection>(newElements: S, atIndex i: Int){
-      items.insertContentsOf(newElements, at: i)
+   public func splice<S : Collection>(_ newElements: S, atIndex i: Int) where S.Iterator.Element == ListingSection{
+      items.insert(contentsOf: newElements, at: i)
    }
    
    
-   public func removeRange(subRange: Range<Int>){
-      items.removeRange(subRange)
+   public func removeSubrange(_ subRange: Range<Int>){
+      items.removeSubrange(subRange)
    }
    
-   public func insert(newElement: ListingSection, atIndex i: Int){
-      items.insert(newElement, atIndex: i)
+   public func insert(_ newElement: ListingSection, at i: Int){
+      items.insert(newElement, at: i)
    }
    
-   public func removeAtIndex(index: Int) -> ListingSection{
-      return items.removeAtIndex(index)
+   public func remove(at index: Int) -> ListingSection{
+      return items.remove(at: index)
    }
    
-   public func removeAll(keepCapacity keepCapacity: Bool){
-      items.removeAll(keepCapacity: keepCapacity)
+   public func removeAll(keepingCapacity keepCapacity: Bool){
+      items.removeAll(keepingCapacity: keepCapacity)
    }
 }
 
-extension ListingData : ArrayLiteralConvertible{
+extension ListingData : ExpressibleByArrayLiteral{
 }
 
 

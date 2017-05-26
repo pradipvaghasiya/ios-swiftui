@@ -10,7 +10,7 @@ import UIKit
 
 private let kDefaultSpacing : CGFloat = 5
 
-public class SPCollectionViewLayout: UICollectionViewLayout {
+open class SPCollectionViewLayout: UICollectionViewLayout {
     /// Denotes spacing between two lines incase of horizontal layout it is distance between columns and in vertical it is distance between rows.
     public final var lineSpacing: CGFloat = kDefaultSpacing
     
@@ -21,26 +21,26 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
     public final var sectionInset: UIEdgeInsets = UIEdgeInsetsMake(kDefaultSpacing, kDefaultSpacing, kDefaultSpacing, kDefaultSpacing)
     
     /// Denotes Attributes at given indexPath
-    final var attributesDictionary : [NSIndexPath:UICollectionViewLayoutAttributes] = [:]
+    final var attributesDictionary : [IndexPath:UICollectionViewLayoutAttributes] = [:]
     
     /// Save content size of each Section
     final var sectionSizeDictionary : [Int :(width:CGFloat, height:CGFloat)] = [:]
     
     /// SPCollection View Delegate
-    public weak var delegate : SPCollectionViewLayoutDelegate?
+    open weak var delegate : SPCollectionViewLayoutDelegate?
     
     /// Set as true if Pagination is needed. Default is false.
-    public var pagingEnabled = false
+    open var pagingEnabled = false
     
     /// Set different kind of supplymentary views if any
-    public var supplementaryViewKinds : [String] = []
+    open var supplementaryViewKinds : [String] = []
 
     /// Set different kind of decoration views if any
-    public var decorationViewKinds : [String] = []
+    open var decorationViewKinds : [String] = []
     
     // MARK: Prepare Layout
-    override public func prepareLayout() {
-        super.prepareLayout()
+    override open func prepare() {
+        super.prepare()
         
         // Set decelerationRate as fast in case of pagination.
         if pagingEnabled{
@@ -50,8 +50,8 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
         }
         
         // Clear all attribute and content size values
-        attributesDictionary.removeAll(keepCapacity: false)
-        sectionSizeDictionary.removeAll(keepCapacity: false)
+        attributesDictionary.removeAll(keepingCapacity: false)
+        sectionSizeDictionary.removeAll(keepingCapacity: false)
         
         // Attribute Calculation
         self.calculateAttributesForAllItemsInCollectionView()
@@ -68,14 +68,14 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
         
         // If no section no need to prepare return.
         let collectionView = self.collectionView!
-        let noOfSections = collectionView.numberOfSections()
+        let noOfSections = collectionView.numberOfSections
         if noOfSections == 0 {
             return
         }
         
         for section in 0...(noOfSections - 1){
             
-            let noOfItemsInCurrentSection = collectionView.numberOfItemsInSection(section)
+            let noOfItemsInCurrentSection = collectionView.numberOfItems(inSection: section)
             
             if noOfItemsInCurrentSection == 0{
                 sectionSizeDictionary[section] = (0,0)
@@ -85,7 +85,7 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
             
             for item in 0...(noOfItemsInCurrentSection - 1){
                 
-                let indexPath = NSIndexPath(forItem: item, inSection: section)
+                let indexPath = IndexPath(item: item, section: section)
                 
                 //Calculate attribute at given indexPath
                 let (x,y) = self.calculateOriginOfItemAt(IndexPath: indexPath)
@@ -93,11 +93,11 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
                 // Calculate Item Width and height required for this section
                 let (itemWidth,itemHeight) = self.calculateItemWidthAndHeightAt(IndexPath: indexPath)
                 
-                let attributes : UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                attributes.frame = CGRectMake(x,
-                                              y,
-                                              itemWidth,
-                                              itemHeight)
+                let attributes : UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                attributes.frame = CGRect(x: x,
+                                              y: y,
+                                              width: itemWidth,
+                                              height: itemHeight)
 
                 // Update main attributes dictionary
                 self.attributesDictionary[indexPath] = attributes
@@ -113,7 +113,7 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
     ///:param: indexPath IndexPath For which item Width and Height need to be calculated.
     ///
     ///:returns: (itemWidth: CGFloat, itemHeight: CGFloat) Width and Height of an item
-    func calculateItemWidthAndHeightAt(IndexPath indexPath : NSIndexPath) -> (itemWidth: CGFloat, itemHeight: CGFloat){
+    func calculateItemWidthAndHeightAt(IndexPath indexPath : IndexPath) -> (itemWidth: CGFloat, itemHeight: CGFloat){
         SPLogger.logError(Message: "SPCollectionViewLayout : Method calculateItemWidthAndHeightAt must be overridden by subclass.")
         return (0,0)
     }
@@ -123,7 +123,7 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    final func calculateOriginOfItemAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
+    final func calculateOriginOfItemAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
         
         if indexPath.item == 0 {
             return self.calcualateOriginOfFirstItemOfSectionAt(IndexPath: indexPath)
@@ -137,7 +137,7 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
+    func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
         SPLogger.logError(Message: "SPCollectionViewLayout : Method calcualateOriginOfFirstItemOfSectionAt must be overridden by subclass.")
         return (0,0)
     }
@@ -147,14 +147,14 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
+    func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
         SPLogger.logError(Message: "SPCollectionViewLayout : Method calcualateOriginOfNonFirstItemOfSectionAt must be overridden by subclass.")
         return (0,0)
     }
     
-    var oldBoundsBeforeInvalidationLayout = CGRectZero
+    var oldBoundsBeforeInvalidationLayout = CGRect.zero
     // Update layout on bounds change
-    final override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    final override public func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         if newBounds.width != self.collectionView!.bounds.size.width{
             oldBoundsBeforeInvalidationLayout = self.collectionView!.bounds
             return true
@@ -166,15 +166,15 @@ public class SPCollectionViewLayout: UICollectionViewLayout {
 
 // MARK: Pass Attributes to Apple's collectionview Mechanism
 extension SPCollectionViewLayout{
-    override public func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attribuetsInRectArray : [UICollectionViewLayoutAttributes] = []
         for (_,attributes) in attributesDictionary{
-            if CGRectIntersectsRect(rect, attributes.frame){
+            if rect.intersects(attributes.frame){
                 attribuetsInRectArray.append(attributes)
                 
                 //Add Supplementary views if any
                 for kind in supplementaryViewKinds{
-                    guard let supplementaryAttributes = layoutAttributesForSupplementaryViewOfKind(kind, atIndexPath: attributes.indexPath) else{
+                    guard let supplementaryAttributes = layoutAttributesForSupplementaryView(ofKind: kind, at: attributes.indexPath) else{
                         continue
                     }
                     attribuetsInRectArray.append(supplementaryAttributes)
@@ -182,7 +182,7 @@ extension SPCollectionViewLayout{
                 
                 //Add Decoration views if any
                 for kind in decorationViewKinds{
-                    guard let decorationAttributes = layoutAttributesForDecorationViewOfKind(kind, atIndexPath: attributes.indexPath) else{
+                    guard let decorationAttributes = layoutAttributesForDecorationView(ofKind: kind, at: attributes.indexPath) else{
                         continue
                     }
                     attribuetsInRectArray.append(decorationAttributes)
@@ -193,7 +193,7 @@ extension SPCollectionViewLayout{
         return attribuetsInRectArray
     }
     
-    override public func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return attributesDictionary[indexPath]
     }
 }

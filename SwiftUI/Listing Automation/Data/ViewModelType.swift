@@ -16,7 +16,7 @@ public protocol ViewModelType : class, NSObjectProtocol{
 }
 
 public enum CellType{
-   case Nib
-   case ProtoType    // Storyboard Cell
-   case SubClass
+   case nib
+   case protoType    // Storyboard Cell
+   case subClass
 }

@@ -6,11 +6,11 @@
 //  Copyright © 2016 Happyfall. All rights reserved.
 //
 
-public class ListingSection: SectionType{
+open class ListingSection: SectionType{
     ///Only valid for TableView
-    public var sectionHeader : String?
+    open var sectionHeader : String?
     ///Only valid for TableView
-    public var sectionFooter : String?
+    open var sectionFooter : String?
 
     var items : [ViewModelType]
     init (items : [ViewModelType]){
@@ -25,10 +25,17 @@ public class ListingSection: SectionType{
         items = []
     }
         
-    public var count: Int { get {return items.count} }
+    open var count: Int { get {return items.count} }
 }
 
-extension ListingSection : CollectionType{
+extension ListingSection : Collection{
+    public func index(after i: Int) -> Int {
+        guard i != items.count else {
+            return 0
+        }
+        return i + 1
+    }
+
     public var startIndex: Int { get {return 0}}
     public var endIndex: Int {
         get{
@@ -48,42 +55,42 @@ extension ListingSection : CollectionType{
 }
 
 
-extension ListingSection : RangeReplaceableCollectionType{
+extension ListingSection : RangeReplaceableCollection{
     
-    public func reserveCapacity(n: Int.Distance){
+    public func reserveCapacity(_ n: Int){
         items.reserveCapacity(n)
     }
     
-    public func append(x: ViewModelType){
+    public func append(_ x: ViewModelType){
         items.append(x)
     }
     
-    public func replaceRange<C : CollectionType where C.Generator.Element == ViewModelType>(subRange: Range<Int>, with newElements: C){
-        items.replaceRange(subRange, with: newElements)
+    public func replaceSubrange<C : Collection>(_ subRange: Range<Int>, with newElements: C) where C.Iterator.Element == ViewModelType{
+        items.replaceSubrange(subRange, with: newElements)
     }
     
-    public func splice<S : CollectionType where S.Generator.Element == ViewModelType>(newElements: S, atIndex i: Int){
-        items.insertContentsOf(newElements, at: i)
+    public func splice<S : Collection>(_ newElements: S, atIndex i: Int) where S.Iterator.Element == ViewModelType{
+        items.insert(contentsOf: newElements, at: i)
     }
     
     
-    public func removeRange(subRange: Range<Int>){
-        items.removeRange(subRange)
+    public func removeSubrange(_ subRange: Range<Int>){
+        items.removeSubrange(subRange)
     }
     
-    public func insert(newElement: ViewModelType, atIndex i: Int){
-        items.insert(newElement, atIndex: i)
+    public func insert(_ newElement: ViewModelType, at i: Int){
+        items.insert(newElement, at: i)
     }
     
-    public func removeAtIndex(index: Int) -> ViewModelType{
-        return items.removeAtIndex(index)
+    public func remove(at index: Int) -> ViewModelType{
+        return items.remove(at: index)
     }
     
-    public func removeAll(keepCapacity keepCapacity: Bool){
-        items.removeAll(keepCapacity: keepCapacity)
+    public func removeAll(keepingCapacity keepCapacity: Bool){
+        items.removeAll(keepingCapacity: keepCapacity)
     }
 }
 
-extension ListingSection : ArrayLiteralConvertible{
+extension ListingSection : ExpressibleByArrayLiteral{
     
 }

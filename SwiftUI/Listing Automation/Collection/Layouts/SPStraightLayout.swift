@@ -8,6 +8,6 @@
 
 import UIKit
 
-public class SPStraightLayout: SPCollectionViewLayout {
+open class SPStraightLayout: SPCollectionViewLayout {
 
 }

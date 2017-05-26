@@ -10,8 +10,8 @@ import UIKit
 
 @objc public protocol SPStraightVerticalLayoutDelegate : SPCollectionViewLayoutDelegate{
    ///Number of Columns for given section
-   optional func noOfColumns(ForSection section : Int) -> UInt
+   @objc optional func noOfColumns(ForSection section : Int) -> UInt
 
    ///Height Of an item
-   optional func itemHeightAt(IndexPath indexPath : NSIndexPath) -> CGFloat
+   @objc optional func itemHeightAt(IndexPath indexPath : IndexPath) -> CGFloat
 }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class SPCollectionView: UICollectionView {
+open class SPCollectionView: UICollectionView {
     
-    public weak var controller : SPListingControllerType?
+    open weak var controller : SPListingControllerType?
         {
         didSet{
             if oldValue == nil && controller != nil{
@@ -27,14 +27,14 @@ public class SPCollectionView: UICollectionView {
     var listingDataSource : SPCollectionViewDataSource?
     
     //editing Cell
-    public weak var editingCell : UIView?
+    open weak var editingCell : UIView?
     var editingTouchStartPointInCell : CGPoint?
     var touchStartPoint : CGPoint?
-    public weak var editView : UIView?
-    public var panGesture : UIPanGestureRecognizer?
-    public weak var editingDelegate : SPEditableListingViewEditingDelegate?
-    public var editViewWidth : CGFloat = kDefaultListingEditViewWidth
-    public var enableEditing : Bool = false{
+    open weak var editView : UIView?
+    open var panGesture : UIPanGestureRecognizer?
+    open weak var editingDelegate : SPEditableListingViewEditingDelegate?
+    open var editViewWidth : CGFloat = kDefaultListingEditViewWidth
+    open var enableEditing : Bool = false{
         didSet{
             enableEditing(enableEditing)
         }
@@ -44,7 +44,7 @@ public class SPCollectionView: UICollectionView {
         super.init(coder: aDecoder)!
     }
     
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
     }
 }
@@ -54,11 +54,11 @@ extension SPCollectionView : SPEditableListingViewType{
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(SPCollectionView.userPannedInCollectionView(_:)))
     }
     
-    func userPannedInCollectionView(gesture : UIPanGestureRecognizer ){
+    func userPannedInCollectionView(_ gesture : UIPanGestureRecognizer ){
         userPanned(gesture)
     }
     
-    public override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return gestureShouldBegin(gestureRecognizer)
     }
 }
@@ -74,9 +74,9 @@ extension SPCollectionView{
         if let controller = self.controller{
             for section in controller.listingData(self).items{
                 for viewModel in section{
-                    if viewModel.cellType == .Nib{
+                    if viewModel.cellType == .nib{
                         nibCells.insert(viewModel.cellId)
-                    }else if viewModel.cellType == .SubClass{
+                    }else if viewModel.cellType == .subClass{
                         subclassCells.insert(viewModel.cellId)
                     }
                 }
@@ -98,24 +98,24 @@ extension SPCollectionView{
     ///:param: cellData Registers class based on its type and cell Id contained in this param.
     final func registerCellsFor(ViewModel viewModel : ViewModelType){
         switch viewModel.cellType{
-        case .SubClass:
+        case .subClass:
             self.registerClass(viewModel.cellId)
-        case .Nib:
+        case .nib:
             self.registerNib(viewModel.cellId)
-        case .ProtoType:
-            true
+        case .protoType:
+            break
         }
     }
     
     
-    public final func registerNib(nibId : String){
-        self.registerNib(UINib(nibName: nibId, bundle: nil),forCellWithReuseIdentifier: nibId)
+    public final func registerNib(_ nibId : String){
+        self.register(UINib(nibName: nibId, bundle: nil),forCellWithReuseIdentifier: nibId)
     }
     
-    public final func registerClass(className : String){
+    public final func registerClass(_ className : String){
         if let cellClass = NSClassFromString(className){
-            if cellClass.isSubclassOfClass(UICollectionViewCell){
-                self.registerClass(NSClassFromString(className),forCellWithReuseIdentifier: className)
+            if let _ = cellClass as? UICollectionViewCell.Type {
+                self.register(cellClass,forCellWithReuseIdentifier: className)
             }
         }else{
             SPLogger.logError(Message: "\(className) must be subclass of UITableViewCell to use it with SPTableView.")
@@ -127,8 +127,8 @@ extension SPCollectionView{
 //MARK: Cell Update
 extension SPCollectionView{
     ///Update the viewmodel and call this method. ViewModel is reference type so cell's ViewModel will automatically updated.
-    func reConfigureCellIfVisibleAtIndexPath(indexPath: NSIndexPath){
-        guard let cell = cellForItemAtIndexPath(indexPath) as? SPCollectionCell else{
+    func reConfigureCellIfVisibleAtIndexPath(_ indexPath: IndexPath){
+        guard let cell = cellForItem(at: indexPath) as? SPCollectionCell else{
             return
         }
         cell.configureCell()

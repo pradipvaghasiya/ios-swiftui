@@ -12,12 +12,12 @@ import UIKit
 @objc public protocol SPCollectionViewLayoutDelegate : UICollectionViewDelegate, UIScrollViewDelegate{
    
    ///Gets Line spacing required for that section.
-   optional func lineSpacing(ForSection section : Int) -> CGFloat
+   @objc optional func lineSpacing(ForSection section : Int) -> CGFloat
 
    ///Gets Inter item spacing required for that section.
-   optional func interItemSpacing(ForSection section : Int) -> CGFloat
+   @objc optional func interItemSpacing(ForSection section : Int) -> CGFloat
 
    ///Gets Section Inset required for that section
-   optional func sectionInset(ForSection section : Int) -> UIEdgeInsets
+   @objc optional func sectionInset(ForSection section : Int) -> UIEdgeInsets
    
 }

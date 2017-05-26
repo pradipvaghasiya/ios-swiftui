@@ -10,10 +10,10 @@ import UIKit
 
 @objc public protocol SPFixedColumnRowLayoutDelegate : SPCollectionViewLayoutDelegate{
    ///Number of Rows for given section
-   optional func noOfRows(ForSection section : Int) -> UInt
+   @objc optional func noOfRows(ForSection section : Int) -> UInt
    
    ///Number of Columns for given section
-   optional func noOfColumns(ForSection section : Int) -> UInt
+   @objc optional func noOfColumns(ForSection section : Int) -> UInt
 }
 
 

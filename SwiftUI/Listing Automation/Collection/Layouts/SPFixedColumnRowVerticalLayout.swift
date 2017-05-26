@@ -24,7 +24,7 @@ public final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
     }
     
     // MARK: Attributes Calculation
-    override func calculateItemWidthAndHeightAt(IndexPath indexPath : NSIndexPath) -> (itemWidth: CGFloat, itemHeight: CGFloat){
+    override func calculateItemWidthAndHeightAt(IndexPath indexPath : IndexPath) -> (itemWidth: CGFloat, itemHeight: CGFloat){
         
         // If itemWidth and itemHeight have already been calculated for this section then return it.
         if  let (itemWidth,itemHeight) = self.itemWidthHeightDictionary[indexPath.section]{
@@ -58,7 +58,7 @@ public final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
         return (itemWidth,itemHeight)
     }
     
-    override func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
+    override func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
         let sectionInsetForCurrentSection = self.sectionInset(ForSection: indexPath.section)
         
         if indexPath.section == 0{
@@ -80,7 +80,7 @@ public final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
         return (0,0)
     }
     
-    override func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
+    override func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
         
         // Item which should start from new line can be calculated based on noOfColumns Required
         if indexPath.item % noOfColumns(ForSection: indexPath.section) == 0 {
@@ -95,8 +95,8 @@ public final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    private func calculateOriginOfNonFirstOnNewRowItemAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
-        let firstItemOfPreviousRowIndexPath = NSIndexPath(forRow: indexPath.item - noOfColumns(ForSection: indexPath.section), inSection: indexPath.section)
+    fileprivate func calculateOriginOfNonFirstOnNewRowItemAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
+        let firstItemOfPreviousRowIndexPath = IndexPath(row: indexPath.item - noOfColumns(ForSection: indexPath.section), section: indexPath.section)
         
         if let firstItemOfPreviousRowAttributes = self.attributesDictionary[firstItemOfPreviousRowIndexPath] {
             let x = firstItemOfPreviousRowAttributes.frame.origin.x
@@ -114,8 +114,8 @@ public final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    private func calculateOriginOfNonFirstOnSameRowItemAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
-        let previousItemOnSameRowIndexPath = NSIndexPath(forItem: indexPath.item-1, inSection: indexPath.section)
+    fileprivate func calculateOriginOfNonFirstOnSameRowItemAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
+        let previousItemOnSameRowIndexPath = IndexPath(item: indexPath.item-1, section: indexPath.section)
         
         if let previousItemOnSameRowAttributes = self.attributesDictionary[previousItemOnSameRowIndexPath] {
             // Previous item of same row origin x + previous item width + inter item spacing
@@ -130,19 +130,19 @@ public final class SPFixedColumnRowVerticalLayout: SPFixedColumnRowLayout {
     }
     
     // MARK: Content Size
-    override public func collectionViewContentSize() -> CGSize {
-        if let noOfSections = self.collectionView?.numberOfSections(){
+    override public var collectionViewContentSize : CGSize {
+        if let noOfSections = self.collectionView?.numberOfSections{
             if noOfSections == 0 {
-                return CGSizeMake(0, 0)
+                return CGSize(width: 0, height: 0)
             }
             
             let lastSection = noOfSections - 1
             
             if let (_, sectionHeight) = sectionSizeDictionary[lastSection]{
-                return CGSizeMake(self.collectionView!.bounds.size.width - self.collectionView!.contentInset.left - self.collectionView!.contentInset.right, sectionHeight + self.sectionInset(ForSection: lastSection).bottom)
+                return CGSize(width: self.collectionView!.bounds.size.width - self.collectionView!.contentInset.left - self.collectionView!.contentInset.right, height: sectionHeight + self.sectionInset(ForSection: lastSection).bottom)
             }
         }
-        return CGSizeMake(0, 0)
+        return CGSize(width: 0, height: 0)
     }
     
     public override func finalizeAnimatedBoundsChange() {

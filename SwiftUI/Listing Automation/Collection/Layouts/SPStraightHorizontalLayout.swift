@@ -10,12 +10,12 @@ import UIKit
 private let kDefaultRows : UInt = 1
 private let kDefaultWidth : CGFloat = 0
 
-public class SPStraightHorizontalLayout: SPStraightLayout {
+open class SPStraightHorizontalLayout: SPStraightLayout {
     ///Denotes no.of rows in horizontal layout
-    public lazy var noOfRows : UInt = kDefaultRows
+    open lazy var noOfRows : UInt = kDefaultRows
     
     ///Denotes width of an item
-    public lazy var itemWidth : CGFloat = kDefaultWidth
+    open lazy var itemWidth : CGFloat = kDefaultWidth
     
     ///For this layout height of an item for entire section would be same. So section wise width is stored in this dictionary.
     var itemHeightDictionary : [Int : CGFloat] = [:]
@@ -40,14 +40,14 @@ public class SPStraightHorizontalLayout: SPStraightLayout {
         super.init(coder: aDecoder)!
     }
     
-    override public func prepareLayout() {
+    override open func prepare() {
         // Clear all values in itemWidthHeightDictionary
-        itemHeightDictionary.removeAll(keepCapacity: false)
+        itemHeightDictionary.removeAll(keepingCapacity: false)
         
-        super.prepareLayout()
+        super.prepare()
     }
     
-    final override func calculateItemWidthAndHeightAt(IndexPath indexPath: NSIndexPath) -> (itemWidth: CGFloat, itemHeight: CGFloat)
+    final override func calculateItemWidthAndHeightAt(IndexPath indexPath: IndexPath) -> (itemWidth: CGFloat, itemHeight: CGFloat)
     {
         
         // If height has already been calculated for this section then return it.
@@ -79,7 +79,7 @@ public class SPStraightHorizontalLayout: SPStraightLayout {
         return (itemWidthAt(IndexPath: indexPath), itemHeight)
     }
     
-    override func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath: NSIndexPath) -> (x: CGFloat, y: CGFloat) {
+    override func calcualateOriginOfFirstItemOfSectionAt(IndexPath indexPath: IndexPath) -> (x: CGFloat, y: CGFloat) {
         let sectionInsetForCurrentSection = self.sectionInset(ForSection: indexPath.section)
         
         if indexPath.section == 0{
@@ -101,7 +101,7 @@ public class SPStraightHorizontalLayout: SPStraightLayout {
         return (0,0)
     }
     
-    override func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
+    override func calcualateOriginOfNonFirstItemOfSectionAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
         
         // Item which should start from new line can be calculated based on noOfColumns Required
         if indexPath.item % noOfRows(ForSection: indexPath.section) == 0 {
@@ -116,8 +116,8 @@ public class SPStraightHorizontalLayout: SPStraightLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    private func calculateOriginOfNonFirstOnNewRowItemAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
-        let firstItemOfPreviousRowIndexPath = NSIndexPath(forRow: indexPath.item - noOfRows(ForSection: indexPath.section), inSection: indexPath.section)
+    fileprivate func calculateOriginOfNonFirstOnNewRowItemAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
+        let firstItemOfPreviousRowIndexPath = IndexPath(row: indexPath.item - noOfRows(ForSection: indexPath.section), section: indexPath.section)
         
         if let firstItemOfPreviousRowAttributes = self.attributesDictionary[firstItemOfPreviousRowIndexPath] {
             let x = firstItemOfPreviousRowAttributes.frame.origin.x + firstItemOfPreviousRowAttributes.frame.size.width + self.lineSpacing(ForSection: indexPath.section)
@@ -135,10 +135,10 @@ public class SPStraightHorizontalLayout: SPStraightLayout {
     ///:param: indexPath IndexPath For which item Origin need to be calculated.
     ///
     ///:returns: (x: CGFloat, y: CGFloat) Origin of an item
-    private func calculateOriginOfNonFirstOnSameRowItemAt(IndexPath indexPath : NSIndexPath) -> (x: CGFloat, y: CGFloat){
-        let previousItemOnSameRowIndexPath = NSIndexPath(forItem: indexPath.item-1, inSection: indexPath.section)
+    fileprivate func calculateOriginOfNonFirstOnSameRowItemAt(IndexPath indexPath : IndexPath) -> (x: CGFloat, y: CGFloat){
+        let previousItemOnSameRowIndexPath = IndexPath(item: indexPath.item-1, section: indexPath.section)
         
-        let aboveItemIndexPath = NSIndexPath(forItem: indexPath.item - noOfRows(ForSection: indexPath.section), inSection: indexPath.section)
+        let aboveItemIndexPath = IndexPath(item: indexPath.item - noOfRows(ForSection: indexPath.section), section: indexPath.section)
         
         var x : CGFloat = 0
         var y : CGFloat = 0
@@ -158,22 +158,22 @@ public class SPStraightHorizontalLayout: SPStraightLayout {
     }
     
     // MARK: Content Size
-    final override public func collectionViewContentSize() -> CGSize {
-        if let noOfSections = self.collectionView?.numberOfSections(){
+    final override public var collectionViewContentSize : CGSize {
+        if let noOfSections = self.collectionView?.numberOfSections{
             if noOfSections == 0 {
-                return CGSizeMake(0, 0)
+                return CGSize(width: 0, height: 0)
             }
             
             let lastSection = noOfSections - 1
             
             if let (sectionWidth, _) = sectionSizeDictionary[lastSection]{
-                return CGSizeMake(sectionWidth + self.sectionInset(ForSection: lastSection).right, self.collectionView!.bounds.size.height - self.collectionView!.contentInset.top - self.collectionView!.contentInset.bottom)
+                return CGSize(width: sectionWidth + self.sectionInset(ForSection: lastSection).right, height: self.collectionView!.bounds.size.height - self.collectionView!.contentInset.top - self.collectionView!.contentInset.bottom)
             }
         }
-        return CGSizeMake(0, 0)
+        return CGSize(width: 0, height: 0)
     }
     
-    public override func finalizeAnimatedBoundsChange() {
+    open override func finalizeAnimatedBoundsChange() {
         super.finalizeAnimatedBoundsChange()
         updateContentOffsetForHorizontalLayoutOnBoundsChange()
     }
@@ -192,7 +192,7 @@ extension SPStraightHorizontalLayout{
         return Int(noOfRows)
     }
     
-    final func itemWidthAt(IndexPath indexPath : NSIndexPath) -> CGFloat{
+    final func itemWidthAt(IndexPath indexPath : IndexPath) -> CGFloat{
         if let delegate = self.delegate as? SPStraightHorizontalLayoutDelegate{
             if let itemWidth = delegate.itemWidthAt?(IndexPath: indexPath){
                 return itemWidth
