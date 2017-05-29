@@ -12,10 +12,10 @@ private let kDefaultHeight : CGFloat = 0
 
 open class SPStraightVerticalLayout: SPStraightLayout {
     ///Denotes no.of columns in vertical layout
-    open lazy var noOfColumns : UInt = kDefaultColumns
+    open var noOfColumns : UInt = kDefaultColumns
     
     ///Denotes height of an item
-    open lazy var itemHeight : CGFloat = kDefaultHeight
+    open var itemHeight : CGFloat = kDefaultHeight
     
     ///For this layout width of an item for entire section would be same. So section wise width is stored in this dictionary.
     var itemWidthDictionary : [Int : CGFloat] = [:]

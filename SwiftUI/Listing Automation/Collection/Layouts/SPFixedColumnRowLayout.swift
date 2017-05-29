@@ -12,10 +12,10 @@ private let kDefaultRowsAndColumns : UInt = 3
 /// This class must not be used as Layout. Use SPFixedColumnRowVerticalLayout or SPFixedColumnRowHorizontalLayout instead.
 open class SPFixedColumnRowLayout: SPCollectionViewLayout {
    ///Denotes no.of rows in vertical layout
-   open lazy var noOfRows : UInt = kDefaultRowsAndColumns
+   open var noOfRows : UInt = kDefaultRowsAndColumns
    
    ///Denotes no.of columns in vertical layout
-   open lazy var noOfColumns : UInt = kDefaultRowsAndColumns
+   open var noOfColumns : UInt = kDefaultRowsAndColumns
    
    ///For this layout width and height of an item for entire section would be same. So section wise height and width is stored in this dictionary.
    var itemWidthHeightDictionary : [Int : (width : CGFloat, height: CGFloat)] = [:]
