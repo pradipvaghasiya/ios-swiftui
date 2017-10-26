@@ -51,7 +51,7 @@ extension SPTableView : SPEditableListingViewType{
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(SPTableView.userPannedInTableView(_:)))
     }
     
-    func userPannedInTableView(_ gesture : UIPanGestureRecognizer ){
+    @objc func userPannedInTableView(_ gesture : UIPanGestureRecognizer ){
         userPanned(gesture)
     }
     

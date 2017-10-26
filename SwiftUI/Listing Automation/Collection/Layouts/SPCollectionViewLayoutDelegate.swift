@@ -9,7 +9,7 @@
 import UIKit
 
 ///Collection View layout delegate for more control over layout
-@objc public protocol SPCollectionViewLayoutDelegate : UICollectionViewDelegate, UIScrollViewDelegate{
+@objc public protocol SPCollectionViewLayoutDelegate : UICollectionViewDelegate{
    
    ///Gets Line spacing required for that section.
    @objc optional func lineSpacing(ForSection section : Int) -> CGFloat

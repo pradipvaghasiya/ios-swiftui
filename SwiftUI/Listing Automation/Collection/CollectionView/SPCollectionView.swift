@@ -58,7 +58,7 @@ extension SPCollectionView : SPEditableListingViewType{
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(SPCollectionView.userPannedInCollectionView(_:)))
     }
     
-    func userPannedInCollectionView(_ gesture : UIPanGestureRecognizer ){
+    @objc func userPannedInCollectionView(_ gesture : UIPanGestureRecognizer ){
         userPanned(gesture)
     }
     

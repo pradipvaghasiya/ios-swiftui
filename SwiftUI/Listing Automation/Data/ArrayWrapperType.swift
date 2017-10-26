@@ -6,5 +6,5 @@
 //  Copyright © 2015 speedui. All rights reserved.
 //
 
-public protocol ArrayWrapperType : Collection,RangeReplaceableCollection,ExpressibleByArrayLiteral{
+public protocol ArrayWrapperType : RangeReplaceableCollection,ExpressibleByArrayLiteral{
 }
