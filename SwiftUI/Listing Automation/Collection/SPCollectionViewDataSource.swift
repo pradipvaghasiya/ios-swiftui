@@ -13,7 +13,7 @@ import UIKit
 ///Delegate must conform to SPListingViewProtocol
 open class SPCollectionViewDataSource : NSObject, UICollectionViewDataSource, SPListingDataSourceType{
     
-    unowned open let controller : SPListingControllerType
+    unowned public let controller : SPListingControllerType
     
     public init(_ controller : SPListingControllerType){
         self.controller = controller

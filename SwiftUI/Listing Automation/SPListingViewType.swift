@@ -9,5 +9,5 @@
 import UIKit
 
 public protocol SPListingViewType : class, UIGestureRecognizerDelegate{
-    weak var controller : SPListingControllerType? {get set}
+    var controller : SPListingControllerType? {get set} // weak
 }

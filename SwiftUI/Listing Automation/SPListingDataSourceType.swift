@@ -8,5 +8,5 @@
 
 import Foundation
 public protocol SPListingDataSourceType{
-    unowned var controller : SPListingControllerType {get}
+    var controller : SPListingControllerType {get}  //unowned
 }

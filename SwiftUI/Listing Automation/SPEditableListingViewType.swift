@@ -18,12 +18,12 @@ public protocol SPEditableListingViewEditingDelegate : class{
 protocol SPEditableListingViewType : SPListingViewType{
     //editing Cell
     var enableEditing : Bool { get set }
-    weak var editingCell : UIView?  {get set}
+    var editingCell : UIView?  {get set} //weak
     var editingTouchStartPointInCell : CGPoint?  {get set}
     var touchStartPoint : CGPoint?  {get set}
-    weak var editView : UIView?  {get set}
+    var editView : UIView?  {get set}  //weak
     var panGesture : UIPanGestureRecognizer?  {get set}
-    weak var editingDelegate : SPEditableListingViewEditingDelegate?  {get set}
+    var editingDelegate : SPEditableListingViewEditingDelegate?  {get set}  //weak
     var editViewWidth : CGFloat  {get set}
     
     func configurePanGesture()
