@@ -18,7 +18,7 @@ open class SPCollectionViewLayout: UICollectionViewLayout {
     public final var interItemSpacing: CGFloat = kDefaultSpacing
     
     /// Denotes inset of that section
-    public final var sectionInset: UIEdgeInsets = UIEdgeInsetsMake(kDefaultSpacing, kDefaultSpacing, kDefaultSpacing, kDefaultSpacing)
+    public final var sectionInset: UIEdgeInsets = UIEdgeInsets.init(top: kDefaultSpacing, left: kDefaultSpacing, bottom: kDefaultSpacing, right: kDefaultSpacing)
     
     /// Denotes Attributes at given indexPath
     final var attributesDictionary : [IndexPath:UICollectionViewLayoutAttributes] = [:]
@@ -44,9 +44,9 @@ open class SPCollectionViewLayout: UICollectionViewLayout {
         
         // Set decelerationRate as fast in case of pagination.
         if pagingEnabled{
-            collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
+            collectionView?.decelerationRate = UIScrollView.DecelerationRate.fast
         }else{
-            collectionView?.decelerationRate = UIScrollViewDecelerationRateNormal
+            collectionView?.decelerationRate = UIScrollView.DecelerationRate.normal
         }
         
         // Clear all attribute and content size values

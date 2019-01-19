@@ -36,7 +36,7 @@ open class SPTableView: UITableView{
         }
     }
 
-    override public init(frame: CGRect, style: UITableViewStyle = .plain) {
+    override public init(frame: CGRect, style: UITableView.Style = .plain) {
         super.init(frame: frame, style: style)
     }
     
