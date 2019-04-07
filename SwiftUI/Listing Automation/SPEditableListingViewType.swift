@@ -115,6 +115,8 @@ extension SPEditableListingViewType where Self : UIScrollView{
             break
         case .possible:
             break
+        @unknown default:
+            break
         }
     }
     
