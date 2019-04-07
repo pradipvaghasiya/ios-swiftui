@@ -18,7 +18,7 @@ public protocol SPSingleSectionListingControllerType : SPListingControllerType{
 }
 
 public extension SPSingleSectionListingControllerType{
-    public func listingData(_ listingView : UIView)->ListingData{
+    func listingData(_ listingView : UIView)->ListingData{
         return listingData
     }
 }
