@@ -35,13 +35,26 @@ open class SPTableView: UITableView{
             enableEditing(enableEditing)
         }
     }
+    
+    init() {
+        super.init(frame: CGRect.zero, style: .plain)
+        setup()
+    }
 
     override public init(frame: CGRect, style: UITableView.Style = .plain) {
         super.init(frame: frame, style: style)
+        setup()
     }
     
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
+        setup()
+    }
+    
+    private func setup() {
+        if #available(iOS 13.0, *) {
+            backgroundColor = UIColor.systemBackground
+        }
     }
     
 }
