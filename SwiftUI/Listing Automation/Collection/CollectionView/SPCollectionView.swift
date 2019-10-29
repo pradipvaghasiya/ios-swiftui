@@ -42,22 +42,14 @@ open class SPCollectionView: UICollectionView {
     
     public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        setup()
     }
     
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout){
         super.init(frame: frame, collectionViewLayout: layout)
-        setup()
     }
     
     open override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    private func setup() {
-        if #available(iOS 13.0, *) {
-            backgroundColor = UIColor.systemBackground
-        }
     }
 }
 
